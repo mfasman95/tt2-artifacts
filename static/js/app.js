@@ -136,7 +136,7 @@ function generateUpgrades() {
     temp_artifacts = $.extend(true, {}, artifacts);
     litmus = false;
     $.each(artifacts, function(k,v) {
-      if(k.level > 0) { litmus = true; }
+      if(v.level > 0) { litmus = true; }
     });
     if(false == litmus) {
       $('#suggestions').empty().append('<li>You must have at least 1 artifact enabled to use this.</li>');
