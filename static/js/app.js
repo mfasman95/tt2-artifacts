@@ -253,7 +253,7 @@ function displayTruncated(value) {
         value = (value / 1000).toFixed(3).replace(/\.?0+$/, '');
         value += 'K';
     } else {
-        value = value.toFixed(3).replace(/\.?0+$/, '');
+        value = (value * 1).toFixed(3).replace(/\.?0+$/, '');
     }
     return(value);
 }
