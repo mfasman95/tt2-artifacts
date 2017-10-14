@@ -1,0 +1,28 @@
+{
+  "name": "tt2-artifacts",
+  "version": "1.0.0",
+  "description": "TT2 Artifact Optimizer",
+  "main": "index.js",
+  "enginges": {
+	"node": "6.11.4"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+	"cors": "^2.8.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsukinoooo/tt2-artifacts.git"
+  },
+  "author": "Tsukinoooo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsukinoooo/tt2-artifacts/issues"
+  },
+  "homepage": "https://github.com/tsukinoooo/tt2-artifacts#readme"
+}
