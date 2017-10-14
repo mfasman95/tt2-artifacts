@@ -2,7 +2,7 @@ function generateTable() {
     $('tbody').empty();
     $.each(artifacts, function(k,v) {
         row = '<tr>' +
-            '<td><input id="' + k + '" value="' + v.level + '" onchange="updateTable()" /></td>' +
+            '<td><input id="' + k + '" value="' + v.level + '" type="tel" onchange="updateTable()" /></td>' +
             '<td>' + v.name + '</td>' +
             '<td>';
         if('' != v.current_effect) {
@@ -245,13 +245,13 @@ function displayTruncated(value) {
 function displayEffect(value, type) {
     switch(type) {
         case 'multiply':
-            return 'x' + (value + 1).toFixed(2);
+            return 'x' + displayTruncated((value + 1).toFixed(2));
 
         case 'multiply_none':
             if(value > 0) {
-                return 'x' + value;
+                return 'x' + displayTruncated(value);
             } else {
-                return value;
+                return displayTruncated(value);
             }
 
         case 'multiply_pct':
