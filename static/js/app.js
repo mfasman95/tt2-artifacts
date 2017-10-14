@@ -32,6 +32,9 @@ function updateTable() {
 }
 
 function adjustWeights() {
+    ga('send', 'event', 'Skill Tree', 'Setting', $('#tree').val());
+    ga('send', 'event', 'Hero Type', 'Setting', $('#hero').val());
+    ga('send', 'event', 'Spell', 'Setting', $('#spell').val());
     $.each(origWeights, function(k,v) {
         artifacts[k].rating = v.rating;
     });
@@ -127,6 +130,7 @@ function adjustWeights() {
 
 function generateUpgrades() {
     relics = parseInt($('#relics').val());
+    ga('send', 'event', 'Upgrades', 'Generate', 'List', relics);
     upgrades = {};
     upgrade_cost = 0;
     temp_artifacts = $.extend(true, {}, artifacts);
@@ -180,6 +184,7 @@ function determineWinner(data) {
 }
 
 function acceptSuggestions() {
+    ga('send', 'event', 'Upgrades', 'Accept', 'List');
     $.each(upgrades, function(k,v) {
         artifacts[k].level += v;
     });
