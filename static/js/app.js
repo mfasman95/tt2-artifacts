@@ -134,6 +134,14 @@ function generateUpgrades() {
     upgrades = {};
     upgrade_cost = 0;
     temp_artifacts = $.extend(true, {}, artifacts);
+    litmus = false;
+    $.each(artifacts, function(k,v) {
+      if(k.level > 0) { litmus = true; }
+    });
+    if(false == litmus) {
+      $('#suggestions').empty().append('<li>You must have at least 1 artifact enabled to use this.</li>');
+      return
+    }
     do {
         winner = determineWinner(temp_artifacts);
         if(winner === false) {
@@ -153,6 +161,14 @@ function generateUpgrades() {
             }
         }
     } while(upgrade_cost <= relics);
+    litmus = false;
+    $.each(upgrades, function(k,v) {
+      litmus = true;
+    });
+    if(false == litmus) {
+      $('#suggestions').empty().append('<li>You cannot afford to make the next best upgrade. Please try again when you have more relics.</li>');
+      return
+    }
     suggestions = '';
     $.each(upgrades, function(k,v) {
         suggestions += '<li>' +
