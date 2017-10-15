@@ -3,20 +3,41 @@ function generateTable() {
     $.each(artifacts, function(k,v) {
         row = '<tr>' +
             '<td><input id="' + k + '" value="' + v.level + '" type="tel" onchange="updateTable()" /></td>' +
-            '<td>' + v.name + '</td>' +
-            '<td>';
+            '<td id="' + k + 'name">' + v.name + '</td>' +
+            '<td id="' + k + 'effect">';
         if('' != v.current_effect) {
             row += displayEffect(v.current_effect, v.type) + v.bonus;
         }
         row += '</td>' +
-            '<td class="accounting">';
+            '<td id="' + k + 'ad" class="accounting">';
         if('' != v.current_ad) {
             row += displayPct(v.current_ad);
         }
         row += '</td>' +
-            '<td class="accounting">' + v.displayCost + '</td>' +
+            '<td id="' + k + 'cost" class="accounting">' + v.displayCost + '</td>' +
             '</tr>'
         $('tbody').append(row);
+    });
+    window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
+    window.localStorage.setItem('tree', $('#tree').val())
+    window.localStorage.setItem('hero', $('#hero').val())
+    window.localStorage.setItem('spell', $('#spell').val())
+}
+
+function regenerateTable() {
+    $.each(artifacts, function(k,v) {
+        value = '';
+        if('' != v.current_effect) {
+            value = displayEffect(v.current_effect, v.type) + v.bonus;
+        }
+        $('#' + k + 'effect').empty().append(value);
+        value = '';
+        if('' != v.current_ad) {
+            value = displayPct(v.current_ad);
+        }
+        $('#' + k + 'ad').empty().append(value);
+        $('#' + k + 'cost').empty().append(v.displayCost);
+
     });
     window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
     window.localStorage.setItem('tree', $('#tree').val())
@@ -243,7 +264,7 @@ function calculate(data, regenerate) {
                 cost = Math.pow(v.level + 1, v.expo) * v.coef;
                 data[k].cost= cost;
                 data[k].displayCost = displayTruncated(cost);
-                data[k].efficiency = Math.log(Math.abs(((v.effect + v.ad) * v.rating) / cost)).toFixed(5);
+                data[k].efficiency = Math.abs(Math.log(Math.abs(((v.effect + v.ad) * v.rating) / cost)));
             }
         } else {
             data[k].current_ad = '';
@@ -251,7 +272,7 @@ function calculate(data, regenerate) {
         }
     });
     if(true === regenerate) {
-        generateTable();
+        regenerateTable();
     }
 }
 
@@ -342,4 +363,5 @@ if (storageAvailable('localStorage')) {
 }
 
 origWeights = jQuery.extend(true, {}, artifacts);
+generateTable();
 adjustWeights();
