@@ -538,6 +538,12 @@ if (storageAvailable('localStorage')) {
     $('#tree').val(window.localStorage.getItem('tree'));
     $('#hero').val(window.localStorage.getItem('hero'));
     $('#spell').val(window.localStorage.getItem('spell'));
+    $('#sword').val(window.localStorage.getItem('sword'));
+    $('#helmet').val(window.localStorage.getItem('helmet'));
+    $('#chest').val(window.localStorage.getItem('chest'));
+    $('#aura').val(window.localStorage.getItem('aura'));
+    $('#slash').val(window.localStorage.getItem('slash'));
+    $('#pet').val(window.localStorage.getItem('pet'));
 }
 
 origWeights = jQuery.extend(true, {}, artifacts);
