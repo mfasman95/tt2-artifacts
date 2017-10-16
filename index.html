@@ -46,6 +46,67 @@
             <option value="none">Equally All</option>
         </select>
     </label>
+    <label>Which sword equipment bonus do you use?
+        <select id="sword" onchange="adjustWeights();">
+            <option value="-1">- Select One -</option>
+            <option value="all">All Damage</option>
+            <option value="hero">Hero Damange</option>
+            <option value="crit">Critical Strike Damage</option>
+            <option value="none">Equally All</option>
+        </select>
+    </label>
+    <label>Which helmet equipment bonus do you use?
+        <select id="helmet" onchange="adjustWeights();">
+            <option value="-1">- Select One -</option>
+            <option value="melee">Melee Hero Damage</option>
+            <option value="ranged">Ranged Hero Damange</option>
+            <option value="spell">Spell Hero Damage</option>
+            <option value="tap">Sword Master Damage</option>
+            <option value="none">Equally All</option>
+        </select>
+    </label>
+    <label>Which chest equipment bonus do you use?
+        <select id="chest" onchange="adjustWeights();">
+            <option value="-1">- Select One -</option>
+            <option value="all">All Gold</option>
+            <option value="boss">Boss Gold</option>
+            <option value="chest">Chesterson Gold</option>
+            <option value="none">Equally All</option>
+        </select>
+    </label>
+    <label>Which aura equipment bonus do you use?
+        <select id="aura" onchange="adjustWeights();">
+            <option value="-1">- Select One -</option>
+            <option value="multi">Multiple Spawn Chance</option>
+            <option value="chest">Chesterson Chance</option>
+            <option value="crit">Crit Chance</option>
+            <option value="none">Equally All</option>
+        </select>
+    </label>
+    <label>Which slash equipment bonus do you use?
+        <select id="slash" onchange="adjustWeights();">
+            <option value="-1">- Select One -</option>
+            <option value="pet">Pet Damage</option>
+            <option value="clan">Clan Ship Damage</option>
+            <option value="sc">Shadow Clone Damage</option>
+            <option value="none">Equally All</option>
+        </select>
+    </label>
+    <label>Which pet bonus do you use?
+        <select id="pet" onchange="adjustWeights();">
+            <option value="-1">- Select One -</option>
+            <option value="all">All Damage</option>
+            <option value="hero">All Hero Damage</option>
+            <option value="melee">Melee Hero Damage</option>
+            <option value="ranged">Ranged Hero Damage</option>
+            <option value="spell">Spell Hero Damage</option>
+            <option value="tap">Tap Damage</option>
+            <option value="gold">All Gold</option>
+            <option value="mana">Mana Regen</option>
+            <option value="splash">Splash Damage</option>
+            <option value="none">Equally All</option>
+        </select>
+    </label>
     <h3>Your Artifact Status</h3>
     <p>Fill out the current level of your artifacts. If you want to ignore an artifact or if you don't have it yet, set it to 0</p>
     <table>

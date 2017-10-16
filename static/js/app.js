@@ -22,6 +22,12 @@ function generateTable() {
     window.localStorage.setItem('tree', $('#tree').val())
     window.localStorage.setItem('hero', $('#hero').val())
     window.localStorage.setItem('spell', $('#spell').val())
+    window.localStorage.setItem('sword', $('#sword').val())
+    window.localStorage.setItem('helmet', $('#helmet').val())
+    window.localStorage.setItem('chest', $('#chest').val())
+    window.localStorage.setItem('aura', $('#aura').val())
+    window.localStorage.setItem('slash', $('#slash').val())
+    window.localStorage.setItem('pet', $('#pet').val())
 }
 
 function regenerateTable() {
@@ -43,6 +49,12 @@ function regenerateTable() {
     window.localStorage.setItem('tree', $('#tree').val())
     window.localStorage.setItem('hero', $('#hero').val())
     window.localStorage.setItem('spell', $('#spell').val())
+    window.localStorage.setItem('sword', $('#sword').val())
+    window.localStorage.setItem('helmet', $('#helmet').val())
+    window.localStorage.setItem('chest', $('#chest').val())
+    window.localStorage.setItem('aura', $('#aura').val())
+    window.localStorage.setItem('slash', $('#slash').val())
+    window.localStorage.setItem('pet', $('#pet').val())
 }
 
 function updateTable() {
@@ -67,6 +79,36 @@ function adjustWeights() {
       'event_category': 'Spell',
       'event_action': 'Set',
       'event_label': $('#spell').val(),
+    });
+    gtag('event', 'Equipment', {
+      'event_category': 'Equipment',
+      'event_action': 'Sword',
+      'event_label': $('#sword').val(),
+    });
+    gtag('event', 'Equipment', {
+      'event_category': 'Equipment',
+      'event_action': 'Helmet',
+      'event_label': $('#helmet').val(),
+    });
+    gtag('event', 'Equipment', {
+      'event_category': 'Equipment',
+      'event_action': 'Chest',
+      'event_label': $('#chest').val(),
+    });
+    gtag('event', 'Equipment', {
+      'event_category': 'Equipment',
+      'event_action': 'Aura',
+      'event_label': $('#aura').val(),
+    });
+    gtag('event', 'Equipment', {
+      'event_category': 'Equipment',
+      'event_action': 'Slash',
+      'event_label': $('#slash').val(),
+    });
+    gtag('event', 'Equipment', {
+      'event_category': 'Equipment',
+      'event_action': 'Pet',
+      'event_label': $('#pet').val(),
     });
     $.each(origWeights, function(k,v) {
         artifacts[k].rating = v.rating;
@@ -153,6 +195,142 @@ function adjustWeights() {
             artifacts.tac.rating += 15;
             break;
         case 'sc':
+            artifacts.eoe.rating += 15;
+            artifacts.sg.rating += 15;
+            artifacts.ho.rating += 15;
+            break;
+    }
+    switch($('#sword').val()) {
+        case 'all':
+            artifacts.dr.rating += 20;
+            artifacts.hs.rating += 20;
+            break;
+        case 'hero':
+            artifacts.hb.rating += 20;
+            artifacts.tsos.rating += 10;
+            artifacts.fb.rating += 10;
+            artifacts.cota.rating += 10;
+            break;
+        case 'crit':
+            artifacts.am.rating += 20;
+            artifacts.rt.rating += 10;
+            artifacts.fs.rating += 10;
+            artifacts.gok.rating += 10;
+            break;
+    }
+    switch($('#helmet').val()) {
+        case 'melee':
+            artifacts.tsos.rating += 20;
+            artifacts.hb.rating += 10;
+            break;
+        case 'ranged':
+            artifacts.fb.rating += 20;
+            artifacts.hb.rating += 10;
+            break;
+        case 'spell':
+            artifacts.cota.rating += 20;
+            artifacts.hb.rating += 10;
+            break;
+        case 'tap':
+            artifacts.dh.rating += 20;
+            break;
+    }
+    switch($('#chest').val()) {
+        case 'all':
+            artifacts.bop.rating += 20;
+            artifacts.sov.rating += 10;
+            artifacts.coc.rating += 10;
+            artifacts.hs.rating += 10;
+            artifacts.eof.rating += 10;
+            artifacts.dc.rating += 10;
+            break;
+        case 'boss':
+            artifacts.hs.rating += 20;
+            break;
+        case 'chest':
+            artifacts.coc.rating += 20;
+            artifacts.eof.rating += 20;
+            break;
+    }
+    switch($('#aura').val()) {
+        case 'multi':
+            break;
+        case 'chest':
+            artifacts.coc.rating += 20;
+            artifacts.eof.rating += 20;
+            break;
+        case 'crit':
+            artifacts.am.rating += 20;
+            artifacts.rt.rating += 10;
+            artifacts.fs.rating += 10;
+            artifacts.gok.rating += 10;
+            break;
+    }
+    switch($('#slash').val()) {
+        case 'pet':
+            artifacts.foe.rating += 20;
+            artifacts.dh.rating += 10;
+            break;
+        case 'clan':
+            artifacts.ie.rating += 20;
+            artifacts.dh.rating += 10;
+            break;
+        case 'sc':
+            artifacts.eoe.rating += 20;
+            artifacts.sg.rating += 10;
+            artifacts.ho.rating += 10;
+            artifacts.dh.rating += 10;
+            break;
+    }
+    switch($('#pet').val()) {
+        case 'all':
+            artifacts.dr.rating += 20;
+            artifacts.hs.rating += 20;
+            break;
+        case 'hero':
+            artifacts.hb.rating += 20;
+            artifacts.tsos.rating += 10;
+            artifacts.fb.rating += 10;
+            artifacts.cota.rating += 10;
+            break;
+        case 'melee':
+            artifacts.tsos.rating += 20;
+            artifacts.hb.rating += 10;
+            break;
+        case 'ranged':
+            artifacts.fb.rating += 20;
+            artifacts.hb.rating += 10;
+            break;
+        case 'spell':
+            artifacts.cota.rating += 20;
+            artifacts.hb.rating += 10;
+            break;
+        case 'tap':
+            artifacts.dh.rating += 20;
+            break;
+        case 'gold':
+            artifacts.bop.rating += 20;
+            artifacts.sov.rating += 10;
+            artifacts.coc.rating += 10;
+            artifacts.hs.rating += 10;
+            artifacts.eof.rating += 10;
+            artifacts.dc.rating += 10;
+            break;
+        case 'mana':
+            artifacts.tm.rating += 15;
+            artifacts.ip.rating += 15;
+            artifacts.rt.rating += 15;
+            artifacts.fs.rating += 15;
+            artifacts.gok.rating += 15;
+            artifacts.lp.rating += 15;
+            artifacts.rof.rating += 15;
+            artifacts.ts.rating += 15;
+            artifacts.bor.rating += 15;
+            artifacts.ga.rating += 15;
+            artifacts.os.rating += 15;
+            artifacts.pof.rating += 15;
+            artifacts.a.rating += 15;
+            artifacts.tac.rating += 15;
             artifacts.eoe.rating += 15;
             artifacts.sg.rating += 15;
             artifacts.ho.rating += 15;
