@@ -32,7 +32,8 @@ function generateTable() {
 
 function regenerateTable() {
     $.each(artifacts, function(k,v) {
-        value = '';
+        $('#' + k).val(v.level);
+	value = '';
         if('' != v.current_effect) {
             value = displayEffect(v.current_effect, v.type) + v.bonus;
         }
