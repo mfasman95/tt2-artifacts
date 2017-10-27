@@ -483,7 +483,7 @@ function calculate(data, regenerate) {
         data[k].displayCost = '';
         if(v.level > 0) {
             data[k].current_ad = v.level * v.ad;
-            data[k].current_effect = Math.pow(1 + v.level * v.effect, Math.pow(1 + (v.gexpo -1) * Math.min(v.grate * v.level, vgmax), v.gexpo));
+            data[k].current_effect = Math.pow(1 + v.level * v.effect, Math.pow(1 + (v.gexpo -1) * Math.min(v.grate * v.level, v.gmax), v.gexpo));
             if(data[k].max === -1 || data[k].max > v.level) {
                 cost = Math.pow(v.level + 1, v.cexpo) * v.ccoef;
                 data[k].cost= cost;
