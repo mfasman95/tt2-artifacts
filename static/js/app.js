@@ -154,7 +154,7 @@ function adjustWeights() {
             artifacts.ss.rating += 15;
             artifacts.hos.rating += 5;
             artifacts.pt.rating += 15;
-            artifacts.gfm.rating += 15;
+            artifacts.gfa.rating += 15;
             artifacts.ae.rating += 15;
             break;
         case 'rogue':
@@ -273,7 +273,7 @@ function adjustWeights() {
             artifacts.hs.rating += 10;
             artifacts.eof.rating += 10;
             artifacts.dc.rating += 10;
-            artifacts.gfm.rating += 10;
+            artifacts.gfa.rating += 10;
             artifacts.zc.rating += 10;
             break;
         case 'boss':
@@ -356,7 +356,7 @@ function adjustWeights() {
             artifacts.eof.rating += 10;
             artifacts.dc.rating += 10;
             artifacts.coe.rating += 10;
-            artifacts.gfm.rating += 10;
+            artifacts.gfa.rating += 10;
             artifacts.zc.rating += 10;
             break;
         case 'mana':
