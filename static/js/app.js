@@ -28,6 +28,7 @@ function generateTable() {
     window.localStorage.setItem('aura', $('#aura').val())
     window.localStorage.setItem('slash', $('#slash').val())
     window.localStorage.setItem('pet', $('#pet').val())
+    window.localStorage.setItem('relic_factor', $('#relic_factor').val())
 }
 
 function regenerateTable() {
@@ -386,7 +387,23 @@ function adjustWeights() {
 }
 
 function generateUpgrades() {
-    relics = parseInt($('#relics').val());
+    relics = parseFloat($('#relics').val());
+    switch($('#relic_factor').val()) {
+       case '_':
+         break;
+		    
+       case 'K':
+         relics *= 1000;
+         break;
+		    
+       case 'M':
+         relics *= 1000000;
+         break;
+		    
+       case 'B':
+         relics *= 1000000000;
+         break;
+    }
     gtag('event', 'Upgrades', {
       'event_category': 'Upgrades',
       'event_action': 'Generate',
@@ -590,6 +607,7 @@ if (storageAvailable('localStorage')) {
     $('#aura').val(window.localStorage.getItem('aura'));
     $('#slash').val(window.localStorage.getItem('slash'));
     $('#pet').val(window.localStorage.getItem('pet'));
+    $('#relic_factor').val(window.localStorage.getItem('relic_factor'));
 }
 
 origWeights = jQuery.extend(true, {}, artifacts);
