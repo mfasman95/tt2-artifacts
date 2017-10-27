@@ -123,6 +123,8 @@ function adjustWeights() {
             artifacts.bor.rating += 10;
             artifacts.ga.rating += 10;
             artifacts.os.rating += 10;
+            artifacts.ss.rating += 15;
+            artifacts.tms.rating += 10;
             break;
         case 'warlord':
             artifacts.hb.rating += 20;
@@ -132,6 +134,9 @@ function adjustWeights() {
             artifacts.tac.rating += 10;
             artifacts.ie.rating += 15;
             artifacts.sor.rating += 10;
+            artifacts.ig.rating += 10;
+            artifacts.coe.rating += 10;
+            artifacts.hos.rating += 10;
             break;
         case 'sorcerer':
             artifacts.dh.rating += 5;
@@ -144,6 +149,13 @@ function adjustWeights() {
             artifacts.ip.rating += 15;
             artifacts.ts.rating += 15;
             artifacts.ho.rating += 15;
+            artifacts.ig.rating += 5;
+            artifacts.coe.rating += 5;
+            artifacts.ss.rating += 15;
+            artifacts.hos.rating += 5;
+            artifacts.pt.rating += 15;
+            artifacts.gfm.rating += 15;
+            artifacts.ae.rating += 15;
             break;
         case 'rogue':
             artifacts.bop.rating += 10;
@@ -157,6 +169,9 @@ function adjustWeights() {
             artifacts.foe.rating += 5;
             artifacts.ie.rating += 5;
             artifacts.eoe.rating += 5;
+            artifacts.ig.rating += 5;
+            artifacts.zc.rating += 15;
+            artifacts.af.rating += 20;
             break;
     }
     switch($('#hero').val()) {
@@ -174,37 +189,48 @@ function adjustWeights() {
         case 'hs':
             artifacts.tm.rating += 15;
             artifacts.ip.rating += 15;
+            artifacts.coe.rating += 15;
+            artifacts.ss.rating += 15;
+            artifacts.hos.rating += 10;
+            artifacts.pt.rating += 15;
             break;
         case 'ds':
             artifacts.rt.rating += 15;
             artifacts.fs.rating += 15;
             artifacts.gok.rating += 15;
+            artifacts.pt.rating += 15;
             break;
         case 'hom':
             artifacts.lp.rating += 15;
             artifacts.rof.rating += 15;
             artifacts.ts.rating += 15;
+            artifacts.pt.rating += 15;
             break;
         case 'fs':
             artifacts.bor.rating += 15;
             artifacts.ga.rating += 15;
             artifacts.os.rating += 15;
+            artifacts.pt.rating += 15;
             break;
         case 'wc':
             artifacts.pof.rating += 15;
             artifacts.a.rating += 15;
             artifacts.tac.rating += 15;
+            artifacts.pt.rating += 15;
             break;
         case 'sc':
             artifacts.eoe.rating += 15;
             artifacts.sg.rating += 15;
             artifacts.ho.rating += 15;
+            artifacts.ss.rating += 15;
+            artifacts.pt.rating += 15;
             break;
     }
     switch($('#sword').val()) {
         case 'all':
             artifacts.dr.rating += 20;
             artifacts.hs.rating += 20;
+            artifacts.af.rating += 10;
             break;
         case 'hero':
             artifacts.hb.rating += 20;
@@ -217,6 +243,7 @@ function adjustWeights() {
             artifacts.rt.rating += 10;
             artifacts.fs.rating += 10;
             artifacts.gok.rating += 10;
+            artifacts.ss.rating += 10;
             break;
     }
     switch($('#helmet').val()) {
@@ -234,6 +261,8 @@ function adjustWeights() {
             break;
         case 'tap':
             artifacts.dh.rating += 20;
+            artifacts.ss.rating += 20;
+            artifacts.tms.rating += 10;
             break;
     }
     switch($('#chest').val()) {
@@ -244,6 +273,8 @@ function adjustWeights() {
             artifacts.hs.rating += 10;
             artifacts.eof.rating += 10;
             artifacts.dc.rating += 10;
+            artifacts.gfm.rating += 10;
+            artifacts.zc.rating += 10;
             break;
         case 'boss':
             artifacts.hs.rating += 20;
@@ -265,6 +296,7 @@ function adjustWeights() {
             artifacts.rt.rating += 10;
             artifacts.fs.rating += 10;
             artifacts.gok.rating += 10;
+            artifacts.ss.rating += 10;
             break;
     }
     switch($('#slash').val()) {
@@ -275,18 +307,23 @@ function adjustWeights() {
         case 'clan':
             artifacts.ie.rating += 20;
             artifacts.dh.rating += 10;
+            artifacts.ig.rating += 15;
+            artifacts.hos.rating += 15;
             break;
         case 'sc':
             artifacts.eoe.rating += 20;
             artifacts.sg.rating += 10;
             artifacts.ho.rating += 10;
             artifacts.dh.rating += 10;
+            artifacts.ig.rating += 15;
+            artifacts.ss.rating += 15;
             break;
     }
     switch($('#pet').val()) {
         case 'all':
             artifacts.dr.rating += 20;
             artifacts.hs.rating += 20;
+            artifacts.af.rating += 10;
             break;
         case 'hero':
             artifacts.hb.rating += 20;
@@ -308,6 +345,8 @@ function adjustWeights() {
             break;
         case 'tap':
             artifacts.dh.rating += 20;
+            artifacts.ss.rating += 20;
+            artifacts.tms.rating += 10;
             break;
         case 'gold':
             artifacts.bop.rating += 20;
@@ -316,6 +355,9 @@ function adjustWeights() {
             artifacts.hs.rating += 10;
             artifacts.eof.rating += 10;
             artifacts.dc.rating += 10;
+            artifacts.coe.rating += 10;
+            artifacts.gfm.rating += 10;
+            artifacts.zc.rating += 10;
             break;
         case 'mana':
             artifacts.tm.rating += 15;
@@ -335,6 +377,9 @@ function adjustWeights() {
             artifacts.eoe.rating += 15;
             artifacts.sg.rating += 15;
             artifacts.ho.rating += 15;
+            artifacts.ig.rating += 15;
+            artifacts.pt.rating += 15;
+            artifacts.ae.rating += 15;
             break;
     }
     calculate(artifacts, true);
@@ -438,9 +483,9 @@ function calculate(data, regenerate) {
         data[k].displayCost = '';
         if(v.level > 0) {
             data[k].current_ad = v.level * v.ad;
-            data[k].current_effect = v.level * v.effect;
+            data[k].current_effect = Math.pow(1 + v.level * v.effect, Math.pow(1 + (v.gexpo -1) * Math.min(v.grate * v.level, vgmax), v.gexpo));
             if(data[k].max === -1 || data[k].max > v.level) {
-                cost = Math.pow(v.level + 1, v.expo) * v.coef;
+                cost = Math.pow(v.level + 1, v.cexpo) * v.ccoef;
                 data[k].cost= cost;
                 data[k].displayCost = displayTruncated(cost);
                 data[k].efficiency = Math.abs(Math.log(Math.abs(((v.effect + v.ad) * v.rating) / cost)));
