@@ -529,7 +529,7 @@ function displayTruncated(value) {
 function displayEffect(value, type) {
     switch(type) {
         case 'multiply':
-            return 'x' + displayTruncated((value + 1).toFixed(2));
+            return 'x' + displayTruncated(value);
 
         case 'multiply_none':
             if(value > 0) {
@@ -540,9 +540,9 @@ function displayEffect(value, type) {
 
         case 'multiply_pct':
             if(value > 0) {
-                return 'x' + displayPct(value + 1);
+                return 'x' + displayPct(value);
             } else {
-                return displayPct(value + 1);
+                return displayPct(value);
             }
 
         case 'pct':
