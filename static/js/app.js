@@ -57,6 +57,7 @@ function regenerateTable() {
     window.localStorage.setItem('aura', $('#aura').val())
     window.localStorage.setItem('slash', $('#slash').val())
     window.localStorage.setItem('pet', $('#pet').val())
+    window.localStorage.setItem('relic_factor', $('#relic_factor').val())
 }
 
 function updateTable() {
@@ -387,6 +388,7 @@ function adjustWeights() {
 }
 
 function generateUpgrades() {
+    window.localStorage.setItem('relic_factor', $('#relic_factor').val())
     relics = parseFloat($('#relics').val());
     switch($('#relic_factor').val()) {
        case '_':
