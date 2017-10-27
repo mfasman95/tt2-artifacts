@@ -531,12 +531,8 @@ function displayEffect(value, type) {
         case 'multiply':
             return 'x' + displayTruncated(value);
 
-        case 'multiply_none':
-            if(value > 0) {
-                return 'x' + displayTruncated(value);
-            } else {
-                return displayTruncated(value);
-            }
+        case 'add':
+            return displayTruncated(value - 1);
 
         case 'multiply_pct':
             if(value > 0) {
