@@ -532,20 +532,20 @@ function displayEffect(value, type) {
             return 'x' + displayTruncated(value);
 
         case 'add':
-            return displayTruncated(value - 1);
+            if(value > 0) {
+	        return '+' + displayTruncated(value - 1);
+	    } else {
+	        return displayTruncated(value - 1);
+	    }
 
         case 'multiply_pct':
-            if(value > 0) {
-                return 'x' + displayPct(value);
-            } else {
-                return displayPct(value);
-            }
+            return 'x' + displayPct(value);
 
         case 'pct':
             if(value > 0) {
-                return '+' + displayPct(value);
+                return '+' + displayPct(value - 1);
             } else {
-                return displayPct(value);
+                return displayPct(value -1);
             }
     }
 }
