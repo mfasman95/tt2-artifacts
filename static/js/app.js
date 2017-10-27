@@ -432,12 +432,14 @@ function generateUpgrades() {
       return
     }
     suggestions = '';
-    $.each(upgrades, function(k,v) {
-        suggestions += '<li>' +
-            artifacts[k].name + ' ' +
-            artifacts[k].level + ' => ' +
-            (v + artifacts[k].level) + ' (+' +
-            v + ')</li>';
+    $.each(artifacts, function(k,v) {
+        if(k in upgrades) {
+		suggestions += '<li>' +
+		    v.name + ' ' +
+		    v.level + ' => ' +
+		    (upgrades[k] + v.level) + ' (+' +
+		    upgrades[k] + ')</li>';
+	}
     });
     $('#suggestions').empty().append(suggestions);
     $('#accept').empty().append(
@@ -483,7 +485,7 @@ function calculate(data, regenerate) {
         data[k].displayCost = '';
         if(v.level > 0) {
             data[k].current_ad = v.level * v.ad;
-            data[k].current_effect = Math.pow(1 + v.level * v.effect, Math.pow(1 + (v.cexpo -1) * Math.min(v.grate * v.level, v.gmax), v.gexpo));
+            data[k].current_effect = 1 + v.effect * Math.pow(v.level, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * v.level, v.gmax), v.gexpo));
             if(data[k].max === -1 || data[k].max > v.level) {
                 cost = Math.pow(v.level + 1, v.cexpo) * v.ccoef;
                 data[k].cost= cost;
