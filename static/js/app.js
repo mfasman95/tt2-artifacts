@@ -513,7 +513,7 @@ function calculate(data, regenerate) {
                 data[k].displayCost = displayTruncated(cost);
 		next_effect = 1 + v.effect * Math.pow(v.level + 1, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * (v.level + 1), v.gmax), v.gexpo));
                 next_ad = (v.level + 1) * v.ad;
-		data[k].efficiency = Math.abs(Math.log(Math.abs((next_effect + next_ad) / cost)));
+		data[k].efficiency = Math.abs(Math.log(Math.abs(((next_effect - current_effect) + (next_ad - current_ad)) / cost)));
             }
         } else {
             data[k].current_ad = '';
