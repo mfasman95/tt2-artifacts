@@ -241,7 +241,7 @@ function adjustWeights() {
             artifacts.cota.rating += 10;
             break;
         case 'crit':
-            artifacts.am.rating += 20;
+            artifacts.aom.rating += 20;
             artifacts.rt.rating += 10;
             artifacts.fs.rating += 10;
             artifacts.gok.rating += 10;
@@ -294,7 +294,7 @@ function adjustWeights() {
             artifacts.eof.rating += 20;
             break;
         case 'crit':
-            artifacts.am.rating += 20;
+            artifacts.aom.rating += 20;
             artifacts.rt.rating += 10;
             artifacts.fs.rating += 10;
             artifacts.gok.rating += 10;
