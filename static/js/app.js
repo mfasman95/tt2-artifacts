@@ -503,13 +503,19 @@ function calculate(data, regenerate) {
         data[k].cost = '';
         data[k].displayCost = '';
         if(v.level > 0) {
-            data[k].current_ad = v.level * v.ad;
-            data[k].current_effect = 1 + v.effect * Math.pow(v.level, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * v.level, v.gmax), v.gexpo));
-            if(data[k].max === -1 || data[k].max > v.level) {
+	    current_ad = v.level * v.ad
+	    current_effect = 1 + v.effect * Math.pow(v.level, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * v.level, v.gmax), v.gexpo));
+            data[k].current_ad = current_ad;
+            data[k].current_effect = current_effect
+            if(data[k].max > v.level) {
                 cost = Math.pow(v.level + 1, v.cexpo) * v.ccoef;
                 data[k].cost= cost;
                 data[k].displayCost = displayTruncated(cost);
-                data[k].efficiency = Math.abs(Math.log(Math.abs(((v.effect + v.ad) * v.rating) / cost)));
+		next_effect = 1 + v.effect * Math.pow(v.level + 1, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * (v.level + 1), v.gmax), v.gexpo));
+                next_ad = (v.level + 1) * v.ad;
+		effect_eff = Math.abs(Math.log(Math.abs(next_effect / current_effect / cost)));
+		ad_eff = Math.abs(Math.log(Math.abs(next_ad / current_ad / cost)));
+		data[k].efficiency = effect_eff + ad_eff;
             }
         } else {
             data[k].current_ad = '';
