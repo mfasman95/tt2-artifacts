@@ -1,22 +1,23 @@
-function generateTable() {
-    $('tbody').empty();
+function generateArtifacts() {
+    $('#artifacts').empty();
     $.each(artifacts, function(k,v) {
-        row = '<tr>' +
-            '<td><input id="' + k + '" value="' + v.level + '" type="tel" onchange="updateTable()" /></td>' +
-            '<td id="' + k + 'name">' + v.name + '</td>' +
-            '<td id="' + k + 'effect">';
+        div = '<div class="artifact">' +
+            '<label><input id="' + k + '" value="' + v.level + '" type="tel" onchange="updateArtifacts()" />' + v.name + '</label><br />' +
+	    '<span id="' + k + 'effect">';
         if('' != v.current_effect) {
-            row += displayEffect(v.current_effect, v.type) + v.bonus;
+            div += displayEffect(v.current_effect, v.type) + v.bonus;
         }
-        row += '</td>' +
-            '<td id="' + k + 'ad" class="accounting">';
+        div += '</span> <br /><span id="' + k + 'ad">';
         if('' != v.current_ad) {
-            row += displayPct(v.current_ad);
+            div += displayPct(v.current_ad) + ' Artifact Damage';
         }
-        row += '</td>' +
-            '<td id="' + k + 'cost" class="accounting">' + v.displayCost + '</td>' +
-            '</tr>'
-        $('tbody').append(row);
+        div += '</span> <br /><span id="' + k + 'cost">';
+	if('' != v.displayCost) {
+	    div += v.displayCost + ' Relics to Upgrade';
+	}
+	div += '</span>' +
+        '</div>'
+        $('#artifacts').append(div);
     });
     window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
     window.localStorage.setItem('tree', $('#tree').val())
@@ -31,7 +32,7 @@ function generateTable() {
     window.localStorage.setItem('relic_factor', $('#relic_factor').val())
 }
 
-function regenerateTable() {
+function regenerateArtifacts() {
     $.each(artifacts, function(k,v) {
         $('#' + k).val(v.level);
 	value = '';
@@ -41,10 +42,14 @@ function regenerateTable() {
         $('#' + k + 'effect').empty().append(value);
         value = '';
         if('' != v.current_ad) {
-            value = displayPct(v.current_ad);
+            value = displayPct(v.current_ad) + ' Artifact Damage';
         }
         $('#' + k + 'ad').empty().append(value);
-        $('#' + k + 'cost').empty().append(v.displayCost);
+        value = '';
+	if('' != v.displayCost) {
+	    value = v.displayCost + ' Relics to Upgrade';
+	}
+        $('#' + k + 'cost').empty().append(value);
 
     });
     window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
@@ -60,8 +65,8 @@ function regenerateTable() {
     window.localStorage.setItem('relic_factor', $('#relic_factor').val())
 }
 
-function updateTable() {
-    $('td input').each(function(k,v) {
+function updateArtifacts() {
+    $('div input').each(function(k,v) {
         artifacts[v.id].level = parseInt(v.value);
     });
     calculate(artifacts, true);
@@ -523,7 +528,7 @@ function calculate(data, regenerate) {
         }
     });
     if(true === regenerate) {
-        regenerateTable();
+        regenerateArtifacts();
     }
 }
 
@@ -619,5 +624,5 @@ if (storageAvailable('localStorage')) {
 }
 
 origWeights = jQuery.extend(true, {}, artifacts);
-generateTable();
+generateArtifacts();
 adjustWeights();
