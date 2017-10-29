@@ -117,19 +117,7 @@
     </label>
     <h3>Your Artifact Status</h3>
     <p>Fill out the current level of your artifacts. If you want to ignore an artifact or if you don't have it yet, set it to 0</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Level</th>
-          <th>Name</th>
-          <th>Effect</th>
-          <th class="accounting">AD</th>
-          <th class="accounting">Cost</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+    <div id="artifacts"></div>
     <h3>Your Available Relics</h3>
     <p>Enter the total number of relics you're willing to spend to receive an upgrade list below.</p>
     <input id="relics" type="number" step=".01" /> <select id="relic_factor"><option value="_"> </option><option value="K">K</option><option value="M">M</option><option value="B">B</option></select> <input type="submit" value="Generate" onclick="generateUpgrades()" ;/>
