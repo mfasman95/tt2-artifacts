@@ -66,7 +66,7 @@ function regenerateArtifacts() {
 }
 
 function updateArtifacts() {
-    $('div input').each(function(k,v) {
+    $('.artifact input').each(function(k,v) {
         artifacts[v.id].level = parseInt(v.value);
     });
     calculate(artifacts, true);
