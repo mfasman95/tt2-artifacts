@@ -7,11 +7,11 @@ function generateArtifacts() {
         if('' != v.current_effect) {
             div += displayEffect(v.current_effect, v.type) + v.bonus;
         }
-        div += '</span> <br /><span id="' + k + 'ad">';
+        div += '</span><span id="' + k + 'ad">';
         if('' != v.current_ad) {
             div += displayPct(v.current_ad) + ' Artifact Damage';
         }
-        div += '</span> <br /><span id="' + k + 'cost">';
+        div += '</span><span id="' + k + 'cost">';
 	if('' != v.displayCost) {
 	    div += v.displayCost + ' Relics to Upgrade';
 	}
