@@ -1,7 +1,7 @@
 body { padding: 1rem; }
 div + h3, input + h3, label + h3, p + h3 { padding-top: 2rem; clear: both; }
-div input { width: 3rem; margin-right: 1rem; }
 label { display: block; }
 .artifact { border: solid 1px black; padding: 1rem; width: 300px; height: 100px; float: left; }
-span { font-size: 60%; display: block; }
+.artifact input { width: 3rem; margin-right: 1rem; }
 .artifact label { display: inline-block; margin: 0; }
+span { font-size: 60%; display: block; }
