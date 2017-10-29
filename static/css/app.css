@@ -1,6 +1,5 @@
 body { padding: 1rem; }
-table + h3, input + h3, label + h3, p + h3 { padding-top: 2rem; }
-table input { width: 3rem; }
-table td { border: solid 1px black; padding: .5rem; }
-.accounting { text-align: right; }
+div + h3, input + h3, label + h3, p + h3 { padding-top: 2rem; }
+div input { width: 3rem; }
 label { display: block; }
+.artifact { border: solid 1px black; padding: 1rem; width: 300px; float: left; }
