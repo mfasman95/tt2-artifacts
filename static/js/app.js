@@ -506,6 +506,7 @@ function calculate(data, regenerate) {
     totalAD = 0;
     $.each(data, function(k,v) {
 	totalAD += v.level * v.ad;
+	console.log(totalAD)
     });
     $.each(data, function(k,v) {
         data[k].efficiency = '';
