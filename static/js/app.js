@@ -503,6 +503,10 @@ function acceptSuggestions() {
 }
 
 function calculate(data, regenerate) {
+    totalAD = 0;
+    $.each(data, function(k,v) {
+	totalAD += v.level * v.ad;
+    });
     $.each(data, function(k,v) {
         data[k].efficiency = '';
         data[k].cost = '';
@@ -517,9 +521,9 @@ function calculate(data, regenerate) {
                 data[k].cost= cost;
                 data[k].displayCost = displayTruncated(cost);
 		next_effect = 1 + v.effect * Math.pow(v.level + 1, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * (v.level + 1), v.gmax), v.gexpo));
-                next_ad = (v.level + 1) * v.ad;
+                next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
 		effect_eff = Math.abs(Math.log(Math.abs(next_effect / current_effect / cost * v.rating)));
-		ad_eff = Math.abs(Math.log(Math.abs(next_ad / current_ad / cost * v.rating)));
+		ad_eff = Math.abs(Math.log(Math.abs(next_ad_jump + totalAD / totalAD / cost)));
 		data[k].efficiency = effect_eff + ad_eff;
             }
         } else {
