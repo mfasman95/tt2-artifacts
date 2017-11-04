@@ -786,7 +786,7 @@ var artifacts = {
         'rating' : 15,
         'ad' : .8,
         'effect' : -1,
-        'max' : 30,
+        'max' : 40,
 	'gmax' : 0,
 	'grate' : 0,
 	'gexpo' : 1,
