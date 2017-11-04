@@ -5,3 +5,4 @@ label { display: block; }
 .artifact input { width: 3rem; margin-right: 1rem; }
 .artifact label { display: inline-block; margin: 0; }
 span { font-size: 60%; display: block; }
+#relics { width: 10rem; }
