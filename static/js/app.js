@@ -90,6 +90,10 @@ function generateUpgrades() {
        case 'B':
          relics *= 1000000000;
          break;
+
+       case 'T':
+         relics *= 1000000000000;
+         break;
     }
     gtag('event', 'Upgrades', {
       'event_category': 'Upgrades',
