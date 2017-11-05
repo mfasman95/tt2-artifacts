@@ -227,7 +227,7 @@ function calculate(data, regenerate) {
 	    current_effect = 1 + v.effect * Math.pow(v.level, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * v.level, v.gmax), v.gexpo));
             data[k].current_ad = current_ad;
             data[k].current_effect = current_effect
-            if(data[k].max != -1 || data[k].max > v.level) {
+            if(data[k].max == -1 || data[k].max > v.level) {
                 cost = Math.pow(v.level + 1, v.cexpo) * v.ccoef;
                 data[k].cost= cost;
                 data[k].displayCost = displayTruncated(cost);
