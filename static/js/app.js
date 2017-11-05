@@ -15,13 +15,13 @@ function generateArtifacts() {
 	if('' != v.displayCost) {
 	    div += v.displayCost + ' Relics to Upgrade';
 	}
-	div += '</span>' +
+	div += '</span>';
         div += '</span><span id="' + k + 'weff">';
 	if('' != v.efficiency) {
 	    div += v.weight + ' Weight &#x2022; ' + k.efficiency + ' Efficiency';
 	}
-	div += '</span>' +
-        '</div>'
+	div += '</span>';
+        div += '</div>'
         $('#artifacts').append(div);
     });
     window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
