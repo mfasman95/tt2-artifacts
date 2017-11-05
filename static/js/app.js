@@ -20,16 +20,17 @@ function generateArtifacts() {
         $('#artifacts').append(div);
     });
     window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
-    window.localStorage.setItem('tree', $('#tree').val())
-    window.localStorage.setItem('hero', $('#hero').val())
-    window.localStorage.setItem('spell', $('#spell').val())
-    window.localStorage.setItem('sword', $('#sword').val())
-    window.localStorage.setItem('helmet', $('#helmet').val())
-    window.localStorage.setItem('chest', $('#chest').val())
-    window.localStorage.setItem('aura', $('#aura').val())
-    window.localStorage.setItem('slash', $('#slash').val())
-    window.localStorage.setItem('pet', $('#pet').val())
-    window.localStorage.setItem('relic_factor', $('#relic_factor').val())
+    window.localStorage.setItem('tree', $('#tree').val());
+    window.localStorage.setItem('hero', $('#hero').val());
+    window.localStorage.setItem('spell', $('#spell').val());
+    window.localStorage.setItem('sword', $('#sword').val());
+    window.localStorage.setItem('helmet', $('#helmet').val());
+    window.localStorage.setItem('chest', $('#chest').val());
+    window.localStorage.setItem('aura', $('#aura').val());
+    window.localStorage.setItem('slash', $('#slash').val());
+    window.localStorage.setItem('pet', $('#pet').val());
+    window.localStorage.setItem('relic_factor', $('#relic_factor').val());
+    window.localStorage.setItem('forcebos', $('#forcebos').val());
 }
 
 function regenerateArtifacts() {
@@ -53,16 +54,17 @@ function regenerateArtifacts() {
 
     });
     window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
-    window.localStorage.setItem('tree', $('#tree').val())
-    window.localStorage.setItem('hero', $('#hero').val())
-    window.localStorage.setItem('spell', $('#spell').val())
-    window.localStorage.setItem('sword', $('#sword').val())
-    window.localStorage.setItem('helmet', $('#helmet').val())
-    window.localStorage.setItem('chest', $('#chest').val())
-    window.localStorage.setItem('aura', $('#aura').val())
-    window.localStorage.setItem('slash', $('#slash').val())
-    window.localStorage.setItem('pet', $('#pet').val())
-    window.localStorage.setItem('relic_factor', $('#relic_factor').val())
+    window.localStorage.setItem('tree', $('#tree').val());
+    window.localStorage.setItem('hero', $('#hero').val());
+    window.localStorage.setItem('spell', $('#spell').val());
+    window.localStorage.setItem('sword', $('#sword').val());
+    window.localStorage.setItem('helmet', $('#helmet').val());
+    window.localStorage.setItem('chest', $('#chest').val());
+    window.localStorage.setItem('aura', $('#aura').val());
+    window.localStorage.setItem('slash', $('#slash').val());
+    window.localStorage.setItem('pet', $('#pet').val());
+    window.localStorage.setItem('relic_factor', $('#relic_factor').val());
+    window.localStorage.setItem('forcebos', $('#forcebos').val());
 }
 
 function updateArtifacts() {
@@ -74,6 +76,8 @@ function updateArtifacts() {
 
 function generateUpgrades() {
     window.localStorage.setItem('relic_factor', $('#relic_factor').val())
+    window.localStorage.setItem('forcebos', $('#forcebos').val());
+    forceBOS = parseInt($('#forcebos').val());
     relics = parseFloat($('#relics').val());
     switch($('#relic_factor').val()) {
        case '_':
@@ -102,7 +106,6 @@ function generateUpgrades() {
       'event_value' : relics
     });
     upgrades = {};
-    upgrade_cost = 0;
     temp_artifacts = $.extend(true, {}, artifacts);
     litmus = false;
     $.each(artifacts, function(k,v) {
@@ -112,7 +115,22 @@ function generateUpgrades() {
       $('#suggestions').empty().append('<li>You must have at least 1 artifact enabled to use this.</li>');
       return
     }
-    do {
+    while(forceBOS > 0) {
+        if(relics >= temp_artifacts['bos'].cost) {
+            forceBOS--;
+	    if(undefined == upgrades['bos']) {
+                upgrades['bos'] = 1;
+	    } else {
+	        upgrades['bos']++;
+	    }
+            relics -= temp_artifacts['bos'].cost;
+	    temp_artifacts['bos'].level++;
+	    calculate(temp_artifacts, false);
+	} else {
+            forceBOS = 0;
+	}
+    }
+    while(true) {
         winner = determineWinner(temp_artifacts);
         if(winner === false) {
             console.log('false winner');
@@ -130,7 +148,7 @@ function generateUpgrades() {
                 break;
             }
         }
-    } while(upgrade_cost <= relics);
+    }
     litmus = false;
     $.each(upgrades, function(k,v) {
       litmus = true;
@@ -309,6 +327,7 @@ if (storageAvailable('localStorage')) {
     $('#slash').val(window.localStorage.getItem('slash'));
     $('#pet').val(window.localStorage.getItem('pet'));
     $('#relic_factor').val(window.localStorage.getItem('relic_factor'));
+    $('#forcebos').val(window.localStorage.getItem('forcebos'));
 }
 
 origWeights = jQuery.extend(true, {}, artifacts);
