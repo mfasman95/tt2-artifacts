@@ -18,7 +18,7 @@ function generateArtifacts() {
 	div += '</span>';
         div += '</span><span id="' + k + 'weff">';
 	if('' != v.efficiency) {
-	    div += v.weight + ' Weight &#x2022; ' + k.efficiency + ' Efficiency';
+	    div += v.rating + ' Weight &#x2022; ' + v.efficiency + ' Efficiency';
 	}
 	div += '</span>';
         div += '</div>'
@@ -58,7 +58,7 @@ function regenerateArtifacts() {
         $('#' + k + 'cost').empty().append(value);
         value = '';
 	if('' != v.efficiency) {
-	    value = v.weight + ' Weight &#x2022; ' + k.efficiency + ' Efficiency';
+	    value = v.rating + ' Weight &#x2022; ' + v.efficiency + ' Efficiency';
 	}
         $('#' + k + 'weff').empty().append(value);
     });
