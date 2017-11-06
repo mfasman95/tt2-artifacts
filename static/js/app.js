@@ -18,7 +18,7 @@ function generateArtifacts() {
 	div += '</span>';
         div += '</span><span id="' + k + 'weff">';
 	if('' != v.efficiency) {
-	    div += v.rating + ' Weight &#x2022; ' + v.efficiency + ' Efficiency';
+	    div += v.rating + ' Weight &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
 	}
 	div += '</span>';
         div += '</div>'
@@ -58,7 +58,7 @@ function regenerateArtifacts() {
         $('#' + k + 'cost').empty().append(value);
         value = '';
 	if('' != v.efficiency) {
-	    value = v.rating + ' Weight &#x2022; ' + v.efficiency + ' Efficiency';
+	    value = v.rating + ' Weight &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
 	}
         $('#' + k + 'weff').empty().append(value);
     });
@@ -189,7 +189,7 @@ function determineWinner(data) {
             if(winner === false) {
                 winner = k;
                 litmus = v.efficiency;
-            } else if(litmus > v.efficiency) {
+            } else if(litmus < v.efficiency) {
                 winner = k;
                 litmus = v.efficiency;
             }
@@ -233,8 +233,8 @@ function calculate(data, regenerate) {
                 data[k].displayCost = displayTruncated(cost);
                 next_effect = 1 + v.effect * Math.pow(v.level + 1, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * (v.level + 1), v.gmax), v.gexpo));
                 next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
-                effect_eff = Math.abs(Math.log((next_effect/current_effect/cost) * v.rating));
-	        ad_eff = Math.abs(Math.log(next_ad_jump/totalAD/cost));
+                effect_eff = (next_effect/current_effect/cost) * v.rating;
+	        ad_eff = next_ad_jump/totalAD/cost;
 		data[k].efficiency = effect_eff + ad_eff;
             }
         } else {
