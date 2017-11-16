@@ -1,6 +1,9 @@
 function generateArtifacts() {
     $('#artifacts').empty();
     $.each(artifacts, function(k,v) {
+        if isNaN(v.level) {
+	    v.level = 0;
+	}
         div = '<div class="artifact">' +
             '<label><input id="' + k + '" value="' + v.level + '" type="tel" onchange="updateArtifacts()" />' + v.name + '</label><br />' +
 	    '<span id="' + k + 'effect">';
@@ -40,6 +43,9 @@ function generateArtifacts() {
 
 function regenerateArtifacts() {
     $.each(artifacts, function(k,v) {
+        if isNaN(v.level) {
+	    v.level = 0;
+	}
         $('#' + k).val(v.level);
 	value = '';
         if('' != v.current_effect) {
