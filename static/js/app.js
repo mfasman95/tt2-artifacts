@@ -1,7 +1,7 @@
 function generateArtifacts() {
     $('#artifacts').empty();
     $.each(artifacts, function(k,v) {
-        if isNaN(v.level) {
+        if(isNaN(v.level)) {
 	    v.level = 0;
 	}
         div = '<div class="artifact">' +
@@ -43,7 +43,7 @@ function generateArtifacts() {
 
 function regenerateArtifacts() {
     $.each(artifacts, function(k,v) {
-        if isNaN(v.level) {
+        if(isNaN(v.level)) {
 	    v.level = 0;
 	}
         $('#' + k).val(v.level);
