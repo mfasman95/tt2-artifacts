@@ -330,7 +330,9 @@ function storageAvailable(type) {
 if (storageAvailable('localStorage')) {
 	localArtifacts = JSON.parse(window.localStorage.getItem('artifacts'));
 	$.each(localArtifacts, function(k, v) {
-        artifacts[k].level = v.level;
+            if(undefined != artifacts[k]) {
+	      artifacts[k].level = v.level;
+	    }
 	});
     $('#tree').val(window.localStorage.getItem('tree'));
     $('#hero').val(window.localStorage.getItem('hero'));
