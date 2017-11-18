@@ -172,7 +172,7 @@ var artifacts = {
 	'gexpo' : .5,
         'ccoef' : .7,
         'cexpo' : 2.2,
-        'type' : 'multiply_pct',
+        'type' : 'multiply',
         'level' : 0,
         'current_ad' : '',
         'current_effect' : '',
