@@ -209,7 +209,7 @@ function adjustWeights() {
     switch($('#sword').val()) {
         case 'all':
             artifacts.dr.rating += 20;
-            artifacts.hs.rating += 20;
+            artifacts.hsw.rating += 20;
             artifacts.af.rating += 10;
             artifacts.hs2.rating += 10;
             artifacts.td.rating += 10;
@@ -348,7 +348,7 @@ function adjustWeights() {
     switch($('#pet').val()) {
         case 'all':
             artifacts.dr.rating += 20;
-            artifacts.hs.rating += 20;
+            artifacts.hsw.rating += 20;
             artifacts.af.rating += 10;
             artifacts.hs2.rating += 10;
             artifacts.td.rating += 10;
