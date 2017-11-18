@@ -459,9 +459,9 @@ var artifacts = {
         'displayCost' : '',
 	'cost' : '',
         'efficiency' : '' },
-    '' : {
+    'td' : {
         'sort' : 24,
-        'name' : '',
+        'name' : 'The Durendal',
         'bonus' : ' Non-Boss Damage',
         'rating' : 1,
         'ad' : 1,
@@ -999,10 +999,10 @@ var artifacts = {
         'displayCost' : '',
 	'cost' : '',
         'efficiency' : '' },
-    '' : {
+    'ms' : {
         'sort' : 51,
-        'name' : '',
-        'bonus' : ' Mana Regen???',
+        'name' : 'Mystic Staff',
+        'bonus' : ' Mana Regeneration',
         'rating' : 1,
         'ad' : 2,
         'effect' : .075,
@@ -1119,10 +1119,10 @@ var artifacts = {
         'displayCost' : '',
 	'cost' : '',
         'efficiency' : '' },
-    '' : {
+    'eotk' : {
         'sort' : 57,
-        'name' : '',
-        'bonus' : ' Multi-spawn Chance',
+        'name' : 'Essence of the Kitsune',
+        'bonus' : ' Multi-Spawn Chance',
         'rating' : 1,
         'ad' : 3,
         'effect' : .005,
