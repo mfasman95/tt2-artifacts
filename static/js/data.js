@@ -461,7 +461,7 @@ var artifacts = {
         'efficiency' : '' },
     'td' : {
         'sort' : 24,
-        'name' : 'The Durendal',
+        'name' : 'Durendal Sword',
         'bonus' : ' Non-Boss Damage',
         'rating' : 15,
         'ad' : 1,
