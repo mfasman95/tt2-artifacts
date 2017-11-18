@@ -39,6 +39,7 @@ function generateArtifacts() {
     window.localStorage.setItem('pet', $('#pet').val());
     window.localStorage.setItem('relic_factor', $('#relic_factor').val());
     window.localStorage.setItem('forcebos', $('#forcebos').val());
+    adjustWeights();
 }
 
 function regenerateArtifacts() {
@@ -349,4 +350,3 @@ if (storageAvailable('localStorage')) {
 
 origWeights = jQuery.extend(true, {}, artifacts);
 generateArtifacts();
-adjustWeights();
