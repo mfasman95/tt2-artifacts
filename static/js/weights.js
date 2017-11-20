@@ -5,63 +5,63 @@ function adjustWeights() {
           'event_action': 'Set',
           'event_label': $('#tree').val(),
         });
-    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Skill Tree', 'event_label' : window.localStorage.getItem('tree') });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Skill Tree', 'event_label' : window.localStorage.getItem('tree') });}
     if($('#hero').val()) {
         gtag('event', 'Hero Type', {
           'event_category': 'Hero Type',
           'event_action': 'Set',
           'event_label': $('#hero').val(),
         });
-    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Hero', 'event_label' : window.localStorage.getItem('hero') });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Hero', 'event_label' : window.localStorage.getItem('hero') });}
     if($('#spell').val()) {
         gtag('event', 'Spell', {
           'event_category': 'Spell',
           'event_action': 'Set',
           'event_label': $('#spell').val(),
         });
-    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Spell', 'event_label' : window.localStorage.getItem('spell') });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Spell', 'event_label' : window.localStorage.getItem('spell') });}
     if($('#sword').val()) {
         gtag('event', 'Equipment', {
           'event_category': 'Equipment',
           'event_action': 'Sword',
           'event_label': $('#sword').val(),
         });
-    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Sword', 'event_label' : window.localStorage.getItem('sword') });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Sword', 'event_label' : window.localStorage.getItem('sword') });}
     if($('#helmet').val()) {
         gtag('event', 'Equipment', {
           'event_category': 'Equipment',
           'event_action': 'Helmet',
           'event_label': $('#helmet').val(),
         });
-    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Helmet', 'event_label' : window.localStorage.getItem('helmet') });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Helmet', 'event_label' : window.localStorage.getItem('helmet') });}
     if($('#chest').val()) {
         gtag('event', 'Equipment', {
           'event_category': 'Equipment',
           'event_action': 'Chest',
           'event_label': $('#chest').val(),
         });
-    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Chest', 'event_label' : window.localStorage.getItem('chest') });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Chest', 'event_label' : window.localStorage.getItem('chest') });}
     if($('#aura').val()) {
         gtag('event', 'Equipment', {
           'event_category': 'Equipment',
           'event_action': 'Aura',
           'event_label': $('#aura').val(),
         });
-    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Aura', 'event_label' : window.localStorage.getItem('aura') });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Aura', 'event_label' : window.localStorage.getItem('aura') });}
     if($('#slash').val()) {
         gtag('event', 'Equipment', {
           'event_category': 'Equipment',
           'event_action': 'Slash',
           'event_label': $('#slash').val(),
         });
-    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Slash', 'event_label' : window.localStorage.getItem('slash') });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Slash', 'event_label' : window.localStorage.getItem('slash') });}
     if($('#pet').val()) {
         gtag('event', 'Equipment', {
           'event_category': 'Equipment',
           'event_action': 'Pet',
           'event_label': $('#pet').val(),
         });
-    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Pet', 'event_label' : window.localStorage.getItem('pet') });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Pet', 'event_label' : window.localStorage.getItem('pet') });}
     $.each(origWeights, function(k,v) {
         artifacts[k].rating = v.rating;
     });
