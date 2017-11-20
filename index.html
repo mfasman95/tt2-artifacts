@@ -20,9 +20,9 @@
   <body>
     <h1>Tap Titans 2 Artifact Upgrade Optimizer</h1>
     <h2>Game Version 2.3.2</h2>
-    <p>This tool is intended to help you determine how to best spend your relics to upgrade your artifacts based on overall artifact tiers, but customized to your playstyle. If you find any errors or have any suggestions, feel free to reach out to me on reddit, /u/tsukinoooo</p>
+    <p>This tool is intended to help you determine how to best spend your relics to upgrade your artifacts based on overall artifact tiers, but customized to your playstyle. In particular it is useful for identifying boosts in AD that you might not otherwise capitalize on because they are not your primary artifacts. If you find any errors or have any suggestions, feel free to reach out to me on reddit, /u/tsukinoooo</p>
     <h3>What are your priorities?</h3>
-    <p>Answer the following questions to improve the weighting of different artifacts to best suit your play style.</p>
+    <p>Answer the following questions to improve the weighting of different artifacts to best suit your play style. Note, even if all your pets are at 100%, please pick the one that best fits your play style.</p>
     <label>Which skill tree is your primary tree?
         <select id="tree" onchange="adjustWeights();">
             <option value="-1">- Select One -</option>
@@ -30,7 +30,6 @@
             <option value="warlord">Warlord</option>
             <option value="sorcerer">Sorcerer</option>
             <option value="rogue">Rogue</option>
-            <option value="none">Equally All</option>
         </select>
     </label>
     <label>Which type of hero is your specialty?
@@ -39,7 +38,6 @@
             <option value="melee">Melee</option>
             <option value="ranged">Ranged</option>
             <option value="spell">Spell</option>
-            <option value="none">Equally All</option>
         </select>
     </label>
     <label>Which is the most important spell to you?
@@ -51,7 +49,6 @@
             <option value="fs">Fire Sword</option>
             <option value="wc">War Cry</option>
             <option value="sc">Shadow Clone</option>
-            <option value="none">Equally All</option>
         </select>
     </label>
     <label>Which sword equipment bonus do you use?
@@ -60,7 +57,6 @@
             <option value="all">All Damage</option>
             <option value="hero">Hero Damange</option>
             <option value="crit">Critical Strike Damage</option>
-            <option value="none">Equally All</option>
         </select>
     </label>
     <label>Which helmet equipment bonus do you use?
@@ -70,7 +66,6 @@
             <option value="ranged">Ranged Hero Damange</option>
             <option value="spell">Spell Hero Damage</option>
             <option value="tap">Sword Master Damage</option>
-            <option value="none">Equally All</option>
         </select>
     </label>
     <label>Which chest equipment bonus do you use?
@@ -79,7 +74,6 @@
             <option value="all">All Gold</option>
             <option value="boss">Boss Gold</option>
             <option value="chest">Chesterson Gold</option>
-            <option value="none">Equally All</option>
         </select>
     </label>
     <label>Which aura equipment bonus do you use?
@@ -88,7 +82,6 @@
             <option value="multi">Multiple Spawn Chance</option>
             <option value="chest">Chesterson Chance</option>
             <option value="crit">Crit Chance</option>
-            <option value="none">Equally All</option>
         </select>
     </label>
     <label>Which slash equipment bonus do you use?
@@ -97,7 +90,6 @@
             <option value="pet">Pet Damage</option>
             <option value="clan">Clan Ship Damage</option>
             <option value="sc">Shadow Clone Damage</option>
-            <option value="none">Equally All</option>
         </select>
     </label>
     <label>Which pet bonus do you use?
@@ -112,7 +104,6 @@
             <option value="gold">All Gold</option>
             <option value="mana">Mana Regen</option>
             <option value="splash">Splash Damage</option>
-            <option value="none">Equally All</option>
         </select>
     </label>
     <h3>Your Artifact Status</h3>
