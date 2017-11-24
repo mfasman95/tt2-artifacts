@@ -6,3 +6,4 @@ label { display: block; }
 .artifact label { display: inline-block; margin: 0; }
 span { font-size: 60%; display: block; }
 #relics, #forcebos { width: 5rem; }
+.light { color: #CCC; }
