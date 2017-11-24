@@ -180,8 +180,8 @@ function generateUpgrades() {
 		    v.name + '&#x00A0;' +
 		    v.level + '&#x00A0;=>&#x00A0;' +
 		    temp_artifacts[k].level + '&#x00A0;(+' + upgrades[k] + ')' +
-		    ' [' + displayPct((temp_artifacts[k].current_effect / artifacts[k].current_effect) - 1) + '&#x00A0;effect&#x00A0;' +
-		    '|&#x00A0;' + displayPct((temp_artifacts[k].current_ad / artifacts[k].current_ad) - 1) + '&#x00A0;AD]' +
+		    ' <span class="light">[+' + displayPct((temp_artifacts[k].current_effect / artifacts[k].current_effect) - 1) + '&#x00A0;effect&#x00A0;' +
+		    '|&#x00A0;+' + displayPct((temp_artifacts[k].current_ad / artifacts[k].current_ad) - 1) + '&#x00A0;AD]</span>' +
 		'</li>';
 	}
     });
