@@ -199,7 +199,7 @@ function adjustWeights() {
             artifacts.hs.rating += 5;
             artifacts.bop.rating += 5;
             artifacts.ao.rating += 5;
-            artifacts.gfm.rating += 5;
+            artifacts.gfa.rating += 5;
             artifacts.zc.rating += 5;
             artifacts.coe.rating += 5;
             artifacts.eof.rating += 5;
