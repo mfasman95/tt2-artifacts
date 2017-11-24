@@ -177,10 +177,12 @@ function generateUpgrades() {
     $.each(artifacts, function(k,v) {
         if(k in upgrades) {
 		suggestions += '<li>' +
-		    v.name + ' ' +
-		    v.level + ' => ' +
-		    (upgrades[k] + v.level) + ' (+' +
-		    upgrades[k] + ')</li>';
+		    v.name + '&#x00A0;' +
+		    v.level + '&#x00A0;=>&#x00A0;' +
+		    temp_artifacts[k].level + '&#x00A0;(+' + upgrades[k] + ')' +
+		    ' [' + displayPct(temp_artifacts[k].current_effect / artifacts[k].current_effect) + '&#x00A0;primary&#x00A0;effect&#x00A0;growth]' +
+		    ' {' + displayPct(temp_artifacts[k].current_ad / artifacts[k].current_ad) + '&#x00A0;AD&#x00A0;growth}' +
+		'</li>';
 	}
     });
     $('#suggestions').empty().append(suggestions);
