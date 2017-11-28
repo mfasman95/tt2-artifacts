@@ -173,7 +173,6 @@ function adjustWeights() {
             artifacts.rt.rating += 5;
             artifacts.fs.rating += 5;
             artifacts.gok.rating += 5;
-            artifacts.tr.rating += 5;
             artifacts.aom.rating += 5;
             artifacts.bor.rating += 5;
             artifacts.ga.rating += 5;
@@ -371,7 +370,6 @@ function adjustWeights() {
             artifacts.rt.rating += 5;
             artifacts.fs.rating += 5;
             artifacts.gok.rating += 5;
-            artifacts.tr.rating += 5;
             artifacts.coe.rating += 10;
             artifacts.roc.rating += 10;
             break;
