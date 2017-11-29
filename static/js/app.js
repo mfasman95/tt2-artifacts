@@ -120,8 +120,18 @@ function generateUpgrades() {
     window.localStorage.setItem('relic_factor', $('#relic_factor').val())
     window.localStorage.setItem('forcebos', $('#forcebos').val());
     new_artifact = determineWinner(artifacts, true);
+    new_artifact_litmus = false;
     if(artifacts[new_artifact].level < 1) {
-	      $('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
+	    new_artifact_litmus = true;
+    } else {
+	    $.each(artifacts, function(k,v) {
+		if(v.level < 1 && v.rating >= 100) {
+		    new_artifact_litmus = true;
+		}
+	    });
+    }
+    if(new_artifact_litmus === true) {
+	$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
     }
     forceBOS = parseInt($('#forcebos').val());
     relics = parseFloat($('#relics').val());
