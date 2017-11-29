@@ -282,7 +282,7 @@ function calculate(data, regenerate) {
         } else if(v.level == 0 && next_artifact_cost != -1) {
             data[k].current_ad = '';
             data[k].current_effect = '';
-            if(v.max == -1 || v.max > v.level) {
+            if(v.max == -1 || v.max > average_level) {
 		    next_effect = 1 + v.effect * Math.pow(average_level, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * average_level, v.gmax), v.gexpo));
 	    } else  {
 		    next_effect = 1 + v.effect * Math.pow(v.max, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * v.max, v.gmax), v.gexpo));
