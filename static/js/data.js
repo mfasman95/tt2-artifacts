@@ -1,5 +1,6 @@
 var artifacts = {
     'bos' : {
+        'active' : 1,
         'sort' : 1,
         'name' : 'Book of Shadows',
         'bonus' : ' Prestige Relic',
@@ -20,6 +21,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'sov' : {
+        'active' : 1,
         'sort' : 2,
         'name' : 'Stone of Valrunes',
         'bonus' : ' Basic Titan Gold',
@@ -40,6 +42,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'coc' : {
+        'active' : 1,
         'sort' : 3,
         'name' : 'Chest of Contentment',
         'bonus' : ' Chesterson Gold',
@@ -60,6 +63,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'hs' : {
+        'active' : 1,
         'sort' : 4,
         'name' : 'Heroic Shield',
         'bonus' : ' Boss Gold',
@@ -80,6 +84,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'bop' : {
+        'active' : 1,
         'sort' : 5,
         'name' : 'Book of Prophecy',
         'bonus' : ' All Gold',
@@ -100,6 +105,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'zc' : {
+        'active' : 1,
         'sort' : 6,
         'name' : 'Zakynthos Coin',
         'bonus' : ' Inactive Gold',
@@ -120,6 +126,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'gfa' : {
+        'active' : 1,
         'sort' : 7,
         'name' : 'Great Fay Amulet',
         'bonus' : ' Fairy Gold',
@@ -140,6 +147,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'coe' : {
+        'active' : 1,
         'sort' : 8,
         'name' : 'Coins of Ebizu',
         'bonus' : ' Splash Gold',
@@ -160,6 +168,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'hsw' : {
+        'active' : 1,
         'sort' : 9,
         'name' : 'Heavenly Sword',
         'bonus' : ' All Artifact Damage',
@@ -180,6 +189,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'dr' : {
+        'active' : 1,
         'sort' : 10,
         'name' : 'Divine Retribution',
         'bonus' : ' All Damage',
@@ -200,6 +210,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'dh' : {
+        'active' : 1,
         'sort' : 11,
         'name' : 'Drunken Hammer',
         'bonus' : ' Tap Damage',
@@ -220,6 +231,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'ss' : {
+        'active' : 1,
         'sort' : 12,
         'name' : 'Samosek Sword',
         'bonus' : ' Sword Attack Damage',
@@ -240,6 +252,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'tr' : {
+        'active' : 1,
         'sort' : 13,
         'name' : 'The Retaliator',
         'bonus' : ' Critical Damage',
@@ -260,6 +273,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'hb' : {
+        'active' : 1,
         'sort' : 14,
         'name' : 'Hero\'s Blade',
         'bonus' : ' All Hero Damage',
@@ -280,6 +294,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'tsos' : {
+        'active' : 1,
         'sort' : 15,
         'name' : 'The Sword of Storms',
         'bonus' : ' Melee Hero Damage',
@@ -300,6 +315,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'fb' : {
+        'active' : 1,
         'sort' : 16,
         'name' : 'Furies\' Bow',
         'bonus' : ' Ranged Hero Damage',
@@ -320,6 +336,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'cota' : {
+        'active' : 1,
         'sort' : 17,
         'name' : 'Charm of the Ancients',
         'bonus' : ' Spell Hero Damage',
@@ -340,6 +357,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'foe' : {
+        'active' : 1,
         'sort' : 18,
         'name' : 'Fruit of Eden',
         'bonus' : ' Pet Damage',
@@ -360,6 +378,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'ie' : {
+        'active' : 1,
         'sort' : 19,
         'name' : 'Influential Elixir',
         'bonus' : ' Clan Ship Damage',
@@ -380,6 +399,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'hos2' : {
+        'active' : 1,
         'sort' : 20,
         'name' : 'Heart of Storms',
         'bonus' : ' Pet Damage Bonuses',
@@ -400,6 +420,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'ao' : {
+        'active' : 1,
         'sort' : 21,
         'name' : 'Apollo Orb',
         'bonus' : ' Pet Gold Bonuses',
@@ -420,6 +441,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'af' : {
+        'active' : 1,
         'sort' : 22,
         'name' : 'Avian Feather',
         'bonus' : ' Inactive Damage',
@@ -440,6 +462,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'hos' : {
+        'active' : 1,
         'sort' : 23,
         'name' : 'Corrupted Rune Heart',
         'bonus' : ' Splash Damage',
@@ -460,6 +483,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'td' : {
+        'active' : 1,
         'sort' : 24,
         'name' : 'Durendal Sword',
         'bonus' : ' Non-Boss Damage',
@@ -480,6 +504,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'hs2' : {
+        'active' : 1,
         'sort' : 25,
         'name' : 'Helheim Skull',
         'bonus' : ' Boss Damage',
@@ -500,6 +525,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'roc' : {
+        'active' : 1,
         'sort' : 26,
         'name' : 'Ring of Calisto',
         'bonus' : ' All Equipment Boost',
@@ -520,6 +546,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'bod' : {
+        'active' : 1,
         'sort' : 27,
         'name' : 'Blade of Damocles',
         'bonus' : ' Sword Boost',
@@ -540,6 +567,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'hom' : {
+        'active' : 1,
         'sort' : 28,
         'name' : 'Helmet of Madness',
         'bonus' : ' Helmet Boost',
@@ -560,6 +588,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'tp' : {
+        'active' : 1,
         'sort' : 29,
         'name' : 'Titanium Plating',
         'bonus' : ' Armor Boost',
@@ -580,6 +609,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'as' : {
+        'active' : 1,
         'sort' : 30,
         'name' : 'Amethyst Staff',
         'bonus' : ' Slash Boost',
@@ -600,6 +630,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'ig' : {
+        'active' : 1,
         'sort' : 31,
         'name' : 'Invader\'s Gjalarhorn',
         'bonus' : ' All Active Skill Effect',
@@ -620,6 +651,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'tm' : {
+        'active' : 1,
         'sort' : 32,
         'name' : 'Titan\'s Mask',
         'bonus' : ' Heavenly Strike Damage',
@@ -640,6 +672,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'rt' : {
+        'active' : 1,
         'sort' : 33,
         'name' : 'Royal Toxin',
         'bonus' : ' Deadly Strike Effect',
@@ -660,6 +693,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'lp' : {
+        'active' : 1,
         'sort' : 34,
         'name' : 'Laborer\'s Pendant',
         'bonus' : ' Hand of Midas Gold Bonus',
@@ -680,6 +714,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'bor' : {
+        'active' : 1,
         'sort' : 35,
         'name' : 'Bringer of Ragnarok',
         'bonus' : ' Fire Sword Damage',
@@ -700,6 +735,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'pof' : {
+        'active' : 1,
         'sort' : 36,
         'name' : 'Parchment of Foresight',
         'bonus' : ' War Cry Damage',
@@ -720,6 +756,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'eoe' : {
+        'active' : 1,
         'sort' : 37,
         'name' : 'Elixir of Eden',
         'bonus' : ' Shadow Clone Damage',
@@ -740,6 +777,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'pt' : {
+        'active' : 1,
         'sort' : 38,
         'name' : 'Phantom Timepiece',
         'bonus' : 's All Active Skill Duration',
@@ -760,6 +798,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'fs' : {
+        'active' : 1,
         'sort' : 39,
         'name' : 'Forbidden Scroll',
         'bonus' : 's Deadly Strike Duration',
@@ -780,6 +819,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'rof' : {
+        'active' : 1,
         'sort' : 40,
         'name' : 'Ring of Fealty',
         'bonus' : 's Hand of Midas Duration',
@@ -800,6 +840,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'ga' : {
+        'active' : 1,
         'sort' : 41,
         'name' : 'Glacial Axe',
         'bonus' : 's Fire Sword Duration',
@@ -820,6 +861,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'a' : {
+        'active' : 1,
         'sort' : 42,
         'name' : 'Aegis',
         'bonus' : 's War Cry Duration',
@@ -840,6 +882,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'sg' : {
+        'active' : 1,
         'sort' : 43,
         'name' : 'Swamp Guantlet',
         'bonus' : 's Shadow Clone Duration',
@@ -860,6 +903,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'ip' : {
+        'active' : 1,
         'sort' : 44,
         'name' : 'Infinity Pendulum',
         'bonus' : ' Heavenly Strike Mana Cost',
@@ -880,6 +924,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'gok' : {
+        'active' : 1,
         'sort' : 45,
         'name' : 'Glove of Kuma',
         'bonus' : ' Deadly Strike Mana Cost',
@@ -900,6 +945,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'ts' : {
+        'active' : 1,
         'sort' : 46,
         'name' : 'Titan Spear',
         'bonus' : ' Hand of Midas Mana Cost',
@@ -920,6 +966,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'os' : {
+        'active' : 1,
         'sort' : 47,
         'name' : 'Oak Staff',
         'bonus' : ' Fire Sword Mana Cost',
@@ -940,6 +987,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'tac' : {
+        'active' : 1,
         'sort' : 48,
         'name' : 'The Arcana Cloak',
         'bonus' : ' War Cry Mana Cost',
@@ -960,6 +1008,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'ho' : {
+        'active' : 1,
         'sort' : 49,
         'name' : 'Hunter\'s Ointment',
         'bonus' : ' Shadow Clone Mana Cost',
@@ -980,6 +1029,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'ae' : {
+        'active' : 1,
         'sort' : 50,
         'name' : 'Ambrosia Elixir',
         'bonus' : ' Mana Pool Cap',
@@ -1000,6 +1050,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'ms' : {
+        'active' : 1,
         'sort' : 51,
         'name' : 'Mystic Staff',
         'bonus' : ' Mana Regeneration',
@@ -1020,6 +1071,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'eof' : {
+        'active' : 1,
         'sort' : 52,
         'name' : 'Egg of Fortune',
         'bonus' : ' Chesterson Chance',
@@ -1040,6 +1092,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'dc' : {
+        'active' : 1,
         'sort' : 53,
         'name' : 'Divine Chalice',
         'bonus' : ' 10x Gold Chance',
@@ -1060,6 +1113,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'is' : {
+        'active' : 1,
         'sort' : 54,
         'name' : 'Invader\'s Shield',
         'bonus' : ' Multiple Fairy Chance',
@@ -1080,6 +1134,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'aom' : {
+        'active' : 1,
         'sort' : 55,
         'name' : 'Axe of Muerte',
         'bonus' : ' Critical Chance',
@@ -1100,6 +1155,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'sor' : {
+        'active' : 1,
         'sort' : 56,
         'name' : 'Staff of Radiance',
         'bonus' : ' Hero Upgrade Cost',
@@ -1120,6 +1176,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'eotk' : {
+        'active' : 1,
         'sort' : 57,
         'name' : 'Essence of the Kitsune',
         'bonus' : ' Multi-Spawn Chance',
@@ -1140,6 +1197,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'tms' : {
+        'active' : 1,
         'sort' : 58,
         'name' : 'The Master\'s Sword',
         'bonus' : ' Sword Master Upgrade Cost',
@@ -1160,6 +1218,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'as2' : {
+        'active' : 1,
         'sort' : 59,
         'name' : 'Aram Spear',
         'bonus' : ' All Titan HP',
@@ -1180,6 +1239,7 @@ var artifacts = {
 	'cost' : '',
         'efficiency' : '' },
     'wod' : {
+        'active' : 1,
         'sort' : 60,
         'name' : 'Ward of Darkness',
         'bonus' : 's Boss Timer Duration',
