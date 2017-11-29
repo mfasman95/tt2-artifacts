@@ -284,14 +284,11 @@ function calculate(data, regenerate) {
             data[k].current_effect = '';
             if(v.max == -1 || v.max > v.level) {
 		    next_effect = 1 + v.effect * Math.pow(average_level, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * average_level, v.gmax), v.gexpo));
-		    next_ad_jump = average_level * v.ad;
 	    } else  {
 		    next_effect = 1 + v.effect * Math.pow(v.max, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * v.max, v.gmax), v.gexpo));
-		    next_ad_jump = v.max * v.ad;
 	    }
-	    effect_eff = (next_effect/next_artifact_cost) * v.rating;
-	    ad_eff = next_ad_jump/next_artifact_cost;
-	    data[k].efficiency = effect_eff + ad_eff;
+	    effect_eff = (next_effect/next_artifact_cost) * v.rating * v.rating;
+	    data[k].efficiency = effect_eff;
         } else {
             data[k].current_ad = '';
             data[k].current_effect = '';
