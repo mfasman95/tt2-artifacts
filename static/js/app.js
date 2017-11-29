@@ -174,6 +174,7 @@ function generateUpgrades() {
 	winner = determineWinner(temp_artifacts, false);
 	if(winner === false) {
 	    console.log('false winner');
+	    break;
 	} else {
 	    if(relics >= temp_artifacts[winner].cost) {
 		if(undefined == upgrades[winner]) {
@@ -289,7 +290,7 @@ function calculate(data, regenerate) {
 		    next_ad_jump = v.max * v.ad;
 	    }
 	    effect_eff = (next_effect/next_artifact_cost) * v.rating;
-	    ad_eff = next_ad_jump/totalAD/next_artifact_cost;
+	    ad_eff = next_ad_jump/next_artifact_cost;
 	    data[k].efficiency = effect_eff + ad_eff;
         } else {
             data[k].current_ad = '';
