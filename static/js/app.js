@@ -283,8 +283,8 @@ function calculate(data, regenerate) {
             data[k].current_effect = '';
             next_effect = 1 + v.effect * Math.pow(average_level + 1, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * (average_level + 1), v.gmax), v.gexpo));
             next_ad_jump = ((average_level + 1) * v.ad) - (average_level * v.ad);
-            effect_eff = (next_effect/current_effect/artifact_cost) * v.rating;
-	    ad_eff = next_ad_jump/totalAD/artifact_cost;
+            effect_eff = (next_effect/current_effect/next_artifact_cost) * v.rating;
+	    ad_eff = next_ad_jump/totalAD/next_artifact_cost;
 	    data[k].efficiency = effect_eff + ad_eff;
         } else {
             data[k].current_ad = '';
