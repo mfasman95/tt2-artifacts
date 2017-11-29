@@ -6,6 +6,6 @@ label { display: block; }
 .artifact input[type="checkbox"] { width: 1rem; margin-right: 0; }
 .artifact label { display: inline-block; margin: 0; }
 span { font-size: 60%; display: block; }
-#relics, #forcebos { width: 5rem; }
+#relics, #forcebos, #relics_decimal { width: 3rem; }
 .light { color: #CCC; }
 .artifact.ignore { color: rgba(66, 66, 66, .1) }
