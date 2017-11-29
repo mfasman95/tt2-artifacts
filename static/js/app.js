@@ -287,7 +287,7 @@ function calculate(data, regenerate) {
 	    } else  {
 		    next_effect = 1 + v.effect * Math.pow(v.max, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * v.max, v.gmax), v.gexpo));
 	    }
-	    effect_eff = (next_effect/next_artifact_cost) * v.rating * v.rating;
+	    effect_eff = (next_effect/next_artifact_cost) * v.rating;
 	    data[k].efficiency = effect_eff;
         } else {
             data[k].current_ad = '';
