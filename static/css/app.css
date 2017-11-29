@@ -3,7 +3,7 @@ div + h3, input + h3, label + h3, p + h3 { padding-top: 2rem; clear: both; }
 label { display: block; }
 .artifact { border: solid 1px black; padding: 1rem; width: 300px; height: 115px; float: left; }
 .artifact input { width: 3rem; margin-right: 1rem; }
-.artifact input[type="checkbox"] { width: 1rem; margin-right: .5rem; }
+.artifact input[type="checkbox"] { width: 1rem; margin-right: 0; }
 .artifact label { display: inline-block; margin: 0; }
 span { font-size: 60%; display: block; }
 #relics, #forcebos { width: 5rem; }
