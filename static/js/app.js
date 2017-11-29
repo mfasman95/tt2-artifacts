@@ -116,29 +116,35 @@ function determineAverage(data) {
 }
 
 function generateUpgrades() {
+    $('#new_artifact').empty();
     window.localStorage.setItem('relic_factor', $('#relic_factor').val())
     window.localStorage.setItem('forcebos', $('#forcebos').val());
+    new_artifact = determineWinner(artifacts, true);
+    if(artifacts[new_artifact].level < 1) {
+	      $('#new_artifact').empty().append('<li>NOTE: You would be better off saving up for a new artifact.</li>');
+	      return
+    }
     forceBOS = parseInt($('#forcebos').val());
     relics = parseFloat($('#relics').val());
     switch($('#relic_factor').val()) {
        case '_':
-         break;
+	 break;
 
        case 'K':
-         relics *= 1000;
-         break;
+	 relics *= 1000;
+	 break;
 
        case 'M':
-         relics *= 1000000;
-         break;
+	 relics *= 1000000;
+	 break;
 
        case 'B':
-         relics *= 1000000000;
-         break;
+	 relics *= 1000000000;
+	 break;
 
        case 'T':
-         relics *= 1000000000000;
-         break;
+	 relics *= 1000000000000;
+	 break;
     }
     upgrades = {};
     temp_artifacts = $.extend(true, {}, artifacts);
@@ -151,38 +157,38 @@ function generateUpgrades() {
       return
     }
     while(forceBOS > 0) {
-        if(relics >= temp_artifacts['bos'].cost) {
-            forceBOS--;
+	if(relics >= temp_artifacts['bos'].cost) {
+	    forceBOS--;
 	    if(undefined == upgrades['bos']) {
-                upgrades['bos'] = 1;
+		upgrades['bos'] = 1;
 	    } else {
-	        upgrades['bos']++;
+		upgrades['bos']++;
 	    }
-            relics -= temp_artifacts['bos'].cost;
+	    relics -= temp_artifacts['bos'].cost;
 	    temp_artifacts['bos'].level++;
 	    calculate(temp_artifacts, false);
 	} else {
-            forceBOS = 0;
+	    forceBOS = 0;
 	}
     }
     while(true) {
-        winner = determineWinner(temp_artifacts);
-        if(winner === false) {
-            console.log('false winner');
-        } else {
-            if(relics >= temp_artifacts[winner].cost) {
-                if(undefined == upgrades[winner]) {
-                    upgrades[winner] = 1;
-                } else {
-                    upgrades[winner]++;
-                }
-                relics -= temp_artifacts[winner].cost;
-                temp_artifacts[winner].level++;
-                calculate(temp_artifacts, false);
-            } else {
-                break;
-            }
-        }
+	winner = determineWinner(temp_artifacts, false);
+	if(winner === false) {
+	    console.log('false winner');
+	} else {
+	    if(relics >= temp_artifacts[winner].cost) {
+		if(undefined == upgrades[winner]) {
+		    upgrades[winner] = 1;
+		} else {
+		    upgrades[winner]++;
+		}
+		relics -= temp_artifacts[winner].cost;
+		temp_artifacts[winner].level++;
+		calculate(temp_artifacts, false);
+	    } else {
+		break;
+	    }
+	}
     }
     litmus = false;
     $.each(upgrades, function(k,v) {
@@ -194,7 +200,7 @@ function generateUpgrades() {
     }
     suggestions = '';
     $.each(artifacts, function(k,v) {
-        if(k in upgrades) {
+	if(k in upgrades) {
 		suggestions += '<li>' +
 		    v.name + '&#x00A0;' +
 		    v.level + '&#x00A0;=>&#x00A0;' +
@@ -208,14 +214,17 @@ function generateUpgrades() {
     });
     $('#suggestions').empty().append(suggestions);
     $('#accept').empty().append(
-            '<input type="submit" value="Complete" onclick="acceptSuggestions();" />');
+	    '<input type="submit" value="Complete" onclick="acceptSuggestions();" />');
 }
 
-function determineWinner(data) {
+function determineWinner(data, initial) {
     winner = false;
     litmus = false;
     $.each(data, function(k,v) {
-        if('' !== v.efficiency && v.level > 0) {
+        if('' !== v.efficiency) {
+	    if(initial === false && v.level < 1) {
+		continue;
+	    }
             if(winner === false) {
                 winner = k;
                 litmus = v.efficiency;
