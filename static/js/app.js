@@ -288,7 +288,7 @@ function calculate(data, regenerate) {
         data[k].efficiency = '';
         data[k].cost = '';
         data[k].displayCost = '';
-        if(v.level > 0 && v.active == 1) {
+        if(v.level > 0) {
 	    current_ad = v.level * v.ad
 	    current_effect = 1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo));
             data[k].current_ad = current_ad;
