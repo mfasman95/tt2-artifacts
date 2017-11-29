@@ -122,7 +122,6 @@ function generateUpgrades() {
     new_artifact = determineWinner(artifacts, true);
     if(artifacts[new_artifact].level < 1) {
 	      $('#new_artifact').empty().append('<li>NOTE: You would be better off saving up for a new artifact.</li>');
-	      return
     }
     forceBOS = parseInt($('#forcebos').val());
     relics = parseFloat($('#relics').val());
@@ -223,7 +222,7 @@ function determineWinner(data, initial) {
     $.each(data, function(k,v) {
         if('' !== v.efficiency) {
 	    if(initial === false && v.level < 1) {
-		continue;
+		return true;
 	    }
             if(winner === false) {
                 winner = k;
