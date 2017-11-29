@@ -133,7 +133,7 @@ function generateUpgrades() {
     window.localStorage.setItem('forcebos', $('#forcebos').val());
     new_artifact = determineWinner(artifacts, true);
     new_artifact_litmus = false;
-    if(artifacts[new_artifact].level < 1) {
+    if(false != new_artifact && artifacts[new_artifact].level < 1) {
 	    new_artifact_litmus = true;
     } else {
 	    $.each(artifacts, function(k,v) {
@@ -268,6 +268,7 @@ function acceptSuggestions() {
     $.each(upgrades, function(k,v) {
         artifacts[k].level += v;
     });
+	$('#new_artifact').empty();
 	$('#accept').empty();
 	$('#suggestions').empty();
 	$('#relics').val('');
