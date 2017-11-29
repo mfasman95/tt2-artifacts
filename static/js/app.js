@@ -400,6 +400,7 @@ if (storageAvailable('localStorage')) {
 	$.each(localArtifacts, function(k, v) {
             if(undefined != artifacts[k]) {
 	      artifacts[k].level = v.level;
+	      artifacts[k].active = v.active;
 	    }
 	});
     $('#tree').val(window.localStorage.getItem('tree'));
