@@ -52,6 +52,7 @@ function updateActive(k) {
 		$('#' + k + 'div').addClass('ignore');
 	}
 	window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
+        calculate(artifacts, true);
 }
 
 function regenerateArtifacts() {
