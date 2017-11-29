@@ -252,6 +252,9 @@ function acceptSuggestions() {
 }
 
 function calculate(data, regenerate) {
+    next_artifact = countArtifacts(artifacts) + 1;
+    next_artifact_cost = artifact_costs[next_artifact];
+    average_level = determineAverage(artifacts);
     totalAD = 0;
     $.each(data, function(k,v) {
 	totalAD += v.level * v.ad;
@@ -275,16 +278,13 @@ function calculate(data, regenerate) {
 	        ad_eff = next_ad_jump/totalAD/cost;
 		data[k].efficiency = effect_eff + ad_eff;
             }
-        } else if(v.level == 0) {
+        } else if(v.level == 0 && next_artifact_cost != -1) {
             data[k].current_ad = '';
             data[k].current_effect = '';
-	    next_artifact = countArtifacts(artifacts) + 1;
-	    next_artifact_cost = artifact_costs[next_artifact];
-	    average_level = determineAverage(artifacts);
             next_effect = 1 + v.effect * Math.pow(average_level + 1, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * (average_level + 1), v.gmax), v.gexpo));
             next_ad_jump = ((average_level + 1) * v.ad) - (average_level * v.ad);
-            effect_eff = (next_effect/current_effect/cost) * v.rating;
-	    ad_eff = next_ad_jump/totalAD/cost;
+            effect_eff = (next_effect/current_effect/artifact_cost) * v.rating;
+	    ad_eff = next_ad_jump/totalAD/artifact_cost;
 	    data[k].efficiency = effect_eff + ad_eff;
         } else {
             data[k].current_ad = '';
