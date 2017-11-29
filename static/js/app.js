@@ -147,7 +147,7 @@ function generateUpgrades() {
 	$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
     }
     forceBOS = parseInt($('#forcebos').val());
-    relics = parseFloat($('#relics').val());
+    relics = parseFloat($('#relics').val() + '.' + $('#relics_decimal').val());
     switch($('#relic_factor').val()) {
        case '_':
 	 break;
