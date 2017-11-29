@@ -121,7 +121,7 @@ function generateUpgrades() {
     window.localStorage.setItem('forcebos', $('#forcebos').val());
     new_artifact = determineWinner(artifacts, true);
     if(artifacts[new_artifact].level < 1) {
-	      $('#new_artifact').empty().append('<li>NOTE: You would be better off saving up for a new artifact.</li>');
+	      $('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
     }
     forceBOS = parseInt($('#forcebos').val());
     relics = parseFloat($('#relics').val());
