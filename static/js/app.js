@@ -90,6 +90,31 @@ function updateArtifacts() {
     calculate(artifacts, true);
 }
 
+function countArtifacts(data) {
+	var i = 0;
+	$.each(data, function(k,v) {
+		if(v.level == 0) {
+			i++;
+		}
+	});
+	return(i);
+}
+
+function determineAverage(data) {
+	var i = countArtifacts(data);
+	var x = 0;
+	var y = 0;
+	$.each(data, function(k,v) {
+		if(v.level > 0) {
+			x += v.level;
+		}
+	});
+	if(i > 0 && x > 0) {
+		y = x / i;
+	}
+	return(y);
+}
+
 function generateUpgrades() {
     window.localStorage.setItem('relic_factor', $('#relic_factor').val())
     window.localStorage.setItem('forcebos', $('#forcebos').val());
@@ -115,12 +140,6 @@ function generateUpgrades() {
          relics *= 1000000000000;
          break;
     }
-    gtag('event', 'Upgrades', {
-      'event_category': 'Upgrades',
-      'event_action': 'Generate',
-      'event_label': 'List',
-      'event_value' : relics
-    });
     upgrades = {};
     temp_artifacts = $.extend(true, {}, artifacts);
     litmus = false;
@@ -180,8 +199,10 @@ function generateUpgrades() {
 		    v.name + '&#x00A0;' +
 		    v.level + '&#x00A0;=>&#x00A0;' +
 		    temp_artifacts[k].level + '&#x00A0;(+' + upgrades[k] + ')' +
-		    ' <span class="light">[additional&#x00A0;' + displayEffect(temp_artifacts[k].current_effect - artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;effect&#x00A0;' +
-		    '|&#x00A0;' + displayPct(temp_artifacts[k].current_ad - artifacts[k].current_ad) + '&#x00A0;AD]</span>' +
+		    ' <span class="light">[' + displayEffect(artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;=>&#x00A0;' + 
+			displayEffect(temp_artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;effect&#x00A0;' +
+		    '|&#x00A0;' + displayPct(artifacts[k].current_ad) + '&#x00A0;=>&#x00A0;' + 
+			displayPct(temp_artifacts[k].current_ad) + '&#x00A0;AD]</span>' +
 		'</li>';
 	}
     });
@@ -194,7 +215,7 @@ function determineWinner(data) {
     winner = false;
     litmus = false;
     $.each(data, function(k,v) {
-        if('' !== v.efficiency) {
+        if('' !== v.efficiency && v.level > 0) {
             if(winner === false) {
                 winner = k;
                 litmus = v.efficiency;
@@ -246,10 +267,21 @@ function calculate(data, regenerate) {
 	        ad_eff = next_ad_jump/totalAD/cost;
 		data[k].efficiency = effect_eff + ad_eff;
             }
+        } else if(v.level == 0) {
+            data[k].current_ad = '';
+            data[k].current_effect = '';
+	    next_artifact = countArtifacts(artifacts) + 1;
+	    next_artifact_cost = artifact_costs[next_artifact];
+	    average_level = determineAverage(artifacts);
+            next_effect = 1 + v.effect * Math.pow(average_level + 1, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * (average_level + 1), v.gmax), v.gexpo));
+            next_ad_jump = ((average_level + 1) * v.ad) - (average_level * v.ad);
+            effect_eff = (next_effect/current_effect/cost) * v.rating;
+	    ad_eff = next_ad_jump/totalAD/cost;
+	    data[k].efficiency = effect_eff + ad_eff;
         } else {
             data[k].current_ad = '';
             data[k].current_effect = '';
-        }
+	}
     });
     if(true === regenerate) {
         regenerateArtifacts();
