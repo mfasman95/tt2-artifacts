@@ -96,7 +96,7 @@ function regenerateArtifacts() {
 }
 
 function updateArtifacts() {
-    $('.artifact input[type="text"]').each(function(k,v) {
+    $('.artifact input[type="tel"]').each(function(k,v) {
         artifacts[v.id].level = parseInt(v.value);
     });
     calculate(artifacts, true);
