@@ -5,7 +5,7 @@ function generateArtifacts() {
 	    v.level = 0;
 	}
         div = '<div class="artifact' + (v.active == 1 ? '' : ' ignore') + '" id="'+ k + 'div">' +
-            '<input type="checkbox" id="' + k + 'active" checked="' + (v.active == 1 ? 'checked' : '') + '" onchange="updateActive(k);" /> ' +
+            '<input type="checkbox" id="' + k + 'active" checked="' + (v.active == 1 ? 'checked' : '') + '" onchange="updateActive(\'' + k + '\');" /> ' +
 	    '<label><input id="' + k + '" value="' + v.level + '" type="tel" onchange="updateArtifacts()" />' + v.name + '</label><br />' +
 	    '<span id="' + k + 'effect">';
         if('' != v.current_effect) {
