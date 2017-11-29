@@ -93,7 +93,7 @@ function updateArtifacts() {
 function countArtifacts(data) {
 	var i = 0;
 	$.each(data, function(k,v) {
-		if(v.level == 0) {
+		if(v.level > 0) {
 			i++;
 		}
 	});
