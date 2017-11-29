@@ -4,8 +4,9 @@ function generateArtifacts() {
         if(isNaN(v.level)) {
 	    v.level = 0;
 	}
-        div = '<div class="artifact">' +
-            '<label><input id="' + k + '" value="' + v.level + '" type="tel" onchange="updateArtifacts()" />' + v.name + '</label><br />' +
+        div = '<div class="artifact' + (v.active == 1 ? '' : ' ignore') + '" id="'+ k + 'div">' +
+            '<input type="checkbox" id="' + k + 'active" checked="' + (v.active == 1 ? 'checked' : '') + '" onchange="updateActive(k);" /> ' +
+	    '<label><input id="' + k + '" value="' + v.level + '" type="tel" onchange="updateArtifacts()" />' + v.name + '</label><br />' +
 	    '<span id="' + k + 'effect">';
         if('' != v.current_effect) {
             div += displayEffect(v.current_effect, v.type) + v.bonus;
@@ -40,6 +41,17 @@ function generateArtifacts() {
     window.localStorage.setItem('relic_factor', $('#relic_factor').val());
     window.localStorage.setItem('forcebos', $('#forcebos').val());
     adjustWeights();
+}
+
+function updateActive(k) {
+	if($('#' + k + 'active').is(':checked')) {
+		artifacts[k].active = 1;
+		$('#' + k + 'div').removeClass('ignore');
+	} else {
+		artifacts[k].active = 0;
+		$('#' + k + 'div').addClass('ignore');
+	}
+	window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
 }
 
 function regenerateArtifacts() {
@@ -231,7 +243,7 @@ function determineWinner(data, initial) {
     winner = false;
     litmus = false;
     $.each(data, function(k,v) {
-        if('' !== v.efficiency) {
+        if('' !== v.efficiency && v.active == 1) {
 	    if(initial === false && v.level < 1) {
 		return true;
 	    }
@@ -274,7 +286,7 @@ function calculate(data, regenerate) {
         data[k].efficiency = '';
         data[k].cost = '';
         data[k].displayCost = '';
-        if(v.level > 0) {
+        if(v.level > 0 && v.active = 1) {
 	    current_ad = v.level * v.ad
 	    current_effect = 1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo));
             data[k].current_ad = current_ad;
