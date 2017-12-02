@@ -273,6 +273,7 @@ function acceptSuggestions() {
 	$('#accept').empty();
 	$('#suggestions').empty();
 	$('#relics').val('');
+	$('#relics_decimal').val('');
     calculate(artifacts, true);
 }
 
