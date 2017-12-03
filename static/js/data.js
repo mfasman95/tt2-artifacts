@@ -128,7 +128,7 @@ var artifacts = {
     'gfa' : {
         'active' : 1,
         'sort' : 7,
-        'name' : 'Great Fay Amulet',
+        'name' : 'Great Fay Medallion',
         'bonus' : ' Fairy Gold',
         'rating' : 15,
         'ad' : .4,
