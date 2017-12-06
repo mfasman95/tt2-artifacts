@@ -138,6 +138,7 @@ function adjustWeights() {
             artifacts.ga.rating += 10;
             artifacts.os.rating += 5;
             artifacts.orc.rating += 15;
+            artifacts.lkm.rating += 10;
             break;
         case 'rogue':
             artifacts.tr.rating += 20;
@@ -203,6 +204,7 @@ function adjustWeights() {
             artifacts.ga.rating += 5;
             artifacts.os.rating += 10;          
             artifacts.eoe.rating += 5;
+            artifacts.lkm.rating += 10;
            break;
         case 'ds':
             artifacts.rt.rating += 15;
@@ -213,6 +215,7 @@ function adjustWeights() {
             artifacts.tr.rating += 20;
             artifacts.aom.rating += 15;
             artifacts.eoe.rating += 5;
+            artifacts.lkm.rating += 10;
             break;
         case 'hom':
             artifacts.lp.rating += 15;
@@ -231,7 +234,8 @@ function adjustWeights() {
             artifacts.eof.rating += 5;
             artifacts.dc.rating += 5;
             artifacts.is.rating += 5;
-            break;
+            artifacts.lkm.rating += 10;
+          break;
         case 'fs':
             artifacts.bor.rating += 15;
             artifacts.ga.rating += 15;
@@ -239,6 +243,7 @@ function adjustWeights() {
             artifacts.pt.rating += 15;
             artifacts.hoti.rating += 15;
             artifacts.aom.rating += 5;
+            artifacts.lkm.rating += 10;
             break;
         case 'wc':
             artifacts.pof.rating += 15;
@@ -249,6 +254,7 @@ function adjustWeights() {
             artifacts.coe.rating += 10;
             artifacts.ttt.rating += 10;
             artifacts.hh.rating += 10;
+            artifacts.lkm.rating += 10;
             break;
         case 'sc':
             artifacts.eoe.rating += 15;
@@ -273,6 +279,7 @@ function adjustWeights() {
             artifacts.roc.rating += 15;
             artifacts.bor.rating += 5;
             artifacts.orc.rating += 20;
+            artifacts.lkm.rating += 10;
             break;
     }
     switch($('#sword').val()) {
@@ -512,6 +519,7 @@ function adjustWeights() {
             artifacts.gfa.rating += 10;
             artifacts.zc.rating += 10;
             artifacts.ao.rating += 10;
+            artifacts.lkm.rating += 5;
             break;
         case 'mana':
             artifacts.tm.rating += 15;
@@ -536,6 +544,7 @@ function adjustWeights() {
             artifacts.hoti.rating += 15;
             artifacts.ae.rating += 15;
             artifacts.ms.rating += 15;
+            artifacts.lkm.rating += 10;
             break;
     }
     // Exponential Weight Boost
