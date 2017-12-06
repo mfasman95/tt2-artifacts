@@ -474,6 +474,23 @@ function adjustWeights() {
             artifacts.ms.rating += 15;
             break;
     }
+    // Exponential Weight Boost
+    artifacts.bop.rating += 50;
+    artifacts.hsw.rating += 50;
+    artifacts.dr.rating += 50;
+    artifacts.dh.rating += 50;
+    artifacts.hb.rating += 50;
+    artifacts.hos2.rating += 50;
+    artifacts.ao.rating += 50;
+    artifacts.roc.rating += 50;
+    artifacts.bod.rating += 50;
+    artifacts.hom.rating += 50;
+    artifacts.tp.rating += 50;
+    artifacts.as.rating += 50;
+    artifacts.ig.rating += 50;
+    artifacts.pt.rating += 50;
+    // End Exponential Weight Boost
+    
     calculate(artifacts, true);
 }
 
