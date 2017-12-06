@@ -13,6 +13,13 @@ function adjustWeights() {
           'event_label': $('#hero').val(),
         });
     } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Hero', 'event_label' : window.localStorage.getItem('hero') });}
+    if($('#hero2').val()) {
+        gtag('event', 'Hero Super Type', {
+          'event_category': 'Hero Super Type',
+          'event_action': 'Set',
+          'event_label': $('#hero2').val(),
+        });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Hero Super', 'event_label' : window.localStorage.getItem('hero2') });}
     if($('#spell').val()) {
         gtag('event', 'Spell', {
           'event_category': 'Spell',
@@ -85,6 +92,8 @@ function adjustWeights() {
             artifacts.roc.rating += 10;
             artifacts.eoe.rating += 10;
             artifacts.ga.rating += 10;
+            artifacts.orc.rating += 15;
+            artifacts.lkm.rating += 10;
             break;
         case 'warlord':
             artifacts.hb.rating += 20;
@@ -94,11 +103,15 @@ function adjustWeights() {
             artifacts.tac.rating += 10;
             artifacts.ie.rating += 15;
             artifacts.sor.rating += 10;
+            artifacts.lkm.rating += 10;
             artifacts.ig.rating += 10;
             artifacts.coe.rating += 10;
             artifacts.hos.rating += 10;
             artifacts.roc.rating += 10;
-            break;
+            artifacts.ttt.rating += 10;
+            artifacts.hh.rating += 10;
+            artifacts.orc.rating += 15;
+           break;
         case 'sorcerer':
             artifacts.dh.rating += 20;
             artifacts.is.rating += 10;
@@ -115,6 +128,7 @@ function adjustWeights() {
             artifacts.ss.rating += 15;
             artifacts.hos.rating += 10;
             artifacts.pt.rating += 15;
+            artifacts.hoti.rating += 15;
             artifacts.gfa.rating += 15;
             artifacts.ae.rating += 15;
             artifacts.ms.rating += 15;
@@ -123,6 +137,7 @@ function adjustWeights() {
             artifacts.bor.rating += 5;
             artifacts.ga.rating += 10;
             artifacts.os.rating += 5;
+            artifacts.orc.rating += 15;
             break;
         case 'rogue':
             artifacts.tr.rating += 20;
@@ -143,6 +158,8 @@ function adjustWeights() {
             artifacts.zc.rating += 15;
             artifacts.af.rating += 20;
             artifacts.eotk.rating += 10;
+            artifacts.orc.rating += 5;
+            artifacts.lkm.rating += 10;
             break;
     }
     switch($('#hero').val()) {
@@ -154,6 +171,14 @@ function adjustWeights() {
             break;
         case 'spell':
             artifacts.cota.rating += 20;
+            break;
+    }
+    switch($('#hero2').val()) {
+        case 'ground':
+            artifacts.ttt.rating += 50;
+            break;
+        case 'flying':
+            artifacts.hh.rating += 50;
             break;
     }
     switch($('#spell').val()) {
@@ -184,6 +209,7 @@ function adjustWeights() {
             artifacts.fs.rating += 15;
             artifacts.gok.rating += 15;
             artifacts.pt.rating += 15;
+            artifacts.hoti.rating += 15;
             artifacts.tr.rating += 20;
             artifacts.aom.rating += 15;
             artifacts.eoe.rating += 5;
@@ -193,6 +219,7 @@ function adjustWeights() {
             artifacts.rof.rating += 15;
             artifacts.ts.rating += 15;
             artifacts.pt.rating += 15;
+            artifacts.hoti.rating += 15;
             artifacts.coc.rating += 5;
             artifacts.sov.rating += 5;
             artifacts.hs.rating += 5;
@@ -210,6 +237,7 @@ function adjustWeights() {
             artifacts.ga.rating += 15;
             artifacts.os.rating += 15;
             artifacts.pt.rating += 15;
+            artifacts.hoti.rating += 15;
             artifacts.aom.rating += 5;
             break;
         case 'wc':
@@ -217,7 +245,10 @@ function adjustWeights() {
             artifacts.a.rating += 15;
             artifacts.tac.rating += 15;
             artifacts.pt.rating += 15;
+            artifacts.hoti.rating += 15;
             artifacts.coe.rating += 10;
+            artifacts.ttt.rating += 10;
+            artifacts.hh.rating += 10;
             break;
         case 'sc':
             artifacts.eoe.rating += 15;
@@ -226,6 +257,7 @@ function adjustWeights() {
             artifacts.dh.rating += 15;
             artifacts.ss.rating += 15;
             artifacts.pt.rating += 15;
+            artifacts.hoti.rating += 15;
             artifacts.pof.rating += 5;
             artifacts.a.rating += 5;
             artifacts.tac.rating += 5;
@@ -240,6 +272,7 @@ function adjustWeights() {
             artifacts.os.rating += 10;
             artifacts.roc.rating += 15;
             artifacts.bor.rating += 5;
+            artifacts.orc.rating += 20;
             break;
     }
     switch($('#sword').val()) {
@@ -255,6 +288,8 @@ function adjustWeights() {
             artifacts.tsos.rating += 10;
             artifacts.fb.rating += 10;
             artifacts.cota.rating += 10;
+            artifacts.ttt.rating += 10;
+            artifacts.hh.rating += 10;
             break;
         case 'crit':
             artifacts.aom.rating += 20;
@@ -272,14 +307,20 @@ function adjustWeights() {
         case 'melee':
             artifacts.tsos.rating += 20;
             artifacts.hb.rating += 10;
+            artifacts.ttt.rating += 5;
+            artifacts.hh.rating += 5;
             break;
         case 'ranged':
             artifacts.fb.rating += 20;
             artifacts.hb.rating += 10;
+            artifacts.ttt.rating += 5;
+            artifacts.hh.rating += 5;
             break;
         case 'spell':
             artifacts.cota.rating += 20;
             artifacts.hb.rating += 10;
+            artifacts.ttt.rating += 5;
+            artifacts.hh.rating += 5;
             break;
         case 'tap':
             artifacts.dh.rating += 20;
@@ -357,6 +398,7 @@ function adjustWeights() {
             artifacts.bor.rating += 5;
             artifacts.ga.rating += 5;
             artifacts.os.rating += 5;
+            artifacts.orc.rating += 20;
            break;
         case 'clan':
             artifacts.ie.rating += 20;
@@ -372,7 +414,10 @@ function adjustWeights() {
             artifacts.gok.rating += 5;
             artifacts.coe.rating += 10;
             artifacts.roc.rating += 10;
-            break;
+            artifacts.ttt.rating += 10;
+            artifacts.hh.rating += 10;
+            artifacts.orc.rating += 20;
+           break;
         case 'sc':
             artifacts.eoe.rating += 20;
             artifacts.sg.rating += 10;
@@ -395,6 +440,7 @@ function adjustWeights() {
             artifacts.ms.rating += 10;         
             artifacts.roc.rating += 10;
             artifacts.bor.rating += 5;
+            artifacts.orc.rating += 20;
             break;
     }
     switch($('#pet').val()) {
@@ -411,18 +457,34 @@ function adjustWeights() {
             artifacts.tsos.rating += 10;
             artifacts.fb.rating += 10;
             artifacts.cota.rating += 10;
+            artifacts.ttt.rating += 10;
+            artifacts.hh.rating += 10;
+            artifacts.lkm.rating += 10;
+            artifacts.sor.rating += 10;
             break;
         case 'melee':
             artifacts.tsos.rating += 20;
             artifacts.hb.rating += 10;
+            artifacts.ttt.rating += 5;
+            artifacts.hh.rating += 5;
+            artifacts.lkm.rating += 10;
+            artifacts.sor.rating += 10;
             break;
         case 'ranged':
             artifacts.fb.rating += 20;
             artifacts.hb.rating += 10;
+            artifacts.ttt.rating += 5;
+            artifacts.hh.rating += 5;
+            artifacts.lkm.rating += 10;
+            artifacts.sor.rating += 10;
             break;
         case 'spell':
             artifacts.cota.rating += 20;
             artifacts.hb.rating += 10;
+            artifacts.ttt.rating += 5;
+            artifacts.hh.rating += 5;
+            artifacts.lkm.rating += 10;
+            artifacts.sor.rating += 10;
             break;
         case 'tap':
             artifacts.dh.rating += 20;
@@ -437,6 +499,7 @@ function adjustWeights() {
             artifacts.eoe.rating += 5;
             artifacts.ga.rating += 5;
             artifacts.os.rating += 5;
+            artifacts.lkm.rating += 10;
            break;
         case 'gold':
             artifacts.bop.rating += 20;
@@ -470,6 +533,7 @@ function adjustWeights() {
             artifacts.ho.rating += 15;
             artifacts.ig.rating += 15;
             artifacts.pt.rating += 15;
+            artifacts.hoti.rating += 15;
             artifacts.ae.rating += 15;
             artifacts.ms.rating += 15;
             break;
@@ -489,6 +553,9 @@ function adjustWeights() {
     artifacts.as.rating += 50;
     artifacts.ig.rating += 50;
     artifacts.pt.rating += 50;
+    artifacts.orc.rating += 50;
+    artifacts.ttt.rating += 50;
+    artifacts.hh.rating += 50;
     // End Exponential Weight Boost
     
     calculate(artifacts, true);
