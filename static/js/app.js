@@ -31,6 +31,7 @@ function generateArtifacts() {
     window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
     window.localStorage.setItem('tree', $('#tree').val());
     window.localStorage.setItem('hero', $('#hero').val());
+    window.localStorage.setItem('hero2', $('#hero2').val());
     window.localStorage.setItem('spell', $('#spell').val());
     window.localStorage.setItem('sword', $('#sword').val());
     window.localStorage.setItem('helmet', $('#helmet').val());
@@ -85,6 +86,7 @@ function regenerateArtifacts() {
     window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
     window.localStorage.setItem('tree', $('#tree').val());
     window.localStorage.setItem('hero', $('#hero').val());
+    window.localStorage.setItem('hero2', $('#hero2').val());
     window.localStorage.setItem('spell', $('#spell').val());
     window.localStorage.setItem('sword', $('#sword').val());
     window.localStorage.setItem('helmet', $('#helmet').val());
@@ -408,6 +410,7 @@ if (storageAvailable('localStorage')) {
 	});
     $('#tree').val(window.localStorage.getItem('tree'));
     $('#hero').val(window.localStorage.getItem('hero'));
+    $('#hero2').val(window.localStorage.getItem('hero2'));
     $('#spell').val(window.localStorage.getItem('spell'));
     $('#sword').val(window.localStorage.getItem('sword'));
     $('#helmet').val(window.localStorage.getItem('helmet'));
