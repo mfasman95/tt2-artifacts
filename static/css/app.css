@@ -2,7 +2,7 @@ body { padding: 1rem; }
 div + h3, input + h3, label + h3, p + h3 { padding-top: 2rem; clear: both; }
 label { display: block; }
 .artifact { border: solid 1px black; padding: 1rem; width: 300px; height: 115px; float: left; }
-.artifact input { width: 50px; margin-right: 5px; }
+.artifact input { width: 70px; margin-right: 5px; }
 .artifact input[type="checkbox"] { width: 1rem; margin-right: 0; }
 .artifact label { display: inline-block; margin: 0; color: #000; font-size: 90%; }
 span { font-size: 60%; display: block; }
