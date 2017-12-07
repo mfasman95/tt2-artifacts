@@ -529,12 +529,7 @@ function adjustWeights() {
             artifacts.lkm.rating += 10;
             break;
     }
-    // Exponential Weight Boost
-    artifacts.bop.rating += 50;
-    artifacts.hsw.rating += 50;
-    artifacts.dr.rating += 50;
-    artifacts.dh.rating += 50;
-    artifacts.hb.rating += 50;
+    // Cascading Weight Boost
     artifacts.hos2.rating += 50;
     artifacts.ao.rating += 50;
     artifacts.roc.rating += 50;
@@ -545,7 +540,7 @@ function adjustWeights() {
     artifacts.ig.rating += 50;
     artifacts.pt.rating += 50;
     artifacts.orc.rating += 50;
-    // End Exponential Weight Boost
+    // End Cascading Weight Boost
     
     calculate(artifacts, true);
 }
