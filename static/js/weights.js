@@ -108,8 +108,6 @@ function adjustWeights() {
             artifacts.coe.rating += 10;
             artifacts.hos.rating += 10;
             artifacts.roc.rating += 10;
-            artifacts.ttt.rating += 10;
-            artifacts.hh.rating += 10;
             artifacts.orc.rating += 15;
            break;
         case 'sorcerer':
@@ -252,8 +250,6 @@ function adjustWeights() {
             artifacts.pt.rating += 15;
             artifacts.hoti.rating += 15;
             artifacts.coe.rating += 10;
-            artifacts.ttt.rating += 10;
-            artifacts.hh.rating += 10;
             artifacts.lkm.rating += 10;
             break;
         case 'sc':
@@ -314,20 +310,14 @@ function adjustWeights() {
         case 'melee':
             artifacts.tsos.rating += 20;
             artifacts.hb.rating += 10;
-            artifacts.ttt.rating += 10;
-            artifacts.hh.rating += 5;
             break;
         case 'ranged':
             artifacts.fb.rating += 20;
             artifacts.hb.rating += 10;
-            artifacts.ttt.rating += 10;
-            artifacts.hh.rating += 5;
             break;
         case 'spell':
             artifacts.cota.rating += 20;
             artifacts.hb.rating += 10;
-            artifacts.ttt.rating += 10;
-            artifacts.hh.rating += 5;
             break;
         case 'tap':
             artifacts.dh.rating += 20;
@@ -421,8 +411,6 @@ function adjustWeights() {
             artifacts.gok.rating += 5;
             artifacts.coe.rating += 10;
             artifacts.roc.rating += 10;
-            artifacts.ttt.rating += 20;
-            artifacts.hh.rating += 10;
             artifacts.orc.rating += 20;
            break;
         case 'sc':
@@ -472,24 +460,18 @@ function adjustWeights() {
         case 'melee':
             artifacts.tsos.rating += 20;
             artifacts.hb.rating += 10;
-            artifacts.ttt.rating += 10;
-            artifacts.hh.rating += 5;
             artifacts.lkm.rating += 10;
             artifacts.sor.rating += 10;
             break;
         case 'ranged':
             artifacts.fb.rating += 20;
             artifacts.hb.rating += 10;
-            artifacts.ttt.rating += 10;
-            artifacts.hh.rating += 5;
             artifacts.lkm.rating += 10;
             artifacts.sor.rating += 10;
             break;
         case 'spell':
             artifacts.cota.rating += 20;
             artifacts.hb.rating += 10;
-            artifacts.ttt.rating += 10;
-            artifacts.hh.rating += 5;
             artifacts.lkm.rating += 10;
             artifacts.sor.rating += 10;
             break;
@@ -563,8 +545,6 @@ function adjustWeights() {
     artifacts.ig.rating += 50;
     artifacts.pt.rating += 50;
     artifacts.orc.rating += 50;
-    artifacts.ttt.rating += 50;
-    artifacts.hh.rating += 25;
     // End Exponential Weight Boost
     
     calculate(artifacts, true);
