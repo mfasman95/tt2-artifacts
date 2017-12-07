@@ -56,6 +56,12 @@ function updateActive(k) {
         calculate(artifacts, true);
 }
 
+function checkAll() {
+	$.each(artifacts, function(k,v) {
+		$('#' + k + 'active').prop('checked', true);
+	});
+}
+
 function regenerateArtifacts() {
     $.each(artifacts, function(k,v) {
         if(isNaN(v.level)) {
