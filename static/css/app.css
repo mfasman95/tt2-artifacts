@@ -9,4 +9,4 @@ span { font-size: 60%; display: block; }
 #relics, #forcebos, #relics_decimal { width: 3rem; }
 .light { color: #CCC; }
 .artifact.ignore { color: rgba(66, 66, 66, .2); }
-.artifact.ignore label { color: #000; }
+.artifact.ignore label { color: #CCC; }
