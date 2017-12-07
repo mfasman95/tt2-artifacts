@@ -60,6 +60,7 @@ function checkAll() {
 	$.each(artifacts, function(k,v) {
 		$('#' + k + 'active').prop('checked', true);
 	});
+	calculate(artifacts, true);
 }
 
 function regenerateArtifacts() {
