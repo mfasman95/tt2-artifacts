@@ -59,8 +59,9 @@ function updateActive(k) {
 function checkAll() {
 	$.each(artifacts, function(k,v) {
 		$('#' + k + 'active').prop('checked', true);
+		artifacts[k].active = 1;
 	});
-	calculate(artifacts, true);
+        calculate(artifacts, true);
 }
 
 function regenerateArtifacts() {
