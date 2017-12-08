@@ -530,16 +530,16 @@ function adjustWeights() {
             break;
     }
     // Cascading Weight Boost
-    artifacts.hos2.rating += 25;
-    artifacts.ao.rating += 25;
-    artifacts.roc.rating += 25;
-    artifacts.bod.rating += 25;
-    artifacts.hom.rating += 25;
-    artifacts.tp.rating += 25;
-    artifacts.as.rating += 25;
-    artifacts.ig.rating += 25;
-    artifacts.pt.rating += 25;
-    artifacts.orc.rating += 25;
+    artifacts.hos2.rating += 50;
+    artifacts.ao.rating += 50;
+    artifacts.roc.rating += 50;
+    artifacts.bod.rating += 50;
+    artifacts.hom.rating += 50;
+    artifacts.tp.rating += 50;
+    artifacts.as.rating += 50;
+    artifacts.ig.rating += 50;
+    artifacts.pt.rating += 50;
+    artifacts.orc.rating += 50;
     // End Cascading Weight Boost
     
     calculate(artifacts, true);
