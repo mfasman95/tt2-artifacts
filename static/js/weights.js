@@ -113,7 +113,7 @@ function adjustWeights() {
            artifacts.dh.rating += 5;
            artifacts.ss.rating += 5;
            artifacts.hb.rating += 5;
-           artifacts.crh.rating += 5;
+           artifacts.hos.rating += 5;
            artifacts.tm.rating += 5;
            artifacts.lp.rating += 5;
            artifacts.bor.rating += 5;
@@ -170,7 +170,7 @@ function adjustWeights() {
            artifacts.dh.rating += 5;
            artifacts.ss.rating += 5;
            artifacts.hb.rating += 5;
-           artifacts.crh.rating += 5;
+           artifacts.hos.rating += 5;
            artifacts.tm.rating += 5;
            artifacts.rt.rating += 5;
            artifacts.bor.rating += 5;
