@@ -108,7 +108,7 @@ function adjustWeights() {
            artifacts.sor.rating += 5;
            break;
         case 'sorcerer':
-           artifacts.gfm.rating += 5;
+           artifacts.gfa.rating += 5;
            artifacts.coe.rating += 5;
            artifacts.dh.rating += 5;
            artifacts.ss.rating += 5;
@@ -195,7 +195,7 @@ function adjustWeights() {
            break;
         case 'hom':
            artifacts.bop.rating += 5;
-           artifacts.gfm.rating += 5;
+           artifacts.gfa.rating += 5;
            artifacts.lp.rating += 5;
            artifacts.rof.rating += 5;
            artifacts.ts.rating += 5;
@@ -366,7 +366,7 @@ function adjustWeights() {
            artifacts.hs.rating += 5;
            artifacts.bop.rating += 5;
            artifacts.zc.rating += 5;
-           artifacts.gfm.rating += 5;
+           artifacts.gfa.rating += 5;
            artifacts.coe.rating += 5;
            artifacts.ao.rating += 5;
            artifacts.lp.rating += 5;
