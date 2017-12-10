@@ -39,6 +39,7 @@ function generateArtifacts() {
     window.localStorage.setItem('aura', $('#aura').val());
     window.localStorage.setItem('slash', $('#slash').val());
     window.localStorage.setItem('pet', $('#pet').val());
+    window.localStorage.setItem('active', $('#active').val());
     window.localStorage.setItem('relic_factor', $('#relic_factor').val());
     window.localStorage.setItem('forcebos', $('#forcebos').val());
     adjustWeights();
@@ -102,6 +103,7 @@ function regenerateArtifacts() {
     window.localStorage.setItem('aura', $('#aura').val());
     window.localStorage.setItem('slash', $('#slash').val());
     window.localStorage.setItem('pet', $('#pet').val());
+    window.localStorage.setItem('active', $('#active').val());
     window.localStorage.setItem('relic_factor', $('#relic_factor').val());
     window.localStorage.setItem('forcebos', $('#forcebos').val());
 }
@@ -426,6 +428,7 @@ if (storageAvailable('localStorage')) {
     $('#aura').val(window.localStorage.getItem('aura'));
     $('#slash').val(window.localStorage.getItem('slash'));
     $('#pet').val(window.localStorage.getItem('pet'));
+    $('#active').val(window.localStorage.getItem('active'));
     $('#relic_factor').val(window.localStorage.getItem('relic_factor'));
     $('#forcebos').val(window.localStorage.getItem('forcebos'));
 }
