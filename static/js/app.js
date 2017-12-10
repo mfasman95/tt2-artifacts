@@ -148,7 +148,7 @@ function generateUpgrades() {
 	    new_artifact_litmus = true;
     } else {
 	    $.each(artifacts, function(k,v) {
-		if(v.level < 1 && v.active == 1 && v.rating >= 100) {
+		if(v.level < 1 && v.active == 1 && v.rating >= 50) {
 		    new_artifact_litmus = true;
 		}
 	    });
