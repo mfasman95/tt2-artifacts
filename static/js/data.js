@@ -508,7 +508,7 @@ var artifacts = {
         'sort' : 25,
         'name' : 'Avian Feather',
         'bonus' : ' Inactive Damage',
-        'rating' : 10,
+        'rating' : 5,
         'ad' : .3,
         'effect' : .2,
         'max' : -1,
