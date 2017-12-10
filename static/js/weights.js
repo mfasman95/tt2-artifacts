@@ -69,474 +69,351 @@ function adjustWeights() {
           'event_label': $('#pet').val(),
         });
     } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Pet', 'event_label' : window.localStorage.getItem('pet') });}
+    if($('#active').val()) {
+        gtag('event', 'Active', {
+          'event_category': 'Active',
+          'event_action': 'Set',
+          'event_label': $('#active').val(),
+        });
+    } else { gtag('event', 'Fail', { 'event_category' : 'Fail', 'event_action' : 'Active', 'event_label' : window.localStorage.getItem('active') });}
     $.each(origWeights, function(k,v) {
         artifacts[k].rating = v.rating;
     });
     switch($('#tree').val()) {
         case 'knight':
-            artifacts.dh.rating += 20;
-            artifacts.hb.rating += 5;
-            artifacts.aom.rating += 10;
-            artifacts.foe.rating += 15;
-            artifacts.bor.rating += 10;
-            artifacts.ga.rating += 10;
-            artifacts.os.rating += 10;
-            artifacts.ss.rating += 15;
-            artifacts.tr.rating += 20;
-            artifacts.tms.rating += 10;
-            artifacts.pof.rating += 5;
-            artifacts.a.rating += 5;
-            artifacts.tac.rating += 5;
-            artifacts.hb.rating += 5;
-            artifacts.hos2.rating += 10;
-            artifacts.roc.rating += 10;
-            artifacts.eoe.rating += 10;
-            artifacts.ga.rating += 10;
-            artifacts.orc.rating += 15;
-            artifacts.lkm.rating += 10;
-            break;
+           artifacts.dh.rating += 5;
+           artifacts.ss.rating += 5;
+           artifacts.hb.rating += 5;
+           artifacts.foe.rating += 5;
+           artifacts.ao.rating += 5;
+           artifacts.rt.rating += 5;
+           artifacts.bor.rating += 5;
+           artifacts.pof.rating += 5;
+           artifacts.fs.rating += 5;
+           artifacts.ga.rating += 5;
+           artifacts.a.rating += 5;
+           artifacts.gok.rating += 5;
+           artifacts.os.rating += 5;
+           artifacts.tac.rating += 5;
+           artifacts.sor.rating += 5;
+           break;
         case 'warlord':
-            artifacts.hb.rating += 20;
-            artifacts.coc.rating += 10;
-            artifacts.pof.rating += 10;
-            artifacts.a.rating += 10;
-            artifacts.tac.rating += 10;
-            artifacts.ie.rating += 15;
-            artifacts.sor.rating += 10;
-            artifacts.lkm.rating += 10;
-            artifacts.ig.rating += 10;
-            artifacts.coe.rating += 10;
-            artifacts.hos.rating += 10;
-            artifacts.roc.rating += 10;
-            artifacts.orc.rating += 15;
+           artifacts.coc.rating += 5;
+           artifacts.hb.rating += 5;
+           artifacts.ie.rating += 5;
+           artifacts.pof.rating += 5;
+           artifacts.a.rating += 5;
+           artifacts.tac.rating += 5;
+           artifacts.eof.rating += 5;
+           artifacts.sor.rating += 5;
            break;
         case 'sorcerer':
-            artifacts.dh.rating += 20;
-            artifacts.is.rating += 10;
-            artifacts.tm.rating += 15;
-            artifacts.lp.rating += 15;
-            artifacts.eoe.rating += 15;
-            artifacts.rof.rating += 15;
-            artifacts.sg.rating += 15;
-            artifacts.ip.rating += 15;
-            artifacts.ts.rating += 15;
-            artifacts.ho.rating += 15;
-            artifacts.ig.rating += 5;
-            artifacts.coe.rating += 10;
-            artifacts.ss.rating += 15;
-            artifacts.hos.rating += 10;
-            artifacts.pt.rating += 15;
-            artifacts.hoti.rating += 15;
-            artifacts.gfa.rating += 15;
-            artifacts.ae.rating += 15;
-            artifacts.ms.rating += 15;
-            artifacts.tr.rating += 20;
-            artifacts.roc.rating += 10;
-            artifacts.bor.rating += 5;
-            artifacts.ga.rating += 10;
-            artifacts.os.rating += 5;
-            artifacts.orc.rating += 15;
-            artifacts.lkm.rating += 10;
-            break;
+           artifacts.gfm.rating += 5;
+           artifacts.coe.rating += 5;
+           artifacts.dh.rating += 5;
+           artifacts.ss.rating += 5;
+           artifacts.hb.rating += 5;
+           artifacts.crh.rating += 5;
+           artifacts.tm.rating += 5;
+           artifacts.lp.rating += 5;
+           artifacts.bor.rating += 5;
+           artifacts.pof.rating += 5;
+           artifacts.eoe.rating += 5;
+           artifacts.hoti.rating += 5;
+           artifacts.pt.rating += 5;
+           artifacts.rof.rating += 5;
+           artifacts.ga.rating += 5;
+           artifacts.a.rating += 5;
+           artifacts.sg.rating += 5;
+           artifacts.ip.rating += 5;
+           artifacts.ts.rating += 5;
+           artifacts.os.rating += 5;
+           artifacts.tac.rating += 5;
+           artifacts.ho.rating += 5;
+           artifacts.ae.rating += 5;
+           artifacts.ms.rating += 5;
+           artifacts.is.rating += 5;
+           artifacts.sor.rating += 5;
+           break;
         case 'rogue':
-            artifacts.tr.rating += 20;
-            artifacts.aom.rating += 10;
-            artifacts.bop.rating += 10;
-            artifacts.hs.rating += 10;
-            artifacts.sov.rating += 10;
-            artifacts.hsw.rating += 5;
-            artifacts.dr.rating += 5;
-            artifacts.rt.rating += 10;
-            artifacts.fs.rating += 10;
-            artifacts.gok.rating += 10;
-            artifacts.foe.rating += 5;
-            artifacts.hos2.rating += 5;
-            artifacts.ie.rating += 5;
-            artifacts.eoe.rating += 5;
-            artifacts.ig.rating += 5;
-            artifacts.zc.rating += 15;
-            artifacts.af.rating += 20;
-            artifacts.eotk.rating += 10;
-            artifacts.orc.rating += 5;
-            artifacts.lkm.rating += 10;
-            break;
+           artifacts.bop.rating += 5;
+           artifacts.zc.rating += 5;
+           artifacts.tr.rating += 5;
+           artifacts.rt.rating += 5;
+           artifacts.fs.rating += 5;
+           artifacts.gok.rating += 5;
+           artifacts.aom.rating += 5;
+           break;
     }
     switch($('#hero').val()) {
         case 'melee':
-            artifacts.tsos.rating += 20;
-            break;
+           artifacts.tsos.rating += 5;
+           break;
         case 'ranged':
-            artifacts.fb.rating += 20;
-            break;
+           artifacts.fb.rating += 5;
+           break;
         case 'spell':
-            artifacts.cota.rating += 20;
-            break;
+           artifacts.cota.rating += 5;
+           break;
     }
     switch($('#hero2').val()) {
         case 'ground':
-            artifacts.ttt.rating += 50;
-            break;
+           artifacts.ttt.rating += 5;
+           break;
         case 'flying':
-            artifacts.hh.rating += 50;
-            break;
+           artifacts.hh.rating += 5;
+           break;
     }
     switch($('#spell').val()) {
         case 'hs':
-            artifacts.tr.rating += 20;
-            artifacts.dh.rating += 15;
-            artifacts.tm.rating += 15;
-            artifacts.ip.rating += 15;
-            artifacts.coe.rating += 15;
-            artifacts.ss.rating += 15;
-            artifacts.hos.rating += 15;
-            artifacts.pt.rating += 15;
-            artifacts.pof.rating += 5;
-            artifacts.a.rating += 5;
-            artifacts.tac.rating += 5;
-            artifacts.hb.rating += 5;
-            artifacts.rt.rating += 5;
-            artifacts.fs.rating += 5;
-            artifacts.gok.rating += 5;
-            artifacts.aom.rating += 5;
-            artifacts.bor.rating += 5;
-            artifacts.ga.rating += 5;
-            artifacts.os.rating += 10;          
-            artifacts.eoe.rating += 5;
-            artifacts.lkm.rating += 10;
+           artifacts.coe.rating += 5;
+           artifacts.dh.rating += 5;
+           artifacts.ss.rating += 5;
+           artifacts.hb.rating += 5;
+           artifacts.crh.rating += 5;
+           artifacts.tm.rating += 5;
+           artifacts.rt.rating += 5;
+           artifacts.bor.rating += 5;
+           artifacts.pof.rating += 5;
+           artifacts.fs.rating += 5;
+           artifacts.ga.rating += 5;
+           artifacts.a.rating += 5;
+           artifacts.ip.rating += 5;
+           artifacts.gok.rating += 5;
+           artifacts.os.rating += 5;
+           artifacts.tac.rating += 5;
+           artifacts.sor.rating += 5;
            break;
         case 'ds':
-            artifacts.rt.rating += 15;
-            artifacts.fs.rating += 15;
-            artifacts.gok.rating += 15;
-            artifacts.pt.rating += 15;
-            artifacts.hoti.rating += 15;
-            artifacts.tr.rating += 20;
-            artifacts.aom.rating += 15;
-            artifacts.eoe.rating += 5;
-            artifacts.lkm.rating += 10;
-            break;
+           artifacts.dh.rating += 5;
+           artifacts.ss.rating += 5;
+           artifacts.tr.rating += 5;
+           artifacts.rt.rating += 5;
+           artifacts.fs.rating += 5;
+           artifacts.gok.rating += 5;
+           artifacts.aom.rating += 5;
+           break;
         case 'hom':
-            artifacts.lp.rating += 15;
-            artifacts.rof.rating += 15;
-            artifacts.ts.rating += 15;
-            artifacts.pt.rating += 15;
-            artifacts.hoti.rating += 15;
-            artifacts.coc.rating += 5;
-            artifacts.sov.rating += 5;
-            artifacts.hs.rating += 5;
-            artifacts.bop.rating += 5;
-            artifacts.ao.rating += 5;
-            artifacts.gfa.rating += 5;
-            artifacts.zc.rating += 5;
-            artifacts.coe.rating += 5;
-            artifacts.eof.rating += 5;
-            artifacts.dc.rating += 5;
-            artifacts.is.rating += 5;
-            artifacts.lkm.rating += 10;
-          break;
+           artifacts.bop.rating += 5;
+           artifacts.gfm.rating += 5;
+           artifacts.lp.rating += 5;
+           artifacts.rof.rating += 5;
+           artifacts.ts.rating += 5;
+           artifacts.is.rating += 5;
+           break;
         case 'fs':
-            artifacts.bor.rating += 15;
-            artifacts.ga.rating += 15;
-            artifacts.os.rating += 15;
-            artifacts.pt.rating += 15;
-            artifacts.hoti.rating += 15;
-            artifacts.aom.rating += 5;
-            artifacts.lkm.rating += 10;
-            break;
+           artifacts.dh.rating += 5;
+           artifacts.ss.rating += 5;
+           artifacts.hb.rating += 5;
+           artifacts.bor.rating += 5;
+           artifacts.ga.rating += 5;
+           artifacts.os.rating += 5;
+           break;
         case 'wc':
-            artifacts.pof.rating += 15;
-            artifacts.a.rating += 15;
-            artifacts.tac.rating += 15;
-            artifacts.pt.rating += 15;
-            artifacts.hoti.rating += 15;
-            artifacts.coe.rating += 10;
-            artifacts.lkm.rating += 10;
-            break;
+           artifacts.hb.rating += 5;
+           artifacts.pof.rating += 5;
+           artifacts.a.rating += 5;
+           artifacts.tac.rating += 5;
+           artifacts.sor.rating += 5;
+           break;
         case 'sc':
-            artifacts.eoe.rating += 15;
-            artifacts.sg.rating += 15;
-            artifacts.ho.rating += 15;
-            artifacts.dh.rating += 15;
-            artifacts.ss.rating += 15;
-            artifacts.pt.rating += 15;
-            artifacts.hoti.rating += 15;
-            artifacts.pof.rating += 5;
-            artifacts.a.rating += 5;
-            artifacts.tac.rating += 5;
-            artifacts.hb.rating += 5;
-            artifacts.rt.rating += 5;
-            artifacts.fs.rating += 5;
-            artifacts.gok.rating += 5;
-            artifacts.tr.rating += 20;
-            artifacts.aom.rating += 5;
-            artifacts.bor.rating += 5;
-            artifacts.ga.rating += 5;
-            artifacts.os.rating += 10;
-            artifacts.roc.rating += 15;
-            artifacts.bor.rating += 5;
-            artifacts.orc.rating += 20;
-            artifacts.lkm.rating += 10;
-            break;
+           artifacts.dh.rating += 5;
+           artifacts.ss.rating += 5;
+           artifacts.hb.rating += 5;
+           artifacts.rt.rating += 5;
+           artifacts.bor.rating += 5;
+           artifacts.pof.rating += 5;
+           artifacts.eoe.rating += 5;
+           artifacts.fs.rating += 5;
+           artifacts.ga.rating += 5;
+           artifacts.a.rating += 5;
+           artifacts.sg.rating += 5;
+           artifacts.gok.rating += 5;
+           artifacts.os.rating += 5;
+           artifacts.tac.rating += 5;
+           artifacts.ho.rating += 5;
+           artifacts.sor.rating += 5;
+           break;
     }
     switch($('#sword').val()) {
         case 'all':
-            artifacts.dr.rating += 20;
-            artifacts.hsw.rating += 20;
-            artifacts.af.rating += 10;
-            artifacts.hs2.rating += 10;
-            artifacts.td.rating += 10;
-            break;
+           artifacts.dr.rating += 5;
+           break;
         case 'hero':
-            artifacts.hb.rating += 20;
-            artifacts.tsos.rating += 10;
-            artifacts.fb.rating += 10;
-            artifacts.cota.rating += 10;
-            artifacts.ttt.rating += 20;
-            artifacts.hh.rating += 10;
-            break;
+           artifacts.hb.rating += 5;
+           artifacts.sor.rating += 5;
+           break;
         case 'crit':
-            artifacts.aom.rating += 20;
-            artifacts.tr.rating += 20;
-            artifacts.rt.rating += 10;
-            artifacts.fs.rating += 10;
-            artifacts.gok.rating += 10;
-            artifacts.ss.rating += 10;
-            artifacts.bor.rating += 5;
-            artifacts.ga.rating += 5;
-            artifacts.os.rating += 5;
-            break;
+           artifacts.tr.rating += 5;
+           artifacts.rt.rating += 5;
+           artifacts.fs.rating += 5;
+           artifacts.gok.rating += 5;
+           artifacts.aom.rating += 5;
+           break;
     }
     switch($('#helmet').val()) {
         case 'melee':
-            artifacts.tsos.rating += 20;
-            artifacts.hb.rating += 10;
-            break;
+           artifacts.tsos.rating += 5;
+           break;
         case 'ranged':
-            artifacts.fb.rating += 20;
-            artifacts.hb.rating += 10;
-            break;
+           artifacts.fb.rating += 5;
+           break;
         case 'spell':
-            artifacts.cota.rating += 20;
-            artifacts.hb.rating += 10;
-            break;
+           artifacts.cota.rating += 5;
+           break;
         case 'tap':
-            artifacts.dh.rating += 20;
-            artifacts.ss.rating += 20;
-            artifacts.tms.rating += 10;
-            artifacts.pof.rating += 5;
-            artifacts.a.rating += 5;
-            artifacts.tac.rating += 5;
-            artifacts.hb.rating += 5;
-            artifacts.bor.rating += 5;
-            artifacts.eoe.rating += 5;
-            artifacts.ga.rating += 5;
-            artifacts.os.rating += 10;
-            artifacts.aom.rating += 5;
-            break;
+           artifacts.dh.rating += 5;
+           artifacts.ss.rating += 5;
+           artifacts.tr.rating += 5;
+           artifacts.bor.rating += 5;
+           artifacts.pof.rating += 5;
+           artifacts.ga.rating += 5;
+           artifacts.a.rating += 5;
+           artifacts.os.rating += 5;
+           artifacts.tac.rating += 5;
+           break;
     }
     switch($('#chest').val()) {
         case 'all':
-            artifacts.bop.rating += 20;
-            artifacts.sov.rating += 10;
-            artifacts.coc.rating += 10;
-            artifacts.hs.rating += 10;
-            artifacts.eof.rating += 10;
-            artifacts.dc.rating += 10;
-            artifacts.gfa.rating += 10;
-            artifacts.zc.rating += 10;
-            artifacts.ao.rating += 5;
-            artifacts.td.rating += 5;
-            break;
+           artifacts.sov.rating += 5;
+           artifacts.td.rating += 5;
+           artifacts.as2.rating += 5;
+           break;
         case 'boss':
-            artifacts.hs.rating += 20;
-            artifacts.hs2.rating += 5;
-            break;
+           artifacts.hs.rating += 5;
+           artifacts.zc.rating += 5;
+           artifacts.hs2.rating += 5;
+           artifacts.wod.rating += 5;
+           break;
         case 'chest':
-            artifacts.coc.rating += 20;
-            artifacts.eof.rating += 20;
-            break;
+           artifacts.coc.rating += 5;
+           artifacts.td.rating += 5;
+           artifacts.eof.rating += 5;
+           artifacts.as2.rating += 5;
+           break;
     }
     switch($('#aura').val()) {
         case 'multi':
-            artifacts.eotk.rating += 20;
-            break;
+           artifacts.eotk.rating += 5;
+           break;
         case 'chest':
-            artifacts.coc.rating += 20;
-            artifacts.eof.rating += 20;
-            break;
+           artifacts.coc.rating += 5;
+           artifacts.eof.rating += 5;
+           break;
         case 'crit':
-            artifacts.aom.rating += 20;
-            artifacts.tr.rating += 20;
-            artifacts.rt.rating += 10;
-            artifacts.fs.rating += 10;
-            artifacts.gok.rating += 10;
-            artifacts.ss.rating += 10;
-            artifacts.os.rating += 5;
-            break;
+           artifacts.tr.rating += 5;
+           artifacts.rt.rating += 5;
+           artifacts.fs.rating += 5;
+           artifacts.gok.rating += 5;
+           artifacts.aom.rating += 5;
+           break;
     }
     switch($('#slash').val()) {
         case 'pet':
-            artifacts.foe.rating += 20;
-            artifacts.hos2.rating += 20;
-            artifacts.dh.rating += 20;
-            artifacts.ss.rating += 15;
-            artifacts.pof.rating += 5;
-            artifacts.a.rating += 5;
-            artifacts.tac.rating += 5;
-            artifacts.hb.rating += 5;
-            artifacts.rt.rating += 5;
-            artifacts.fs.rating += 5;
-            artifacts.gok.rating += 5;
-            artifacts.tr.rating += 20;
-            artifacts.aom.rating += 5;
-            artifacts.ao.rating += 5;
-            artifacts.hos2.rating += 10;
-            artifacts.roc.rating += 10;
-            artifacts.bor.rating += 5;
-            artifacts.ga.rating += 5;
-            artifacts.os.rating += 5;
-            artifacts.orc.rating += 20;
+           artifacts.dh.rating += 5;
+           artifacts.foe.rating += 5;
            break;
         case 'clan':
-            artifacts.ie.rating += 20;
-            artifacts.dh.rating += 10;
-            artifacts.ig.rating += 15;
-            artifacts.hos.rating += 15;
-            artifacts.pof.rating += 5;
-            artifacts.a.rating += 5;
-            artifacts.tac.rating += 5;
-            artifacts.hb.rating += 5;
-            artifacts.rt.rating += 5;
-            artifacts.fs.rating += 5;
-            artifacts.gok.rating += 5;
-            artifacts.coe.rating += 10;
-            artifacts.roc.rating += 10;
-            artifacts.orc.rating += 20;
+           artifacts.ie.rating += 5;
            break;
         case 'sc':
-            artifacts.eoe.rating += 20;
-            artifacts.sg.rating += 10;
-            artifacts.ho.rating += 10;
-            artifacts.dh.rating += 20;
-            artifacts.ig.rating += 15;
-            artifacts.ss.rating += 15;
-            artifacts.pof.rating += 5;
-            artifacts.a.rating += 5;
-            artifacts.tac.rating += 5;
-            artifacts.hb.rating += 5;
-            artifacts.rt.rating += 5;
-            artifacts.fs.rating += 5;
-            artifacts.gok.rating += 5;
-            artifacts.tr.rating += 20;
-            artifacts.aom.rating += 5;
-            artifacts.bor.rating += 5;
-            artifacts.ga.rating += 5;
-            artifacts.os.rating += 5;
-            artifacts.ms.rating += 10;         
-            artifacts.roc.rating += 10;
-            artifacts.bor.rating += 5;
-            artifacts.orc.rating += 20;
-            break;
+           artifacts.dh.rating += 5;
+           artifacts.ss.rating += 5;
+           artifacts.bor.rating += 5;
+           artifacts.eoe.rating += 5;
+           artifacts.ga.rating += 5;
+           artifacts.sg.rating += 5;
+           artifacts.os.rating += 5;
+           artifacts.ho.rating += 5;
+           break;
     }
     switch($('#pet').val()) {
         case 'all':
-            artifacts.dr.rating += 20;
-            artifacts.hsw.rating += 20;
-            artifacts.af.rating += 10;
-            artifacts.hs2.rating += 10;
-            artifacts.td.rating += 10;
-            artifacts.roc.rating += 10;
-            break;
+           artifacts.hsw.rating += 5;
+           artifacts.dr.rating += 5;
+           break;
         case 'hero':
-            artifacts.hb.rating += 20;
-            artifacts.tsos.rating += 10;
-            artifacts.fb.rating += 10;
-            artifacts.cota.rating += 10;
-            artifacts.ttt.rating += 20;
-            artifacts.hh.rating += 10;
-            artifacts.lkm.rating += 10;
-            artifacts.sor.rating += 10;
-            break;
+           artifacts.hb.rating += 5;
+           artifacts.pof.rating += 5;
+           artifacts.a.rating += 5;
+           artifacts.tac.rating += 5;
+           artifacts.sor.rating += 5;
+           break;
         case 'melee':
-            artifacts.tsos.rating += 20;
-            artifacts.hb.rating += 10;
-            artifacts.lkm.rating += 10;
-            artifacts.sor.rating += 10;
-            break;
+           artifacts.tsos.rating += 5;
+           break;
         case 'ranged':
-            artifacts.fb.rating += 20;
-            artifacts.hb.rating += 10;
-            artifacts.lkm.rating += 10;
-            artifacts.sor.rating += 10;
-            break;
+           artifacts.fb.rating += 5;
+           break;
         case 'spell':
-            artifacts.cota.rating += 20;
-            artifacts.hb.rating += 10;
-            artifacts.lkm.rating += 10;
-            artifacts.sor.rating += 10;
-            break;
+           artifacts.cota.rating += 5;
+           break;
         case 'tap':
-            artifacts.dh.rating += 20;
-            artifacts.dh.rating += 15;
-            artifacts.ss.rating += 20;
-            artifacts.tms.rating += 10;
-            artifacts.pof.rating += 5;
-            artifacts.a.rating += 5;
-            artifacts.tac.rating += 5;
-            artifacts.hb.rating += 5;
-            artifacts.bor.rating += 5;
-            artifacts.eoe.rating += 5;
-            artifacts.ga.rating += 5;
-            artifacts.os.rating += 5;
-            artifacts.lkm.rating += 10;
+           artifacts.dh.rating += 5;
+           artifacts.ss.rating += 5;
+           artifacts.hb.rating += 5;
+           artifacts.bor.rating += 5;
+           artifacts.pof.rating += 5;
+           artifacts.ga.rating += 5;
+           artifacts.a.rating += 5;
+           artifacts.os.rating += 5;
+           artifacts.tac.rating += 5;
+           artifacts.sor.rating += 5;
            break;
         case 'gold':
-            artifacts.bop.rating += 20;
-            artifacts.sov.rating += 10;
-            artifacts.coc.rating += 10;
-            artifacts.hs.rating += 10;
-            artifacts.eof.rating += 10;
-            artifacts.dc.rating += 10;
-            artifacts.coe.rating += 10;
-            artifacts.gfa.rating += 10;
-            artifacts.zc.rating += 10;
-            artifacts.ao.rating += 10;
-            artifacts.lkm.rating += 5;
-            break;
+           artifacts.sov.rating += 5;
+           artifacts.coc.rating += 5;
+           artifacts.hs.rating += 5;
+           artifacts.bop.rating += 5;
+           artifacts.zc.rating += 5;
+           artifacts.gfm.rating += 5;
+           artifacts.coe.rating += 5;
+           artifacts.ao.rating += 5;
+           artifacts.lp.rating += 5;
+           artifacts.rof.rating += 5;
+           artifacts.ts.rating += 5;
+           artifacts.eof.rating += 5;
+           artifacts.dc.rating += 5;
+           break;
         case 'mana':
-            artifacts.tm.rating += 15;
-            artifacts.ip.rating += 15;
-            artifacts.rt.rating += 15;
-            artifacts.fs.rating += 15;
-            artifacts.gok.rating += 15;
-            artifacts.lp.rating += 15;
-            artifacts.rof.rating += 15;
-            artifacts.ts.rating += 15;
-            artifacts.bor.rating += 15;
-            artifacts.ga.rating += 15;
-            artifacts.os.rating += 15;
-            artifacts.pof.rating += 15;
-            artifacts.a.rating += 15;
-            artifacts.tac.rating += 15;
-            artifacts.eoe.rating += 15;
-            artifacts.sg.rating += 15;
-            artifacts.ho.rating += 15;
-            artifacts.ig.rating += 15;
-            artifacts.pt.rating += 15;
-            artifacts.hoti.rating += 15;
-            artifacts.ae.rating += 15;
-            artifacts.ms.rating += 15;
-            artifacts.lkm.rating += 10;
-            break;
+           artifacts.ig.rating += 5;
+           artifacts.tm.rating += 5;
+           artifacts.rt.rating += 5;
+           artifacts.lp.rating += 5;
+           artifacts.bor.rating += 5;
+           artifacts.pof.rating += 5;
+           artifacts.eoe.rating += 5;
+           artifacts.hoti.rating += 5;
+           artifacts.pt.rating += 5;
+           artifacts.fs.rating += 5;
+           artifacts.rof.rating += 5;
+           artifacts.ga.rating += 5;
+           artifacts.a.rating += 5;
+           artifacts.sg.rating += 5;
+           artifacts.ip.rating += 5;
+           artifacts.gok.rating += 5;
+           artifacts.os.rating += 5;
+           artifacts.ts.rating += 5;
+           artifacts.tac.rating += 5;
+           artifacts.ho.rating += 5;
+           artifacts.ae.rating += 5;
+           artifacts.ms.rating += 5;
+           break;
+    }
+    switch($('#active').val()) {
+        case 'offline':
+           artifacts.zc.rating += 50;
+           artifacts.af.rating += 50;
+           break;
     }
     // Cascading Weight Boost
-    artifacts.roc.rating += 50;
-    artifacts.bod.rating += 50;
-    artifacts.hom.rating += 50;
-    artifacts.tp.rating += 50;
-    artifacts.as.rating += 50;
-    artifacts.pt.rating += 50;
-    artifacts.orc.rating += 50;
+    artifacts.hsw.rating += 25;
+    artifacts.dr.rating += 25;
+    artifacts.roc.rating += 25;
+    artifacts.bod.rating += 25;
+    artifacts.hom.rating += 25;
+    artifacts.tp.rating += 25;
+    artifacts.as.rating += 25;
     // End Cascading Weight Boost
     
     calculate(artifacts, true);
