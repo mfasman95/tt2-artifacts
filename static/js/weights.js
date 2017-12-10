@@ -402,8 +402,8 @@ function adjustWeights() {
     }
     switch($('#active').val()) {
         case 'offline':
-           artifacts.zc.rating += 50;
-           artifacts.af.rating += 50;
+           artifacts.zc.rating += 25;
+           artifacts.af.rating += 25;
            break;
     }
     // Cascading Weight Boost
