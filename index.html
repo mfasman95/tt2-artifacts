@@ -105,6 +105,13 @@
             <option value="splash">Splash Damage</option>
         </select>
     </label>
+    <label>Do you primarily play with the app...
+        <select id="active" onchange="adjustWeights();">
+            <option value="-1">- Select One -</option>
+            <option value="online">Open</option>
+            <option value="offline">Closed</option>
+        </select>
+    </label>
     <h3>Your Artifact Status</h3>
     <p>Fill out the current level of your artifacts. If you want to ignore an artifact uncheck it. If you don't have it yet, set it to 0 and I'll attempt to prompt you when you should save up and roll the dice on a new artifact.</p>
     <button onclick="checkAll();">Check All Artifacts</button>
