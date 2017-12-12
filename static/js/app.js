@@ -53,7 +53,6 @@ function updateActive(k) {
 		artifacts[k].active = 0;
 		$('#' + k + 'div').addClass('ignore');
 	}
-	window.localStorage.setItem('artifacts', JSON.stringify(artifacts));
         calculate(artifacts, true);
 }
 
@@ -61,8 +60,9 @@ function checkAll() {
 	$.each(artifacts, function(k,v) {
 		$('#' + k + 'active').prop('checked', true);
 		artifacts[k].active = 1;
+		$('#' + k + 'div').removeClass('ignore');
 	});
-        calculate(artifacts, true);
+	calculate(artifacts, true);
 }
 
 function regenerateArtifacts() {
