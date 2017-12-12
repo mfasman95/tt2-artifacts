@@ -380,9 +380,9 @@ var artifacts = {
     'hh' : {
         'active' : 1,
         'sort' : 19,
-        'name' : 'Hermes\' Helmet',
+        'name' : 'Helm of Hermes',
         'bonus' : ' Flying Hero Damage',
-        'rating' : 25,
+        'rating' : 15,
         'ad' : .3,
         'effect' : .15,
         'max' : -1,
