@@ -145,21 +145,27 @@ function adjustWeights() {
     }
     switch($('#hero').val()) {
         case 'melee':
-           artifacts.tsos.rating += 5;
+           artifacts.tsos.rating += 20;
+           artifacts.fb.rating += 5;
+           artifacts.cota.rating += 5;
            break;
         case 'ranged':
-           artifacts.fb.rating += 5;
+           artifacts.fb.rating += 20;
+           artifacts.tsos.rating += 5;
+           artifacts.cota.rating += 5;
            break;
         case 'spell':
-           artifacts.cota.rating += 5;
+           artifacts.cota.rating += 20;
+           artifacts.tsos.rating += 5;
+           artifacts.fb.rating += 5;
            break;
     }
     switch($('#hero2').val()) {
         case 'ground':
-           artifacts.ttt.rating += 5;
+           artifacts.ttt.rating += 20;
            break;
         case 'flying':
-           artifacts.hh.rating += 5;
+           artifacts.hh.rating += 20;
            break;
     }
     switch($('#spell').val()) {
@@ -180,6 +186,7 @@ function adjustWeights() {
            artifacts.os.rating += 5;
            artifacts.tac.rating += 5;
            artifacts.sor.rating += 5;
+           artifacts.hoti.rating += 45;
            break;
         case 'ds':
            artifacts.dh.rating += 5;
@@ -261,7 +268,7 @@ function adjustWeights() {
            artifacts.dh.rating += 5;
            artifacts.ss.rating += 5;
            artifacts.tr.rating += 5;
-           artifacts.bor.rating += 5;
+           artifacts.bor.rating += 15;
            artifacts.ga.rating += 5;
            artifacts.a.rating += 5;
            artifacts.os.rating += 5;
@@ -306,20 +313,22 @@ function adjustWeights() {
     switch($('#slash').val()) {
         case 'pet':
            artifacts.dh.rating += 5;
-           artifacts.foe.rating += 5;
+           artifacts.foe.rating += 15;
+           artifacts.aom.rating += 10;
            break;
         case 'clan':
-           artifacts.ie.rating += 5;
+           artifacts.ie.rating += 15;
            break;
         case 'sc':
            artifacts.dh.rating += 5;
            artifacts.ss.rating += 5;
            artifacts.bor.rating += 5;
-           artifacts.eoe.rating += 5;
+           artifacts.eoe.rating += 15;
            artifacts.ga.rating += 5;
            artifacts.sg.rating += 5;
            artifacts.os.rating += 5;
-           artifacts.ho.rating += 5;
+           artifacts.ho.rating += 10;
+           artifacts.aom.rating += 10;
            break;
     }
     switch($('#pet').val()) {
@@ -396,8 +405,8 @@ function adjustWeights() {
     }
     switch($('#active').val()) {
         case 'offline':
-           artifacts.zc.rating += 25;
-           artifacts.af.rating += 25;
+           artifacts.zc.rating += 20;
+           artifacts.af.rating += 20;
            break;
     }
     // Cascading Weight Boost
