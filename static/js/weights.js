@@ -88,7 +88,6 @@ function adjustWeights() {
            artifacts.ao.rating += 5;
            artifacts.rt.rating += 5;
            artifacts.bor.rating += 5;
-           artifacts.pof.rating += 5;
            artifacts.fs.rating += 5;
            artifacts.ga.rating += 5;
            artifacts.a.rating += 5;
@@ -117,7 +116,6 @@ function adjustWeights() {
            artifacts.tm.rating += 5;
            artifacts.lp.rating += 5;
            artifacts.bor.rating += 5;
-           artifacts.pof.rating += 5;
            artifacts.eoe.rating += 5;
            artifacts.hoti.rating += 5;
            artifacts.pt.rating += 5;
@@ -174,7 +172,6 @@ function adjustWeights() {
            artifacts.tm.rating += 5;
            artifacts.rt.rating += 5;
            artifacts.bor.rating += 5;
-           artifacts.pof.rating += 5;
            artifacts.fs.rating += 5;
            artifacts.ga.rating += 5;
            artifacts.a.rating += 5;
@@ -222,7 +219,6 @@ function adjustWeights() {
            artifacts.hb.rating += 5;
            artifacts.rt.rating += 5;
            artifacts.bor.rating += 5;
-           artifacts.pof.rating += 5;
            artifacts.eoe.rating += 5;
            artifacts.fs.rating += 5;
            artifacts.ga.rating += 5;
@@ -266,7 +262,6 @@ function adjustWeights() {
            artifacts.ss.rating += 5;
            artifacts.tr.rating += 5;
            artifacts.bor.rating += 5;
-           artifacts.pof.rating += 5;
            artifacts.ga.rating += 5;
            artifacts.a.rating += 5;
            artifacts.os.rating += 5;
@@ -353,7 +348,6 @@ function adjustWeights() {
            artifacts.ss.rating += 5;
            artifacts.hb.rating += 5;
            artifacts.bor.rating += 5;
-           artifacts.pof.rating += 5;
            artifacts.ga.rating += 5;
            artifacts.a.rating += 5;
            artifacts.os.rating += 5;
