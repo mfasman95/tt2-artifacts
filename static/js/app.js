@@ -1,3 +1,10 @@
+function toggleDark() {
+    $('body').removeClass('dark');
+    if($('#dark').prop('checked') == true) {
+	$('body').addClass('dark');
+    }
+}
+
 function generateArtifacts() {
     $('#artifacts').empty();
     $.each(artifacts, function(k,v) {
