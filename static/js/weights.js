@@ -175,7 +175,7 @@ function adjustWeights() {
            artifacts.ss.rating += 5;
            artifacts.hb.rating += 5;
            artifacts.hos.rating += 5;
-           artifacts.tm.rating += 5;
+           artifacts.tm.rating += 25;
            artifacts.rt.rating += 5;
            artifacts.bor.rating += 5;
            artifacts.fs.rating += 5;
@@ -313,17 +313,17 @@ function adjustWeights() {
     switch($('#slash').val()) {
         case 'pet':
            artifacts.dh.rating += 5;
-           artifacts.foe.rating += 15;
+           artifacts.foe.rating += 25;
            artifacts.aom.rating += 10;
            break;
         case 'clan':
-           artifacts.ie.rating += 15;
+           artifacts.ie.rating += 25;
            break;
         case 'sc':
            artifacts.dh.rating += 5;
            artifacts.ss.rating += 5;
            artifacts.bor.rating += 5;
-           artifacts.eoe.rating += 15;
+           artifacts.eoe.rating += 25;
            artifacts.ga.rating += 5;
            artifacts.sg.rating += 5;
            artifacts.os.rating += 5;
