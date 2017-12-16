@@ -1,4 +1,9 @@
 function adjustWeights() {
+    gtag('event', 'Dark Mode', {
+      'event_category': 'Dark Mode',
+      'event_action': 'Setting',
+      'event_label': ($('#dark').prop('checked') ? 'Dark' : 'Light' ),
+    });
     if($('#tree').val()) {
         gtag('event', 'Skill Tree', {
           'event_category': 'Skill Tree',
