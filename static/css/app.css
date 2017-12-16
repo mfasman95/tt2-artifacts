@@ -10,3 +10,6 @@ span { font-size: 60%; display: block; }
 .light { color: #CCC; }
 .artifact.ignore { color: rgba(66, 66, 66, .2); }
 .artifact.ignore label { color: #CCC; }
+body.dark { background: black; color: white; }
+body.dark .artifact label { color: white; }
+body.dark .artifact.ignore { color: rgba(255, 255, 255, .2); }
