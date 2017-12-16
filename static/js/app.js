@@ -2,8 +2,10 @@ function toggleDark() {
     $('body').removeClass('dark');
     if($('#dark').prop('checked') == true) {
 	$('body').addClass('dark');
+	window.localStorage.setItem('dark', true);
+    } else {
+	window.localStorage.setItem('dark', false);
     }
-    window.localStorage.setItem('dark', $('#dark').prop('checked'));
 }
 
 function generateArtifacts() {
