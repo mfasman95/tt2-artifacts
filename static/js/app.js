@@ -3,10 +3,8 @@ function toggleDark() {
     if($('#dark').prop('checked') == true) {
 	$('body').addClass('dark');
 	window.localStorage.setItem('dark', 1);
-	    console.log('dark');
     } else {
 	window.localStorage.setItem('dark', 0);
-	    console.log('light');
     }
 }
 
@@ -443,8 +441,9 @@ if (storageAvailable('localStorage')) {
     $('#active').val(window.localStorage.getItem('active'));
     $('#relic_factor').val(window.localStorage.getItem('relic_factor'));
     $('#forcebos').val(window.localStorage.getItem('forcebos'));
-    $('#dark').prop('checked', window.localStorage.getItem('dark'));
-console.log(window.localStorage.getItem('dark'));
+    if(window.localStorage.getItem('dark') == "1") {
+	$('#dark').prop('checked', true);
+    }
     toggleDark();
 }
 
