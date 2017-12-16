@@ -3,6 +3,7 @@ function toggleDark() {
     if($('#dark').prop('checked') == true) {
 	$('body').addClass('dark');
     }
+    window.localStorage.setItem('dark', $('#dark').prop('checked'));
 }
 
 function generateArtifacts() {
@@ -438,6 +439,8 @@ if (storageAvailable('localStorage')) {
     $('#active').val(window.localStorage.getItem('active'));
     $('#relic_factor').val(window.localStorage.getItem('relic_factor'));
     $('#forcebos').val(window.localStorage.getItem('forcebos'));
+    $('#dark').prop('checked', window.localStorage.getItem('dark'));
+    toggleDark();
 }
 
 origWeights = jQuery.extend(true, {}, artifacts);
