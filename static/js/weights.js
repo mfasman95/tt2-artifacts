@@ -84,6 +84,7 @@ function adjustWeights() {
 			artifacts.cota.rating += .6;
 			artifacts.ttt.rating += .6;
 			artifacts.hh.rating += .3;
+			artifacts.orc.rating += 2;
 			artifacts.ig.rating += 2.6;
 			artifacts.rt.rating += .5;
 			artifacts.bor.rating += .5;
@@ -102,6 +103,7 @@ function adjustWeights() {
 			artifacts.cota.rating += .5;
 			artifacts.ttt.rating += .5;
 			artifacts.hh.rating += .25;
+			artifacts.orc.rating += 2;
 			artifacts.ig.rating += 1.5;
 			artifacts.rt.rating += .5;
 			artifacts.pof.rating += 1;
