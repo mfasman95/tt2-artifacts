@@ -141,12 +141,12 @@ function generateUpgrades() {
 	new_artifact_litmus = false;
 	if(false != new_artifact && artifacts[new_artifact].level < 1) {
 		new_artifact_litmus = true;
-	} else {
-		$.each(artifacts, function(k,v) {
-			if(v.level < 1 && v.active == 1 && v.rating >= 5) {
-				new_artifact_litmus = true;
-			}
-		});
+//	} else {
+//		$.each(artifacts, function(k,v) {
+//			if(v.level < 1 && v.active == 1 && v.rating >= 5) {
+//				new_artifact_litmus = true;
+//			}
+//		});
 	}
 	if(new_artifact_litmus === true) {
 		$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
