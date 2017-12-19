@@ -760,7 +760,7 @@ var artifacts = {
 		'sort' : 37,
 		'name' : 'Laborer\'s Pendant',
 		'bonus' : ' Hand of Midas Gold Bonus',
-		'rating' : 3,
+		'rating' : 2,
 		'ad' : .2,
 		'effect' : .1,
 		'max' : -1,
