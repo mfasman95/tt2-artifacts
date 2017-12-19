@@ -120,13 +120,13 @@ function adjustWeights() {
 	}
 	switch($('#hero').val()) {
 		case 'melee':
-			artifacts.tsos.rating += .5;
+			artifacts.tsos.rating += 1;
 			break;
 		case 'ranged':
-			artifacts.fb.rating += .5;
+			artifacts.fb.rating += 1;
 			break;
 		case 'spell':
-			artifacts.cota.rating += .5;
+			artifacts.cota.rating += 1;
 			break;
 	}
 	switch($('#hero2').val()) {
