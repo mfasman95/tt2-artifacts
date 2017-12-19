@@ -54,9 +54,6 @@ function adjustWeights() {
 			artifacts.ie.rating += 2;
 			artifacts.orc.rating += 2;
 			artifacts.hos.rating += 1;
-			artifacts.bod.rating += 1;
-			artifacts.hom.rating += 1;
-			artifacts.as.rating += 1;
 			artifacts.ig.rating += 1.5;
 			artifacts.rt.rating += .5;
 			artifacts.pof.rating += 2;
@@ -72,8 +69,6 @@ function adjustWeights() {
 			artifacts.ttt.rating += .5;
 			artifacts.hh.rating += .25;
 			artifacts.hos.rating += 1;
-			artifacts.bod.rating += .75;
-			artifacts.hom.rating += 1;
 			artifacts.ig.rating += 3;
 			artifacts.tm.rating += 2;
 			artifacts.rt.rating += .5;
@@ -89,9 +84,6 @@ function adjustWeights() {
 			artifacts.cota.rating += .6;
 			artifacts.ttt.rating += .6;
 			artifacts.hh.rating += .3;
-			artifacts.bod.rating += .6;
-			artifacts.hom.rating += .6;
-			artifacts.as.rating += 1;
 			artifacts.ig.rating += 2.6;
 			artifacts.rt.rating += .5;
 			artifacts.bor.rating += .5;
@@ -110,9 +102,6 @@ function adjustWeights() {
 			artifacts.cota.rating += .5;
 			artifacts.ttt.rating += .5;
 			artifacts.hh.rating += .25;
-			artifacts.bod.rating += .75;
-			artifacts.hom.rating += 1;
-			artifacts.as.rating += 1;
 			artifacts.ig.rating += 1.5;
 			artifacts.rt.rating += .5;
 			artifacts.pof.rating += 1;
