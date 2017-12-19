@@ -307,7 +307,7 @@ function calculate(data, regenerate) {
 				data[k].displayCost = displayTruncated(cost);
 				next_effect = 1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo));
 				next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
-				effect_eff = ((next_effect - current_effect) ^ v.rating)/cost;
+				effect_eff = ((next_effect/current_effect) ^ v.rating)/cost;
 				ad_eff = next_ad_jump/totalAD/cost;
 				data[k].efficiency = effect_eff + ad_eff;
 			}
@@ -328,7 +328,7 @@ function calculate(data, regenerate) {
 				}
 			}
 			next_ad_jump = ((average_level + 1) * v.ad) - (average_level * v.ad);
-			effect_eff = ((next_effect - current_effect) ^ v.rating)/(next_artifact_cost + cost);
+			effect_eff = ((next_effect/current_effect) ^ v.rating)/(next_artifact_cost + cost);
 			ad_eff = next_ad_jump/totalAD/(next_artifact_cost + cost);
 			data[k].efficiency = effect_eff + ad_eff;
 		} else {
