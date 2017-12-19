@@ -1,146 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/app.css" />
-  </head>
-  <body>
-    <h1>Tap Titans 2 Artifact Upgrade Optimizer</h1>
-    <h2>Game Version 2.4.2</h2>
-    <p>This tool is intended to help you determine how to best spend your relics to upgrade your artifacts based on overall artifact tiers, but customized to your playstyle. In particular it is useful for identifying boosts in AD that you might not otherwise capitalize on because they are not your primary artifacts. If you find any errors or have any suggestions, feel free to reach out to me on reddit, /u/tsukinoooo</p>
-    <p><label><input type="checkbox" id="dark" onchange="toggleDark();" /> Enable Dark Wolf Mode</label></p>
-    <h3>What are your priorities?</h3>
-    <p>Answer the following questions to improve the weighting of different artifacts to best suit your play style. Note, even if all your pets are at 100%, please pick the one that best fits your play style.</p>
-    <label>Which skill tree is your primary tree?
-        <select id="tree" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="knight">Knight</option>
-            <option value="warlord">Warlord</option>
-            <option value="sorcerer">Sorcerer</option>
-            <option value="rogue">Rogue</option>
-        </select>
-    </label>
-    <label>Which type of hero is your specialty?
-        <select id="hero" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="melee">Melee</option>
-            <option value="ranged">Ranged</option>
-            <option value="spell">Spell</option>
-        </select>
-    </label>
-    <label>Is your specialty hero Ground or Flying?
-        <select id="hero2" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="ground">Ground</option>
-            <option value="flying">Flying</option>
-        </select>
-    </label>
-    <label>Which is the most important spell to you?
-        <select id="spell" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="hs">Heavenly Strike</option>
-            <option value="ds">Deadly Strike</option>
-            <option value="hom">Hand of Midas</option>
-            <option value="fs">Fire Sword</option>
-            <option value="wc">War Cry</option>
-            <option value="sc">Shadow Clone</option>
-        </select>
-    </label>
-    <label>Which sword equipment bonus do you use?
-        <select id="sword" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="all">All Damage</option>
-            <option value="hero">Hero Damange</option>
-            <option value="crit">Critical Strike Damage</option>
-        </select>
-    </label>
-    <label>Which helmet equipment bonus do you use?
-        <select id="helmet" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="melee">Melee Hero Damage</option>
-            <option value="ranged">Ranged Hero Damange</option>
-            <option value="spell">Spell Hero Damage</option>
-            <option value="tap">Sword Master Damage</option>
-        </select>
-    </label>
-    <label>Which chest equipment bonus do you use?
-        <select id="chest" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="all">All Gold</option>
-            <option value="boss">Boss Gold</option>
-            <option value="chest">Chesterson Gold</option>
-        </select>
-    </label>
-    <label>Which aura equipment bonus do you use?
-        <select id="aura" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="multi">Multiple Spawn Chance</option>
-            <option value="chest">Chesterson Chance</option>
-            <option value="crit">Crit Chance</option>
-        </select>
-    </label>
-    <label>Which slash equipment bonus do you use?
-        <select id="slash" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="pet">Pet Damage</option>
-            <option value="clan">Clan Ship Damage</option>
-            <option value="sc">Shadow Clone Damage</option>
-        </select>
-    </label>
-    <label>Which pet bonus do you use?
-        <select id="pet" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="all">All Damage</option>
-            <option value="hero">All Hero Damage</option>
-            <option value="melee">Melee Hero Damage</option>
-            <option value="ranged">Ranged Hero Damage</option>
-            <option value="spell">Spell Hero Damage</option>
-            <option value="tap">Tap Damage</option>
-            <option value="gold">All Gold</option>
-            <option value="mana">Mana Regen</option>
-            <option value="splash">Splash Damage</option>
-        </select>
-    </label>
-    <label>Do you primarily play with the app...
-        <select id="active" onchange="adjustWeights();">
-            <option value="-1">- Select One -</option>
-            <option value="online">Open</option>
-            <option value="offline">Closed</option>
-        </select>
-    </label>
-    <h3>Your Artifact Status</h3>
-    <p>Fill out the current level of your artifacts. If you want to ignore an artifact uncheck it. If you don't have it yet, set it to 0 and I'll attempt to prompt you when you should save up and roll the dice on a new artifact.</p>
-    <button onclick="checkAll();">Check All Artifacts</button>
-    <div id="artifacts"></div>
-    <h3>Your Available Relics</h3>
-    <p>Enter the total number of relics you're willing to spend to receive an upgrade list below. (The two numbers are for the whole numbers and on the right the decimals, for ease of entry.)</p>
-    <input id="relics" type="tel" /> <strong> . </strong> <input id="relics_decimal" type="tel" /> <select id="relic_factor"><option value="_"> </option><option value="K">K</option><option value="M">M</option><option value="B">B</option><option value="T">T</option></select> <input type="submit" value="Generate" onclick="generateUpgrades()" ;/><br />
-    Force up to <input id="forcebos" type="tel" value="0" /> BoS
-    <h3>Suggested Upgrades</h3>
-    <p>If you purchase all these upgrades, hit the Complete button to update the Artifact Status table and clear the results.</p>
-    <p id="new_artifact">&#x00A0;</p>
-    <ul id="suggestions"></ul>
-    <div id="accept"></div>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
+	</head>
+	<body>
+		<h1>Tap Titans 2 Artifact Upgrade Optimizer</h1>
+		<h2>Game Version 2.4.2</h2>
+		<p>This tool is intended to help you determine how to best spend your relics to upgrade your artifacts based on overall artifact tiers, but customized to your playstyle. In particular it is useful for identifying boosts in AD that you might not otherwise capitalize on because they are not your primary artifacts. If you find any errors or have any suggestions, feel free to reach out to me on reddit, /u/tsukinoooo</p>
+		<p><label><input type="checkbox" id="dark" onchange="toggleDark();" /> Enable Dark Wolf Mode</label></p>
+		<h3>What is your playstyle?</h3>
+		<p>Answer the following questions to improve the weighting of different artifacts to best suit your play style.</p>
+		<label>Which build do you primarily use?
+			<select id="build" onchange="adjustWeights();">
+				<option value="-1">- Select One -</option>
+				<option value="cs">Clan Ship</option>
+				<option value="hs">Heavenly Strike</option>
+				<option value="pet">Pet</option>
+				<option value="sc">Shadow Clone</option>
+			</select>
+		</label>
+		<label>Which type of hero is your specialty?
+			<select id="hero" onchange="adjustWeights();">
+				<option value="-1">- Select One -</option>
+				<option value="melee">Melee</option>
+				<option value="ranged">Ranged</option>
+				<option value="spell">Spell</option>
+			</select>
+		</label>
+		<label>Is your specialty hero Ground or Flying?
+			<select id="hero2" onchange="adjustWeights();">
+				<option value="-1">- Select One -</option>
+				<option value="ground">Ground</option>
+				<option value="flying">Flying</option>
+			</select>
+		</label>
+		<label>Which chest equipment bonus do you use?
+			<select id="chest" onchange="adjustWeights();">
+				<option value="-1">- Select One -</option>
+				<option value="all">All Gold</option>
+				<option value="boss">Boss Gold</option>
+				<option value="chest">Chesterson Gold</option>
+			</select>
+		</label>
+		<label>Do you primarily play ...
+			<select id="active" onchange="adjustWeights();">
+				<option value="-1">- Select One -</option>
+				<option value="online">Online</option>
+				<option value="offline">Offline</option>
+			</select>
+		</label>
+		<h3>Your Artifact Status</h3>
+		<p>Fill out the current level of your artifacts. If you want to ignore an artifact uncheck it. If you don't have it yet, set it to 0 and I'll attempt to prompt you when you should save up and roll the dice on a new artifact.</p>
+		<button onclick="checkAll();">Check All Artifacts</button>
+		<div id="artifacts"></div>
+		<h3>Your Available Relics</h3>
+		<p>Enter the total number of relics you're willing to spend to receive an upgrade list below. (The two numbers are for the whole numbers and on the right the decimals, so you can make it match what you see in the game for ease of entry.)</p>
+		<input id="relics" type="tel" /> <strong> . </strong> <input id="relics_decimal" type="tel" /> <select id="relic_factor"><option value="_"> </option><option value="K">K</option><option value="M">M</option><option value="B">B</option><option value="T">T</option></select> <input type="submit" value="Generate" onclick="generateUpgrades()" ;/><br />
+		Force up to <input id="forcebos" type="tel" value="0" /> BoS
+		<h3>Suggested Upgrades</h3>
+		<p>If you purchase all these upgrades, hit the Complete button to update the Artifact Status table and clear the results.</p>
+		<p id="new_artifact">&#x00A0;</p>
+		<ul id="suggestions"></ul>
+		<div id="accept"></div>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77025911-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-77025911-2');
-    </script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/weights.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77025911-2"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-77025911-2');
+		</script>
+
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="js/jquery-3.2.1.slim.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/data.js"></script>
+		<script src="js/weights.js"></script>
+		<script src="js/app.js"></script>
+	</body>
 </html>
