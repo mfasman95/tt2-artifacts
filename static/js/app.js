@@ -298,7 +298,7 @@ function calculate(data, regenerate) {
 				cost = Math.pow(v.level + 1, v.cexpo) * v.ccoef;
 				data[k].cost= cost;
 				data[k].displayCost = displayTruncated(cost);
-				next_effect = 1 + v.effect * Math.pow(v.level + 1, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * (v.level + 1), v.gmax), v.gexpo));
+				next_effect = 1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo));
 				next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
 				effect_eff = ((next_effect - current_effect) ^ v.rating)/cost;
 				ad_eff = next_ad_jump/totalAD/cost;
@@ -310,12 +310,12 @@ function calculate(data, regenerate) {
 			i = 1;
 			cost = 0;
 			if(v.max == -1 || v.max > average_level) {
-				next_effect = 1 + v.effect * Math.pow(average_level, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * average_level, v.gmax), v.gexpo));
+				next_effect = 1 + v.effect * Math.pow(average_level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * average_level, v.gmax)), v.gexpo));
 				while(i < average_level) { 
 					cost += Math.pow(i++ + 1, v.cexpo) * v.ccoef;
 				}
 			} else  {
-				next_effect = 1 + v.effect * Math.pow(v.max, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * v.max, v.gmax), v.gexpo));
+				next_effect = 1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo));
 				while(i < v.max) { 
 					cost += Math.pow(i++ + 1, v.cexpo) * v.ccoef;
 				}
