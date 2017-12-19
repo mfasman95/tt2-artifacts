@@ -248,13 +248,6 @@ function determineWinner(data, initial) {
 				winner = k;
 				litmus = v.efficiency;
 			} else if(litmus < v.efficiency || (initial === false && v.max > 0)) {
-				console.log(k);
-				console.log(v.name);
-				console.log(litmus);
-				console.log(v.efficiency);
-				console.log(v.max);
-				console.log(litmus < v.efficiency);
-				console.log('=-=-=-=-=-=');
 				winner = k;
 				if(v.max > 0) {
 					return false;
@@ -288,10 +281,10 @@ function calculate(data, regenerate) {
 	next_artifact = countArtifacts(artifacts) + 1;
 	next_artifact_cost = artifact_costs[next_artifact];
 	average_level = determineAverage(artifacts);
-	totalAD = 0;
-	$.each(data, function(k,v) {
-		totalAD += v.level * v.ad;
-	});
+//	totalAD = 0;
+//	$.each(data, function(k,v) {
+//		totalAD += v.level * v.ad;
+//	});
 	$.each(data, function(k,v) {
 		data[k].efficiency = '';
 		data[k].cost = '';
@@ -314,22 +307,22 @@ function calculate(data, regenerate) {
 		} else if(v.level == 0 && next_artifact_cost != -1) {
 			data[k].current_ad = '';
 			data[k].current_effect = '';
-			i = 1;
-			cost = 0;
+//			i = 1;
+//			cost = 0;
 			if(v.max == -1 || v.max > average_level) {
 				next_effect = 1 + v.effect * Math.pow(average_level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * average_level, v.gmax)), v.gexpo));
-				while(i < average_level) { 
-					cost += Math.pow(i++ + 1, v.cexpo) * v.ccoef;
-				}
+//				while(i < average_level) { 
+//					cost += Math.pow(i++ + 1, v.cexpo) * v.ccoef;
+//				}
 			} else  {
 				next_effect = 1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo));
-				while(i < v.max) { 
-					cost += Math.pow(i++ + 1, v.cexpo) * v.ccoef;
-				}
+//				while(i < v.max) { 
+//					cost += Math.pow(i++ + 1, v.cexpo) * v.ccoef;
+//				}
 			}
 			next_ad_jump = average_level * v.ad;
-			effect_eff = (next_effect ^ v.rating)/(next_artifact_cost + cost);
-			ad_eff = next_ad_jump/(next_artifact_cost + cost);
+			effect_eff = (next_effect ^ v.rating)/next_artifact_cost;
+			ad_eff = next_ad_jump/next_artifact_cost;
 			data[k].efficiency = effect_eff + ad_eff;
 		} else {
 			data[k].current_ad = '';
