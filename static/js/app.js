@@ -298,11 +298,6 @@ function calculate(data, regenerate) {
 				cost = Math.pow(v.level + 1, v.cexpo) * v.ccoef;
 				data[k].cost= cost;
 				data[k].displayCost = displayTruncated(cost);
-				
-(AD_eff*(next_effect/current_effect)^rating)    ^1/next_cost
-				
-				
-				
 				next_effect = 1 + v.effect * Math.pow(v.level + 1, 1 + (v.cexpo - 1) * Math.pow(Math.min(v.grate * (v.level + 1), v.gmax), v.gexpo));
 				next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
 				effect_eff = ((next_effect - current_effect) ^ v.rating)/cost;
