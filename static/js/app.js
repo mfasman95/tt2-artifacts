@@ -247,7 +247,7 @@ function determineWinner(data, initial) {
 			if(winner === false) {
 				winner = k;
 				litmus = v.efficiency;
-			} else if(litmus < v.efficiency || v.max > 0) {
+			} else if(litmus < v.efficiency || (initial === false && v.max > 0)) {
 				console.log(k);
 				console.log(v.name);
 				console.log(litmus);
