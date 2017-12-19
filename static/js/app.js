@@ -308,7 +308,7 @@ function calculate(data, regenerate) {
 				next_effect = 1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo));
 				next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
 				effect_eff = ((next_effect - current_effect) ^ v.rating)/cost;
-				ad_eff = next_ad_jump/totalAD/cost;
+				ad_eff = next_ad_jump/cost;
 				data[k].efficiency = effect_eff + ad_eff;
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1) {
@@ -327,9 +327,9 @@ function calculate(data, regenerate) {
 					cost += Math.pow(i++ + 1, v.cexpo) * v.ccoef;
 				}
 			}
-			next_ad_jump = ((average_level + 1) * v.ad) - (average_level * v.ad);
-			effect_eff = ((next_effect - current_effect) ^ v.rating)/(next_artifact_cost + cost);
-			ad_eff = next_ad_jump/totalAD/(next_artifact_cost + cost);
+			next_ad_jump = average_level * v.ad;
+			effect_eff = (next_effect ^ v.rating)/(next_artifact_cost + cost);
+			ad_eff = next_ad_jump/(next_artifact_cost + cost);
 			data[k].efficiency = effect_eff + ad_eff;
 		} else {
 			data[k].current_ad = '';
