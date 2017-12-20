@@ -43,6 +43,26 @@ function adjustWeights() {
 		artifacts[k].rating = v.rating;
 	});
 	switch($('#build').val()) {
+		case 'tap':
+			artifacts.dh.rating += 2;
+			artifacts.hb.rating += .5;
+			artifacts.tsos.rating += .5;
+			artifacts.fb.rating += .5;
+			artifacts.cota.rating += .5;
+			artifacts.ttt.rating += .5;
+			artifacts.hh.rating += .25;
+			artifacts.ss.rating += 1;
+			artifacts.tr.rating += 1;
+			break;
+		case 'hero':
+			artifacts.hb.rating += 2;
+			artifacts.tsos.rating += 1;
+			artifacts.fb.rating += 1;
+			artifacts.cota.rating += 1;
+			artifacts.ttt.rating += 1;
+			artifacts.hh.rating += .5;
+			artifacts.pof.rating += 2;
+			break;
 		case 'cs':
 			artifacts.hb.rating += 1;
 			artifacts.tsos.rating += 1;
