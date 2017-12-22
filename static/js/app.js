@@ -1,3 +1,7 @@
+winner_e = '';
+winner_n = '';
+winner_value = -1000;
+
 function toggleDark() {
 	$('body').removeClass('dark');
 	if($('#dark').prop('checked') == true) {
@@ -137,18 +141,7 @@ function generateUpgrades() {
 	$('#new_artifact').empty();
 	window.localStorage.setItem('relic_factor', $('#relic_factor').val())
 	window.localStorage.setItem('forcebos', $('#forcebos').val());
-	new_artifact = determineWinner(artifacts, true);
-	new_artifact_litmus = false;
-	if(false != new_artifact && artifacts[new_artifact].level < 1) {
-		new_artifact_litmus = true;
-//	} else {
-//		$.each(artifacts, function(k,v) {
-//			if(v.level < 1 && v.active == 1 && v.rating >= 5) {
-//				new_artifact_litmus = true;
-//			}
-//		});
-	}
-	if(new_artifact_litmus === true) {
+	if(winner_e == winner_n) {
 		$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
 	}
 	forceBOS = parseInt($('#forcebos').val());
@@ -199,23 +192,17 @@ function generateUpgrades() {
 		}
 	}
 	while(true) {
-		winner = determineWinner(temp_artifacts, false);
-		if(winner === false) {
-			console.log('false winner');
-			break;
-		} else {
-			if(relics >= temp_artifacts[winner].cost) {
-				if(undefined == upgrades[winner]) {
-					upgrades[winner] = 1;
-				} else {
-					upgrades[winner]++;
-				}
-				relics -= temp_artifacts[winner].cost;
-				temp_artifacts[winner].level++;
-				calculate(temp_artifacts, false);
+		if(relics >= temp_artifacts[winner_e].cost) {
+			if(undefined == upgrades[winner_e]) {
+				upgrades[winner_e] = 1;
 			} else {
-				break;
+				upgrades[winner_e]++;
 			}
+			relics -= temp_artifacts[winner_e].cost;
+			temp_artifacts[winner_e].level++;
+			calculate(temp_artifacts, false);
+		} else {
+			break;
 		}
 	}
 	litmus = false;
@@ -234,30 +221,6 @@ function generateUpgrades() {
 	});
 	$('#suggestions').empty().append(suggestions);
 	$('#accept').empty().append('<input type="submit" value="Complete" onclick="acceptSuggestions();" />');
-}
-
-function determineWinner(data, initial) {
-	winner = false;
-	litmus = false;
-	$.each(data, function(k,v) {
-		if('' !== v.efficiency && v.active == 1) {
-			if(initial === false && v.level < 1) {
-				return true;
-			}
-			if(winner === false) {
-				winner = k;
-				litmus = v.efficiency;
-			} else if(litmus < v.efficiency || (initial === false && v.max > 0)) {
-				winner = k;
-				if(v.max > 0) {
-					return false;
-				} else {
-					litmus = v.efficiency;
-				}
-			}
-		}
-	});
-	return(winner);
 }
 
 function acceptSuggestions() {
@@ -302,7 +265,12 @@ function calculate(data, regenerate) {
 				next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
 				effect_eff = ((next_effect - current_effect) ^ v.rating)/cost;
 				ad_eff = next_ad_jump/cost;
-				data[k].efficiency = effect_eff + ad_eff;
+				eff = effect_eff + ad_eff;
+				data[k].efficiency = eff;
+				if(eff > winner_value) {
+					winner_e = k;
+					winner_value = eff;
+				}
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1) {
 			data[k].current_ad = '';
@@ -323,7 +291,13 @@ function calculate(data, regenerate) {
 			next_ad_jump = average_level * v.ad;
 			effect_eff = (next_effect ^ v.rating)/next_artifact_cost;
 			ad_eff = next_ad_jump/next_artifact_cost;
-			data[k].efficiency = effect_eff + ad_eff;
+			eff = effect_eff + ad_eff;
+			data[k].efficiency = eff;
+			if(eff > winner_value) {
+				winner_e = k;
+				winner_n = k;
+				winner_value = eff;
+			}
 		} else {
 			data[k].current_ad = '';
 			data[k].current_effect = '';
