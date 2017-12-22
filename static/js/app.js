@@ -306,6 +306,7 @@ function calculate(data, regenerate) {
 	if(true === regenerate) {
 		regenerateArtifacts();
 	}
+	winner_value = -1000;
 }
 
 function displayPct(value) {
