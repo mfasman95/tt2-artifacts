@@ -268,8 +268,15 @@ function calculate(data, regenerate) {
 				eff = effect_eff + ad_eff;
 				data[k].efficiency = eff;
 				if(eff > winner_value) {
+					console.log('existing');
+					console.log(k);
+					console.log(eff);
+					console.log(winner_value);
 					winner_e = k;
 					winner_value = eff;
+					console.log(winner_e);
+					console.log(winner_n);
+					console.log(winner_value);
 				}
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1) {
@@ -294,9 +301,16 @@ function calculate(data, regenerate) {
 			eff = effect_eff + ad_eff;
 			data[k].efficiency = eff;
 			if(eff > winner_value) {
+				console.log('existing');
+				console.log(k);
+				console.log(eff);
+				console.log(winner_value);
 				winner_e = k;
 				winner_n = k;
 				winner_value = eff;
+				console.log(winner_e);
+				console.log(winner_n);
+				console.log(winner_value);
 			}
 		} else {
 			data[k].current_ad = '';
@@ -307,6 +321,10 @@ function calculate(data, regenerate) {
 		regenerateArtifacts();
 	}
 	winner_value = -1000;
+	console.log('over');
+	console.log(winner_e);
+	console.log(winner_n);
+	console.log(winner_value);
 }
 
 function displayPct(value) {
