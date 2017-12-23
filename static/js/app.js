@@ -141,7 +141,7 @@ function generateUpgrades() {
 	$('#new_artifact').empty();
 	window.localStorage.setItem('relic_factor', $('#relic_factor').val())
 	window.localStorage.setItem('forcebos', $('#forcebos').val());
-	if(winner_e == winner_n) {
+	if(winner_n != '') {
 		$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
 	}
 	forceBOS = parseInt($('#forcebos').val());
@@ -255,7 +255,7 @@ function calculate(data, regenerate) {
 		data[k].efficiency = '';
 		data[k].cost = '';
 		data[k].displayCost = '';
-		if(v.level > 0) {
+		if(v.level > 0 && v.active == 1) {
 			current_ad = v.level * v.ad
 			current_effect = 1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo));
 			data[k].current_ad = current_ad;
@@ -272,10 +272,11 @@ function calculate(data, regenerate) {
 				data[k].efficiency = eff;
 				if(eff > winner_value) {
 					winner_e = k;
+					winner_n = '';
 					winner_value = eff;
 				}
 			}
-		} else if(v.level == 0 && next_artifact_cost != -1) {
+		} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1) {
 			data[k].current_ad = '';
 			data[k].current_effect = '';
 //			i = 1;
