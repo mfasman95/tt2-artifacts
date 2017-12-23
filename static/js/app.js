@@ -138,6 +138,8 @@ function determineAverage(data) {
 }
 
 function generateUpgrades() {
+	console.log(winner_e);
+	console.log(winner_n);
 	$('#new_artifact').empty();
 	window.localStorage.setItem('relic_factor', $('#relic_factor').val())
 	window.localStorage.setItem('forcebos', $('#forcebos').val());
