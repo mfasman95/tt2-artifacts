@@ -267,13 +267,14 @@ function calculate(data, regenerate) {
 				ad_eff = next_ad_jump/cost;
 				eff = effect_eff + ad_eff;
 				data[k].efficiency = eff;
+				console.log('existing');
+				console.log(k);
+				console.log(eff);
+				console.log(winner_value);
 				if(eff > winner_value) {
-					console.log('existing');
-					console.log(k);
-					console.log(eff);
-					console.log(winner_value);
 					winner_e = k;
 					winner_value = eff;
+					console.log('winner');
 					console.log(winner_e);
 					console.log(winner_n);
 					console.log(winner_value);
@@ -300,14 +301,15 @@ function calculate(data, regenerate) {
 			ad_eff = next_ad_jump/next_artifact_cost;
 			eff = effect_eff + ad_eff;
 			data[k].efficiency = eff;
+			console.log('new');
+			console.log(k);
+			console.log(eff);
+			console.log(winner_value);
 			if(eff > winner_value) {
-				console.log('existing');
-				console.log(k);
-				console.log(eff);
-				console.log(winner_value);
 				winner_e = k;
 				winner_n = k;
 				winner_value = eff;
+				console.log('winner');
 				console.log(winner_e);
 				console.log(winner_n);
 				console.log(winner_value);
@@ -321,10 +323,9 @@ function calculate(data, regenerate) {
 		regenerateArtifacts();
 	}
 	winner_value = -1000;
-	console.log('over');
+	console.log('done');
 	console.log(winner_e);
 	console.log(winner_n);
-	console.log(winner_value);
 }
 
 function displayPct(value) {
