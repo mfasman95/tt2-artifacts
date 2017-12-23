@@ -1,6 +1,6 @@
 winner_e = '';
 winner_n = '';
-winner_value = -1000;
+winner_value = 0;
 
 function toggleDark() {
 	$('body').removeClass('dark');
@@ -241,6 +241,9 @@ function acceptSuggestions() {
 }
 
 function calculate(data, regenerate) {
+	winner_e = ''
+	winner_n = ''
+	winner_value = 0;
 	next_artifact = countArtifacts(artifacts) + 1;
 	next_artifact_cost = artifact_costs[next_artifact];
 	average_level = determineAverage(artifacts);
@@ -252,15 +255,6 @@ function calculate(data, regenerate) {
 		data[k].efficiency = '';
 		data[k].cost = '';
 		data[k].displayCost = '';
-		eff = 0;
-		current_ad = 0;
-		current_effect = 0;
-		cost = 0;
-		next_effect = 0;
-		next_ad_jump = 0;
-		effect_eff = 0;
-		ad_eff = 0;
-		eff = 0;
 		if(v.level > 0) {
 			current_ad = v.level * v.ad
 			current_effect = 1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo));
@@ -276,17 +270,9 @@ function calculate(data, regenerate) {
 				ad_eff = next_ad_jump/cost;
 				eff = effect_eff + ad_eff;
 				data[k].efficiency = eff;
-//				console.log('existing');
-//				console.log(k);
-//				console.log(eff);
-//				console.log(winner_value);
 				if(eff > winner_value) {
 					winner_e = k;
 					winner_value = eff;
-//					console.log('winner');
-//					console.log(winner_e);
-//					console.log(winner_n);
-//					console.log(winner_value);
 				}
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1) {
@@ -310,18 +296,8 @@ function calculate(data, regenerate) {
 			ad_eff = next_ad_jump/next_artifact_cost;
 			eff = effect_eff + ad_eff;
 			data[k].efficiency = eff;
-//			console.log('new');
-//			console.log(k);
-//			console.log(eff);
-//			console.log(winner_value);
 			if(eff > winner_value) {
-				winner_e = k;
 				winner_n = k;
-//				winner_value = eff;
-//				console.log('winner');
-//				console.log(winner_e);
-//				console.log(winner_n);
-//				console.log(winner_value);
 			}
 		} else {
 			data[k].current_ad = '';
@@ -331,10 +307,6 @@ function calculate(data, regenerate) {
 	if(true === regenerate) {
 		regenerateArtifacts();
 	}
-	winner_value = -1000;
-	console.log('done');
-	console.log(winner_e);
-	console.log(winner_n);
 }
 
 function displayPct(value) {
