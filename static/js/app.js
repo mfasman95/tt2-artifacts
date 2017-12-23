@@ -275,9 +275,15 @@ function calculate(data, regenerate) {
 				effect_eff = ((next_effect - current_effect) ^ v.rating)/cost;
 				ad_eff = next_ad_jump/cost;
 				eff = effect_eff + ad_eff;
-				data[k].efficiency = eff;
 				console.log('existing');
 				console.log(k);
+				console.log(cost);
+				console.log(next_effect);
+				console.log(next_effect);
+				console.log(next_ad_jump);
+				console.log(effect_eff);
+				console.log(ad_eff);
+				data[k].efficiency = eff;
 				console.log(eff);
 				console.log(winner_value);
 				if(eff > winner_value) {
