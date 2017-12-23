@@ -261,15 +261,6 @@ function calculate(data, regenerate) {
 		effect_eff = 0;
 		ad_eff = 0;
 		eff = 0;
-				console.log('zerod');
-				console.log(cost);
-				console.log(next_effect);
-				console.log(next_ad_jump);
-				console.log(effect_eff);
-				console.log(ad_eff);
-				console.log(current_ad);
-				console.log(current_effect);
-				console.log(eff);
 		if(v.level > 0) {
 			current_ad = v.level * v.ad
 			current_effect = 1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo));
@@ -285,17 +276,17 @@ function calculate(data, regenerate) {
 				ad_eff = next_ad_jump/cost;
 				eff = effect_eff + ad_eff;
 				data[k].efficiency = eff;
-				console.log(eff);
-				console.log(winner_value);
+//				console.log('existing');
+//				console.log(k);
+//				console.log(eff);
+//				console.log(winner_value);
 				if(eff > winner_value) {
 					winner_e = k;
 					winner_value = eff;
-					console.log('existing');
-					console.log(k);
-					console.log('winner');
-					console.log(winner_e);
-					console.log(winner_n);
-					console.log(winner_value);
+//					console.log('winner');
+//					console.log(winner_e);
+//					console.log(winner_n);
+//					console.log(winner_value);
 				}
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1) {
@@ -319,18 +310,18 @@ function calculate(data, regenerate) {
 			ad_eff = next_ad_jump/next_artifact_cost;
 			eff = effect_eff + ad_eff;
 			data[k].efficiency = eff;
-			console.log('new');
-			console.log(k);
-			console.log(eff);
-			console.log(winner_value);
+//			console.log('new');
+//			console.log(k);
+//			console.log(eff);
+//			console.log(winner_value);
 			if(eff > winner_value) {
 				winner_e = k;
 				winner_n = k;
-				winner_value = eff;
-				console.log('winner');
-				console.log(winner_e);
-				console.log(winner_n);
-				console.log(winner_value);
+//				winner_value = eff;
+//				console.log('winner');
+//				console.log(winner_e);
+//				console.log(winner_n);
+//				console.log(winner_value);
 			}
 		} else {
 			data[k].current_ad = '';
