@@ -252,6 +252,15 @@ function calculate(data, regenerate) {
 		data[k].efficiency = '';
 		data[k].cost = '';
 		data[k].displayCost = '';
+		eff = 0;
+		current_ad = 0;
+		current_effect = 0;
+		cost = 0;
+		next_effect = 0;
+		next_ad_jump = 0;
+		effect_eff = 0;
+		ad_eff = 0;
+		eff = 0;
 		if(v.level > 0) {
 			current_ad = v.level * v.ad
 			current_effect = 1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo));
