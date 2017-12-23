@@ -252,15 +252,6 @@ function calculate(data, regenerate) {
 		data[k].efficiency = '';
 		data[k].cost = '';
 		data[k].displayCost = '';
-				console.log('start');
-				console.log(cost);
-				console.log(next_effect);
-				console.log(next_ad_jump);
-				console.log(effect_eff);
-				console.log(ad_eff);
-				console.log(current_ad);
-				console.log(current_effect);
-				console.log(eff);
 		eff = 0;
 		current_ad = 0;
 		current_effect = 0;
