@@ -45,6 +45,7 @@ function generateArtifacts() {
 	window.localStorage.setItem('active', $('#active').val());
 	window.localStorage.setItem('relic_factor', $('#relic_factor').val());
 	window.localStorage.setItem('forcebos', $('#forcebos').val());
+	window.localStorage.setItem('bos_type', $('#bos_type').val());
 	adjustWeights();
 }
 
@@ -103,6 +104,7 @@ function regenerateArtifacts() {
 	window.localStorage.setItem('active', $('#active').val());
 	window.localStorage.setItem('relic_factor', $('#relic_factor').val());
 	window.localStorage.setItem('forcebos', $('#forcebos').val());
+	window.localStorage.setItem('bos_type', $('#bos_type').val());
 }
 
 function updateArtifacts() {
@@ -141,6 +143,7 @@ function generateUpgrades() {
 	$('#new_artifact').empty();
 	window.localStorage.setItem('relic_factor', $('#relic_factor').val())
 	window.localStorage.setItem('forcebos', $('#forcebos').val());
+	window.localStorage.setItem('bos_type', $('#bos_type').val());
 	if(winner_n != '') {
 		$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
 	}
@@ -177,18 +180,47 @@ function generateUpgrades() {
 		return
 	}
 	while(forceBOS > 0) {
-		if(relics >= temp_artifacts['bos'].cost) {
-			forceBOS--;
-			if(undefined == upgrades['bos']) {
-				upgrades['bos'] = 1;
+		if($('#bos_type').val() == 'level') {
+			if(relics >= temp_artifacts['bos'].cost) {
+				forceBOS--;
+				if(undefined == upgrades['bos']) {
+					upgrades['bos'] = 1;
+				} else {
+					upgrades['bos']++;
+				}
+				relics -= temp_artifacts['bos'].cost;
+				temp_artifacts['bos'].level++;
+				calculate(temp_artifacts, false);
 			} else {
-				upgrades['bos']++;
+				forceBOS = 0;
 			}
-			relics -= temp_artifacts['bos'].cost;
-			temp_artifacts['bos'].level++;
-			calculate(temp_artifacts, false);
 		} else {
-			forceBOS = 0;
+			bos_relics = relics * (forceBOS / 100);
+			while(true) {
+				if(bos_relics >= temp_artifacts['bos'].cost) {
+					bos_relics -= temp_artifacts['bos'].cost;
+					if(undefined == upgrades['bos']) {
+						upgrades['bos'] = 1;
+					} else {
+						upgrades['bos']++;
+					}
+					relics -= temp_artifacts['bos'].cost;
+					temp_artifacts['bos'].level++;
+					calculate(temp_artifacts, false);
+				} else if(relics >= temp_artifacts['bos'].cost) {
+					if(undefined == upgrades['bos']) {
+						upgrades['bos'] = 1;
+					} else {
+						upgrades['bos']++;
+					}
+					relics -= temp_artifacts['bos'].cost;
+					temp_artifacts['bos'].level++;
+					calculate(temp_artifacts, false);
+					break;
+				} else {
+					break;
+				}
+			}
 		}
 	}
 	while(true) {
@@ -247,10 +279,6 @@ function calculate(data, regenerate) {
 	next_artifact = countArtifacts(artifacts) + 1;
 	next_artifact_cost = artifact_costs[next_artifact];
 	average_level = determineAverage(artifacts);
-//	totalAD = 0;
-//	$.each(data, function(k,v) {
-//		totalAD += v.level * v.ad;
-//	});
 	$.each(data, function(k,v) {
 		data[k].efficiency = '';
 		data[k].cost = '';
@@ -279,18 +307,10 @@ function calculate(data, regenerate) {
 		} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1) {
 			data[k].current_ad = '';
 			data[k].current_effect = '';
-//			i = 1;
-//			cost = 0;
 			if(v.max == -1 || v.max > average_level) {
 				next_effect = 1 + v.effect * Math.pow(average_level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * average_level, v.gmax)), v.gexpo));
-//				while(i < average_level) { 
-//					cost += Math.pow(i++ + 1, v.cexpo) * v.ccoef;
-//				}
 			} else  {
 				next_effect = 1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo));
-//				while(i < v.max) { 
-//					cost += Math.pow(i++ + 1, v.cexpo) * v.ccoef;
-//				}
 			}
 			next_ad_jump = average_level * v.ad;
 			effect_eff = (next_effect ^ v.rating)/next_artifact_cost;
@@ -399,6 +419,7 @@ if (storageAvailable('localStorage')) {
 	$('#active').val(window.localStorage.getItem('active'));
 	$('#relic_factor').val(window.localStorage.getItem('relic_factor'));
 	$('#forcebos').val(window.localStorage.getItem('forcebos'));
+	$('#bos_type').val(window.localStorage.getItem('bos_type'));
 	if(window.localStorage.getItem('dark') == "1") {
 		$('#dark').prop('checked', true);
 	}
