@@ -195,8 +195,13 @@ function generateUpgrades() {
 				forceBOS = 0;
 			}
 		} else {
+			i = 0;
 			bos_relics = relics * (forceBOS / 100);
+			console.log(bos_relics);
 			while(true) {
+				i += temp_artifacts['bos'].cost
+				console.log(temp_artifacts['bos'].cost);
+				console.log(i);
 				if(bos_relics >= temp_artifacts['bos'].cost) {
 					bos_relics -= temp_artifacts['bos'].cost;
 					if(undefined == upgrades['bos']) {
