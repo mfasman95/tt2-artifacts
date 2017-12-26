@@ -221,6 +221,7 @@ function generateUpgrades() {
 					break;
 				}
 			}
+			break;
 		}
 	}
 	while(true) {
