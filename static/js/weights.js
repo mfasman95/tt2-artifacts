@@ -53,6 +53,7 @@ function adjustWeights() {
 			artifacts.hh.rating += .25;
 			artifacts.ss.rating += 1;
 			artifacts.tr.rating += 1;
+			artifacts.hom.rating += 1;
 			break;
 		case 'hero':
 			artifacts.hb.rating += 2;
@@ -62,6 +63,7 @@ function adjustWeights() {
 			artifacts.ttt.rating += 1;
 			artifacts.hh.rating += .5;
 			artifacts.pof.rating += 2;
+			artifacts.hom.rating += 1;
 			break;
 		case 'cs':
 			artifacts.hb.rating += 1;
@@ -78,6 +80,8 @@ function adjustWeights() {
 			artifacts.rt.rating += .5;
 			artifacts.pof.rating += 2;
 			artifacts.tr.rating += 1;
+			artifacts.hom.rating += 1;
+			artifacts.as.rating += 1;
 			break;
 		case 'hs':
 			artifacts.dh.rating += 1;
@@ -96,6 +100,7 @@ function adjustWeights() {
 			artifacts.bor.rating += 1;
 			artifacts.pof.rating += .5;
 			artifacts.tr.rating += 1;
+			artifacts.hom.rating += .5;
 			break;
 		case 'sc':
 			artifacts.dh.rating += .6;
@@ -113,6 +118,8 @@ function adjustWeights() {
 			artifacts.pof.rating += .6;
 			artifacts.eoe.rating += 2;
 			artifacts.tr.rating += 1;
+			artifacts.hom.rating += .6;
+			artifacts.as.rating += 1;
 			break;
 		case 'pet':
 			artifacts.foe.rating += 2;
@@ -131,6 +138,8 @@ function adjustWeights() {
 			artifacts.rt.rating += .5;
 			artifacts.pof.rating += 1;
 			artifacts.tr.rating += 1;
+			artifacts.hom.rating += .5;
+			artifacts.as.rating += 1;
 			break;
 	}
 	switch($('#hero').val()) {
