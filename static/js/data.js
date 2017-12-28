@@ -1350,7 +1350,7 @@ var artifacts = {
 		'bonus' : 's Boss Timer Duration',
 		'rating' : 1,
 		'ad' : 2,
-		'effect' : 25,
+		'effect' : 1,
 		'max' : 60,
 		'gmax' : 0,
 		'grate' : 0,
