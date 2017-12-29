@@ -202,7 +202,7 @@ function generateUpgrades() {
 		$('#suggestions').empty().append('<li>You must have at least 1 artifact enabled to use this.</li>');
 		return
 	}
-	while(forceBOS > 0) {
+	while(forceBOS > 0 && $('#ocd').prop('checked') == false) {
 		if($('#bos_type').val() == 'level') {
 			if(relics >= temp_artifacts['bos'].cost) {
 				forceBOS--;
