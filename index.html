@@ -63,8 +63,9 @@
 		<div id="artifacts"></div>
 		<h3>Your Available Relics</h3>
 		<p>Enter the total number of relics you're willing to spend to receive an upgrade list below. (The two numbers are for the whole numbers and on the right the decimals, so you can make it match what you see in the game for ease of entry.)</p>
-		<input id="relics" type="tel" /> <strong> . </strong> <input id="relics_decimal" type="tel" /> <select id="relic_factor"><option value="_"> </option><option value="K">K</option><option value="M">M</option><option value="B">B</option><option value="T">T</option></select> <input type="submit" value="Generate" onclick="generateUpgrades()" ;/><br />
-		Force up to <input id="forcebos" type="tel" value="0" /> <select id="bos_type"><option value="level">levels</option><option value="pct">% of relics</option></select> of BoS
+		<p><input id="relics" type="tel" /> <strong> . </strong> <input id="relics_decimal" type="tel" /> <select id="relic_factor"><option value="_"> </option><option value="K">K</option><option value="M">M</option><option value="B">B</option><option value="T">T</option></select> <input type="submit" value="Generate" onclick="generateUpgrades()" ;/></p>
+		<p>Force up to <input id="forcebos" type="tel" value="0" /> <select id="bos_type"><option value="level">levels</option><option value="pct">% of relics</option></select> of BoS</p>
+		<p><label><input type="checkbox" id="ocd" /> Enable &#x30BB;&#x30A4;&#x30A4;&#x30C1; Mode a.k.a. Force Crazy OCD Inefficient Rounding Down (Note, this will even ignore any forced BOS requests above.)</label></p>
 		<h3>Suggested Upgrades</h3>
 		<p>If you purchase all these upgrades, hit the Complete button to update the Artifact Status table and clear the results.</p>
 		<p id="new_artifact">&#x00A0;</p>
