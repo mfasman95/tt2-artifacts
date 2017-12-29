@@ -268,6 +268,7 @@ function generateUpgrades() {
 				x = Math.floor(temp_artifacts[k].level/100) * 100;
 				if(x > artifacts[k].level) {
 					temp_artifacts[k].level = x;
+					upgrades[k] = x - artifacts[k].level;
 				} else {
 					delete upgrades[k];
 				}
