@@ -262,14 +262,21 @@ function generateUpgrades() {
 		return
 	}
 	suggestions = '';
-	ocd = $('#ocd').prop('checked');
+	if($('#ocd').prop('checked')) {
+		$.each(artifacts, function(k,v) {
+			if(k in upgrades) {
+				x = Math.floor(temp_artifacts[k].level/100) * 100;
+				if(x > artifacts[k].level) {
+					temp_artifacts[k].level = x;
+				} else {
+					delete upgrades[k];
+				}
+			}
+		});
+	}
 	$.each(artifacts, function(k,v) {
 		if(k in upgrades) {
-			x = Math.floor(temp_artifacts[k].level/100) * 100;
-			if(false == ocd || x > artifacts[k].level) {
-				suggestions += '<li>' + v.name + '&#x00A0;' + v.level + '&#x00A0;=>&#x00A0;' + temp_artifacts[k].level + '&#x00A0;(+' + upgrades[k] + ') <span class="light">[' + displayEffect(artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;=>&#x00A0;' + displayEffect(temp_artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;effect&#x00A0;|&#x00A0;' + displayPct(artifacts[k].current_ad) + '&#x00A0;=>&#x00A0;' + displayPct(temp_artifacts[k].current_ad) + '&#x00A0;AD]</span></li>';
-
-			}
+			suggestions += '<li>' + v.name + '&#x00A0;' + v.level + '&#x00A0;=>&#x00A0;' + temp_artifacts[k].level + '&#x00A0;(+' + upgrades[k] + ') <span class="light">[' + displayEffect(artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;=>&#x00A0;' + displayEffect(temp_artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;effect&#x00A0;|&#x00A0;' + displayPct(artifacts[k].current_ad) + '&#x00A0;=>&#x00A0;' + displayPct(temp_artifacts[k].current_ad) + '&#x00A0;AD]</span></li>';
 		}
 	});
 	$('#suggestions').empty().append(suggestions);
