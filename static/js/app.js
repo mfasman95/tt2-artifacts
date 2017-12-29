@@ -12,6 +12,14 @@ function toggleDark() {
 	}
 }
 
+function ocdOCD() {
+	if($('#ocd').prop('checked') == true) {
+		window.localStorage.setItem('ocd', 1);
+	} else {
+		window.localStorage.setItem('ocd', 0);
+	}
+}
+
 function generateArtifacts() {
 	$('#artifacts').empty();
 	$.each(artifacts, function(k,v) {
