@@ -261,14 +261,6 @@ function generateUpgrades() {
 			break;
 		}
 	}
-	litmus = false;
-	$.each(upgrades, function(k,v) {
-		litmus = true;
-	});
-	if(false == litmus) {
-		$('#suggestions').empty().append('<li>You cannot afford to make the next best upgrade. Please try again when you have more relics.</li>');
-		return
-	}
 	suggestions = '';
 	if($('#ocd').prop('checked')) {
 		$.each(artifacts, function(k,v) {
@@ -282,6 +274,14 @@ function generateUpgrades() {
 				}
 			}
 		});
+	}
+	litmus = false;
+	$.each(upgrades, function(k,v) {
+		litmus = true;
+	});
+	if(false == litmus) {
+		$('#suggestions').empty().append('<li>You cannot afford to make the next best upgrade(s). Please try again when you have more relics. Also, if you have the OCD mode on, you might need to shut it off to see results.</li>');
+		return
 	}
 	$.each(artifacts, function(k,v) {
 		if(k in upgrades) {
