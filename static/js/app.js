@@ -46,6 +46,11 @@ function generateArtifacts() {
 	window.localStorage.setItem('relic_factor', $('#relic_factor').val());
 	window.localStorage.setItem('forcebos', $('#forcebos').val());
 	window.localStorage.setItem('bos_type', $('#bos_type').val());
+	if($('#ocd').prop('checked') == true) {
+		window.localStorage.setItem('ocd', 1);
+	} else {
+		window.localStorage.setItem('ocd', 0);
+	}
 	adjustWeights();
 }
 
@@ -105,6 +110,11 @@ function regenerateArtifacts() {
 	window.localStorage.setItem('relic_factor', $('#relic_factor').val());
 	window.localStorage.setItem('forcebos', $('#forcebos').val());
 	window.localStorage.setItem('bos_type', $('#bos_type').val());
+	if($('#ocd').prop('checked') == true) {
+		window.localStorage.setItem('ocd', 1);
+	} else {
+		window.localStorage.setItem('ocd', 0);
+	}
 }
 
 function updateArtifacts() {
@@ -144,6 +154,11 @@ function generateUpgrades() {
 	window.localStorage.setItem('relic_factor', $('#relic_factor').val())
 	window.localStorage.setItem('forcebos', $('#forcebos').val());
 	window.localStorage.setItem('bos_type', $('#bos_type').val());
+	if($('#ocd').prop('checked') == true) {
+		window.localStorage.setItem('ocd', 1);
+	} else {
+		window.localStorage.setItem('ocd', 0);
+	}
 	if(winner_n != '') {
 		$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
 	}
@@ -247,9 +262,14 @@ function generateUpgrades() {
 		return
 	}
 	suggestions = '';
+	ocd = $('#ocd').prop('checked');
 	$.each(artifacts, function(k,v) {
 		if(k in upgrades) {
-			suggestions += '<li>' + v.name + '&#x00A0;' + v.level + '&#x00A0;=>&#x00A0;' + temp_artifacts[k].level + '&#x00A0;(+' + upgrades[k] + ') <span class="light">[' + displayEffect(artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;=>&#x00A0;' + displayEffect(temp_artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;effect&#x00A0;|&#x00A0;' + displayPct(artifacts[k].current_ad) + '&#x00A0;=>&#x00A0;' + displayPct(temp_artifacts[k].current_ad) + '&#x00A0;AD]</span></li>';
+			x = Math.floor(temp_artifacts[k].level/100) * 100;
+			if(false == ocd || 'bos' == k || x > artifacts[k].level) {
+				suggestions += '<li>' + v.name + '&#x00A0;' + v.level + '&#x00A0;=>&#x00A0;' + temp_artifacts[k].level + '&#x00A0;(+' + upgrades[k] + ') <span class="light">[' + displayEffect(artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;=>&#x00A0;' + displayEffect(temp_artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;effect&#x00A0;|&#x00A0;' + displayPct(artifacts[k].current_ad) + '&#x00A0;=>&#x00A0;' + displayPct(temp_artifacts[k].current_ad) + '&#x00A0;AD]</span></li>';
+
+			}
 		}
 	});
 	$('#suggestions').empty().append(suggestions);
@@ -423,6 +443,9 @@ if (storageAvailable('localStorage')) {
 	$('#bos_type').val(window.localStorage.getItem('bos_type'));
 	if(window.localStorage.getItem('dark') == "1") {
 		$('#dark').prop('checked', true);
+	}
+	if(window.localStorage.getItem('ocd') == "1") {
+		$('#ocd').prop('checked', true);
 	}
 	toggleDark();
 }
