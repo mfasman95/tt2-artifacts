@@ -274,6 +274,7 @@ function generateUpgrades() {
 				}
 			}
 		});
+	calculate(temp_artifacts, false);
 	}
 	litmus = false;
 	$.each(upgrades, function(k,v) {
