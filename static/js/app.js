@@ -332,7 +332,9 @@ function calculate(data, regenerate) {
 				data[k].displayCost = displayTruncated(cost);
 				next_effect = 1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo));
 				next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
-				effect_eff = Math.pow(1 + (current_effect - next_effect), v.rating)/cost;
+				effect_diff = current_effect - next_effect;	
+				expo = 1 > effect_diff ? 1 / v.rating : v.rating;
+				effect_eff = Math.pow(effect_diff, expo)/cost;
 				ad_eff = next_ad_jump/cost;
 				eff = effect_eff + ad_eff;
 				data[k].efficiency = eff;
