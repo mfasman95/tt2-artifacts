@@ -137,18 +137,18 @@ function adjustWeights() {
 	}
 	switch($('#hero').val()) {
 		case 'melee':
-			artifacts.tsos.rating += 1;
+			artifacts.tsos.rating += .5;
 			break;
 		case 'ranged':
-			artifacts.fb.rating += 1;
+			artifacts.fb.rating += .5;
 			break;
 		case 'spell':
-			artifacts.cota.rating += 1;
+			artifacts.cota.rating += .5;
 			break;
 	}
 	switch($('#hero2').val()) {
 		case 'ground':
-			artifacts.ttt.rating += 1;
+			artifacts.ttt.rating += .5;
 			break;
 		case 'flying':
 			artifacts.hh.rating += 1;
