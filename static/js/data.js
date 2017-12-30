@@ -277,7 +277,7 @@ var artifacts = {
 		'sort' : 14,
 		'name' : 'Hero\'s Blade',
 		'bonus' : ' All Hero Damage',
-		'rating' : 2,
+		'rating' : 1,
 		'ad' : .5,
 		'effect' : .1,
 		'max' : -1,
