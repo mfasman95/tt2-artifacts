@@ -697,7 +697,7 @@ var artifacts = {
 		'sort' : 34,
 		'name' : 'Invader\'s Gjalarhorn',
 		'bonus' : ' All Active Skill Effect',
-		'rating' : 2,
+		'rating' : 1,
 		'ad' : .2,
 		'effect' : .02,
 		'max' : -1,
