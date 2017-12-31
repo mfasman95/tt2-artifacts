@@ -466,7 +466,7 @@ var artifacts = {
 		'sort' : 23,
 		'name' : 'Heart of Storms',
 		'bonus' : ' Pet Damage Bonuses',
-		'rating' : 10,
+		'rating' : 7,
 		'ad' : .5,
 		'effect' : .005,
 		'max' : -1,
