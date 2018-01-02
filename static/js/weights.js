@@ -164,8 +164,8 @@ function adjustWeights() {
 	}
 	switch($('#active').val()) {
 		case 'offline':
-			artifacts.zc.rating += 1;
-			artifacts.af.rating += 1;
+			artifacts.zc.rating += .9;
+			artifacts.af.rating += .9;
 			break;
 	}
 	calculate(artifacts, true);
