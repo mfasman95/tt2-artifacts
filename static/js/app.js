@@ -311,8 +311,8 @@ function acceptSuggestions() {
 }
 
 function calculate(data, regenerate) {
-	winner_e = ''
-	winner_n = ''
+	temp_winner_e = ''
+	temp_winner_n = ''
 	winner_value = 0;
 	next_artifact = countArtifacts(artifacts) + 1;
 	next_artifact_cost = artifact_costs[next_artifact];
@@ -339,8 +339,8 @@ function calculate(data, regenerate) {
 				eff = effect_eff + ad_eff;
 				data[k].efficiency = eff;
 				if(eff > winner_value) {
-					winner_e = k;
-					winner_n = '';
+					temp_winner_e = k;
+					temp_winner_n = '';
 					winner_value = eff;
 				}
 			}
@@ -358,7 +358,7 @@ function calculate(data, regenerate) {
 			eff = effect_eff + ad_eff;
 			data[k].efficiency = eff;
 			if(eff > winner_value) {
-				winner_n = k;
+				temp_winner_n = k;
 			}
 		} else {
 			data[k].current_ad = '';
@@ -367,6 +367,8 @@ function calculate(data, regenerate) {
 	});
 	if(true === regenerate) {
 		regenerateArtifacts();
+		winner_e = temp_winner_e;
+		winner_n = temp_winner_n;
 	}
 }
 
