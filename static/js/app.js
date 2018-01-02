@@ -311,7 +311,7 @@ function acceptSuggestions() {
 }
 
 function calculate(data, regenerate) {
-	temp_winner_e = ''
+	winner_e = ''
 	temp_winner_n = ''
 	winner_value = 0;
 	next_artifact = countArtifacts(artifacts) + 1;
@@ -339,7 +339,7 @@ function calculate(data, regenerate) {
 				eff = effect_eff + ad_eff;
 				data[k].efficiency = eff;
 				if(eff > winner_value) {
-					temp_winner_e = k;
+					winner_e = k;
 					temp_winner_n = '';
 					winner_value = eff;
 				}
@@ -367,7 +367,6 @@ function calculate(data, regenerate) {
 	});
 	if(true === regenerate) {
 		regenerateArtifacts();
-		winner_e = temp_winner_e;
 		winner_n = temp_winner_n;
 	}
 }
