@@ -9,7 +9,8 @@
   "dependencies": {
     "express": "^4.16.2",
     "cors": "^2.8.4",
-    "express-sslify": "^1.2.0"
+    "express-sslify": "^1.2.0",
+    "decimal": "^0.0.2"
   },
   "devDependencies": {},
   "scripts": {
