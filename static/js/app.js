@@ -334,13 +334,13 @@ function calculate(data, regenerate) {
 				data[k].displayCost = displayTruncated(cost);
 				next_effect = 1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo));
 				next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
-				effect_diff = new Decimal(next_effect - current_effect);
-				expo = effect_diff.lt(1) ? 1 / v.rating : v.rating;
-				effect_eff = effect_diff.pow(expo).div(cost);
+				effect_diff = next_effect - current_effect;
+				expo = effect_diff < 1 ? 1 / v.rating : v.rating;
+				effect_eff = Math.pow(effect_diff, expo)/cost;
 				ad_eff = next_ad_jump/cost;
-				eff = effect_eff.add(ad_eff);
+				eff = (effect_eff + ad_eff) * 1000000;
 				data[k].efficiency = eff;
-				if(eff.gt(winner_value)) {
+				if(eff > winner_value) {
 					winner_e = k;
 					temp_winner_n = '';
 					winner_value = eff;
@@ -350,16 +350,16 @@ function calculate(data, regenerate) {
 			data[k].current_ad = '';
 			data[k].current_effect = '';
 			if(v.max == -1 || v.max > average_level) {
-				next_effect = new Decimal(1 + v.effect * Math.pow(average_level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * average_level, v.gmax)), v.gexpo)));
+				next_effect = 1 + v.effect * Math.pow(average_level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * average_level, v.gmax)), v.gexpo));
 			} else  {
-				next_effect = new Decimal(1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo)));
+				next_effect = 1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo));
 			}
 			next_ad_jump = average_level * v.ad;
-			effect_eff = next_effect.pow(v.rating).div(next_artifact_cost);
+			effect_eff = Math.pow(next_effect, v.rating)/next_artifact_cost;
 			ad_eff = next_ad_jump/next_artifact_cost;
-			eff = effect_eff.add(ad_eff);
+			eff = (effect_eff + ad_eff) * 1000000;
 			data[k].efficiency = eff;
-			if(eff.gt(winner_value)) {
+			if(eff >winner_value) {
 				temp_winner_n = k;
 			}
 		} else {
