@@ -2,6 +2,7 @@ var express = require('express');
 var cors = require('cors');
 var enforce = require('express-sslify');
 var app = express();
+var Decimal = require('decimal');
 
 app.use(cors());
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
