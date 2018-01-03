@@ -334,7 +334,7 @@ function calculate(data, regenerate) {
 				next_ad_jump = new Decimal(((v.level + 1) * v.ad) - (v.level * v.ad));
 				effect_diff = next_effect.sub(current_effect);
 				expo = effect_diff.lt(1) ? 1 / v.rating : v.rating;
-				effect_eff = effect_diff.pos(expo.div(cost);
+				effect_eff = effect_diff.pow(expo).div(cost);
 				ad_eff = next_ad_jump.div(cost);
 				eff = effect_eff.add(ad_eff);
 				data[k].efficiency = eff;
