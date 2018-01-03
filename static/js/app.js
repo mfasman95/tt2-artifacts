@@ -170,26 +170,27 @@ function generateUpgrades() {
 	if(winner_n != '') {
 		$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
 	}
-	forceBOS = new Decimal($('#forcebos').val());
+	forceBOS = parseInt($('#forcebos').val());
 	relics = new Decimal($('#relics').val() + '.' + $('#relics_decimal').val());
 	switch($('#relic_factor').val()) {
 		case '_':
+			relics = relics.toNumber();
 			break;
 
 		case 'K':
-			relics = relics.mul(1000);
+			relics = relics.mul(1000).toNumber();
 			break;
 
 		case 'M':
-			relics = relics.mul(1000000);
+			relics = relics.mul(1000000).toNumber();
 			break;
 
 		case 'B':
-			relics = relics.mul(1000000000);
+			relics = relics.mul(1000000000).toNumber();
 			break;
 
 		case 'T':
-			relics = relics.mul(1000000000000);
+			relics = relics.mul(1000000000000).toNumber();
 			break;
 	}
 	upgrades = {};
@@ -202,33 +203,33 @@ function generateUpgrades() {
 		$('#suggestions').empty().append('<li>You must have at least 1 artifact enabled to use this.</li>');
 		return
 	}
-	while(forceBOS.gt(0) && $('#ocd').prop('checked') == false) {
+	while(forceBOS > 0 && $('#ocd').prop('checked') == false) {
 		if($('#bos_type').val() == 'level') {
-			if(relics.gte(temp_artifacts['bos'].cost)) {
+			if(relics >= temp_artifacts['bos'].cost) {
 				forceBOS--;
 				if(undefined == upgrades['bos']) {
 					upgrades['bos'] = 1;
 				} else {
 					upgrades['bos']++;
 				}
-				relics = relics.sub(temp_artifacts['bos'].cost);
+				relics -= temp_artifacts['bos'].cost;
 				temp_artifacts['bos'].level++;
 				calculate(temp_artifacts, false);
 			} else {
-				forceBOS = new Decimal(0);
+				forceBOS = 0;
 			}
 		} else {
-			bos_pct = forceBOS.div(100);
-			bos_relics = relics.mul(forceBOS);
+			bos_pct = forceBOS/100;
+			bos_relics = relics * bos_pct;
 			while(true) {
-				if(bos_relics.gte(temp_artifacts['bos'].cost)) {
-					bos_relics = bos_relics.sub(temp_artifacts['bos'].cost);
+				if(bos_relics >= temp_artifacts['bos'].cost) {
+					bos_relics -= temp_artifacts['bos'].cost;
 					if(undefined == upgrades['bos']) {
 						upgrades['bos'] = 1;
 					} else {
 						upgrades['bos']++;
 					}
-					relics = relics.sub(temp_artifacts['bos'].cost);
+					relics -= temp_artifacts['bos'].cost;
 					temp_artifacts['bos'].level++;
 					calculate(temp_artifacts, false);
 				} else if(relics >= temp_artifacts['bos'].cost) {
@@ -237,7 +238,7 @@ function generateUpgrades() {
 					} else {
 						upgrades['bos']++;
 					}
-					relics = relics.sub(temp_artifacts['bos'].cost);
+					relics -= temp_artifacts['bos'].cost;
 					temp_artifacts['bos'].level++;
 					calculate(temp_artifacts, false);
 					break;
@@ -249,13 +250,13 @@ function generateUpgrades() {
 		}
 	}
 	while(true) {
-		if(relics.gte(temp_artifacts[winner_e].cost)) {
+		if(relics >= temp_artifacts[winner_e].cost) {
 			if(undefined == upgrades[winner_e]) {
 				upgrades[winner_e] = 1;
 			} else {
 				upgrades[winner_e]++;
 			}
-			relics = relics.sub(temp_artifacts[winner_e].cost);
+			relics -= temp_artifacts[winner_e].cost;
 			temp_artifacts[winner_e].level++;
 			calculate(temp_artifacts, false);
 		} else {
@@ -323,20 +324,20 @@ function calculate(data, regenerate) {
 		data[k].cost = '';
 		data[k].displayCost = '';
 		if(v.level > 0 && v.active == 1) {
-			current_ad = new Decimal(v.level * v.ad);
-			current_effect = new Decimal(1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo)));
+			current_ad = v.level * v.ad;
+			current_effect = 1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo));
 			data[k].current_ad = current_ad;
 			data[k].current_effect = current_effect
 			if(v.max == -1 || v.max > v.level) {
-				cost = new Decimal(Math.pow(v.level + 1, v.cexpo) * v.ccoef);
+				cost = Math.pow(v.level + 1, v.cexpo) * v.ccoef;
 				data[k].cost= cost;
 				data[k].displayCost = displayTruncated(cost);
-				next_effect = new Decimal(1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo)));
-				next_ad_jump = new Decimal(((v.level + 1) * v.ad) - (v.level * v.ad));
-				effect_diff = next_effect.sub(current_effect);
+				next_effect = 1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo));
+				next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
+				effect_diff = new Decimal(next_effect - current_effect);
 				expo = effect_diff.lt(1) ? 1 / v.rating : v.rating;
 				effect_eff = effect_diff.pow(expo).div(cost);
-				ad_eff = next_ad_jump.div(cost);
+				ad_eff = next_ad_jump/cost;
 				eff = effect_eff.add(ad_eff);
 				data[k].efficiency = eff;
 				if(eff.gt(winner_value)) {
@@ -353,9 +354,9 @@ function calculate(data, regenerate) {
 			} else  {
 				next_effect = new Decimal(1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo)));
 			}
-			next_ad_jump = new Decimal(average_level * v.ad);
+			next_ad_jump = average_level * v.ad;
 			effect_eff = next_effect.pow(v.rating).div(next_artifact_cost);
-			ad_eff = next_ad_jump.div(next_artifact_cost);
+			ad_eff = next_ad_jump/next_artifact_cost;
 			eff = effect_eff.add(ad_eff);
 			data[k].efficiency = eff;
 			if(eff.gt(winner_value)) {
