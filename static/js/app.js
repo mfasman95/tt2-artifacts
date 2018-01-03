@@ -171,7 +171,7 @@ function generateUpgrades() {
 		$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
 	}
 	forceBOS = new Decimal($('#forcebos').val());
-	relics = new Decimal(($('#relics').val() + '.' + $('#relics_decimal').val());
+	relics = new Decimal($('#relics').val() + '.' + $('#relics_decimal').val());
 	switch($('#relic_factor').val()) {
 		case '_':
 			break;
