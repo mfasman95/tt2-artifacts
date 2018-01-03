@@ -322,20 +322,20 @@ function calculate(data, regenerate) {
 		data[k].cost = '';
 		data[k].displayCost = '';
 		if(v.level > 0 && v.active == 1) {
-			current_ad = Decimal(v.level * v.ad);
-			current_effect = Decimal(1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo)));
+			current_ad = new Decimal(v.level * v.ad);
+			current_effect = new Decimal(1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo)));
 			data[k].current_ad = current_ad;
 			data[k].current_effect = current_effect
 			if(v.max == -1 || v.max > v.level) {
-				cost = Decimal(Math.pow(v.level + 1, v.cexpo) * v.ccoef);
+				cost = new Decimal(Math.pow(v.level + 1, v.cexpo) * v.ccoef);
 				data[k].cost= cost;
 				data[k].displayCost = displayTruncated(cost);
-				next_effect = Decimal(1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo)));
-				next_ad_jump = Decimal(((v.level + 1) * v.ad) - (v.level * v.ad));
+				next_effect = new Decimal(1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo)));
+				next_ad_jump = new Decimal(((v.level + 1) * v.ad) - (v.level * v.ad));
 				effect_diff = next_effect - current_effect;
 				expo = 1 > effect_diff ? 1 / v.rating : v.rating;
-				effect_eff = Decimal(Math.pow(effect_diff, expo)/cost);
-				ad_eff = Decimal(next_ad_jump/cost);
+				effect_eff = new Decimal(Math.pow(effect_diff, expo)/cost);
+				ad_eff = new Decimal(next_ad_jump/cost);
 				eff = effect_eff + ad_eff;
 				data[k].efficiency = eff;
 				if(eff > winner_value) {
@@ -348,13 +348,13 @@ function calculate(data, regenerate) {
 			data[k].current_ad = '';
 			data[k].current_effect = '';
 			if(v.max == -1 || v.max > average_level) {
-				next_effect = Decimal(1 + v.effect * Math.pow(average_level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * average_level, v.gmax)), v.gexpo)));
+				next_effect = new Decimal(1 + v.effect * Math.pow(average_level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * average_level, v.gmax)), v.gexpo)));
 			} else  {
-				next_effect = Decimal(1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo)));
+				next_effect = new Decimal(1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo)));
 			}
 			next_ad_jump = average_level * v.ad;
-			effect_eff = Decimal(Math.pow(next_effect, v.rating)/next_artifact_cost);
-			ad_eff = Decimal(next_ad_jump/next_artifact_cost);
+			effect_eff = new Decimal(Math.pow(next_effect, v.rating)/next_artifact_cost);
+			ad_eff = new Decimal(next_ad_jump/next_artifact_cost);
 			eff = effect_eff + ad_eff;
 			data[k].efficiency = eff;
 			if(eff > winner_value) {
