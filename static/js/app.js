@@ -334,11 +334,11 @@ function calculate(data, regenerate) {
 				next_ad_jump = ((v.level + 1) * v.ad) - (v.level * v.ad);
 				effect_diff = next_effect - current_effect;
 				expo = 1 > effect_diff ? 1 / v.rating : v.rating;
-				effect_eff = Math.log(Math.pow(effect_diff, expo)/cost);
-				ad_eff = Math.log(next_ad_jump/cost);
+				effect_eff = Math.pow(effect_diff, expo)/cost;
+				ad_eff = next_ad_jump/cost;
 				eff = effect_eff + ad_eff;
 				data[k].efficiency = eff;
-				if(eff < winner_value) {
+				if(eff > winner_value) {
 					winner_e = k;
 					temp_winner_n = '';
 					winner_value = eff;
@@ -353,11 +353,11 @@ function calculate(data, regenerate) {
 				next_effect = 1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo));
 			}
 			next_ad_jump = average_level * v.ad;
-			effect_eff = Math.log(Math.pow(next_effect, v.rating)/next_artifact_cost);
-			ad_eff = Math.log(next_ad_jump/next_artifact_cost);
+			effect_eff = Math.pow(next_effect, v.rating)/next_artifact_cost;
+			ad_eff = next_ad_jump/next_artifact_cost;
 			eff = effect_eff + ad_eff;
 			data[k].efficiency = eff;
-			if(eff < winner_value) {
+			if(eff > winner_value) {
 				temp_winner_n = k;
 			}
 		} else {
