@@ -338,7 +338,7 @@ function calculate(data, regenerate) {
 				ad_eff = Math.log(next_ad_jump/cost);
 				eff = effect_eff + ad_eff;
 				data[k].efficiency = eff;
-				if(eff > winner_value) {
+				if(eff < winner_value) {
 					winner_e = k;
 					temp_winner_n = '';
 					winner_value = eff;
@@ -357,7 +357,7 @@ function calculate(data, regenerate) {
 			ad_eff = Math.log(next_ad_jump/next_artifact_cost);
 			eff = effect_eff + ad_eff;
 			data[k].efficiency = eff;
-			if(eff > winner_value) {
+			if(eff < winner_value) {
 				temp_winner_n = k;
 			}
 		} else {
