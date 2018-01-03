@@ -343,6 +343,18 @@ function calculate(data, regenerate) {
 					temp_winner_n = '';
 					winner_value = eff;
 				}
+				if(k == 'tsos' || k == 'fb') {
+					console.log(k);
+					console.log(current_effect);
+					console.log(cost);
+					console.log(next_effect);
+					console.log(next_ad_jump);
+					console.log(effect_diff);
+					console.log(expo);
+					console.log(effect_eff);
+					console.log(ad_eff);
+					console.log(eff);
+				}
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1) {
 			data[k].current_ad = '';
