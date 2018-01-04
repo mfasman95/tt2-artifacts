@@ -167,5 +167,5 @@ function adjustWeights() {
 			artifacts.af.rating += .9;
 			break;
 	}
-	calculateAll(artifacts, true);
+	artifacts = calculateAll(artifacts, true);
 }
