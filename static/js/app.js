@@ -324,7 +324,7 @@ function oldEff(data, k, v) {
 		var expo = effect_diff < 1 ? 1 / v.rating : v.rating;
 		var effect_eff = Math.pow(effect_diff, expo)/cost;
 		var ad_eff = next_ad_jump/cost;
-		var eff = effect_eff + ad_eff;
+		var eff = Math.log(effect_eff + ad_eff);
 		data[k].efficiency = eff;
 	}
 	return(data);
@@ -341,7 +341,7 @@ function newEff(data, k, v, avglvl, cost) {
 	var next_ad_jump = avglvl * v.ad;
 	var effect_eff = Math.pow(next_effect, v.rating)/cost;
 	var ad_eff = next_ad_jump/cost;
-	var eff = effect_eff + ad_eff;
+	var eff = Math.log(effect_eff + ad_eff);
 	data[k].efficiency = eff;
 	return(data)
 }
