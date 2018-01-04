@@ -70,7 +70,7 @@ function updateActive(k) {
 		artifacts[k].active = 0;
 		$('#' + k + 'div').addClass('ignore');
 	}
-	calculate(artifacts, k, true, true);
+	artifacts = calculate(artifacts, k, true, true);
 }
 
 function checkAll() {
@@ -79,7 +79,7 @@ function checkAll() {
 		artifacts[k].active = 1;
 		$('#' + k + 'div').removeClass('ignore');
 	});
-	calculateAll(artifacts, true);
+	artifacts = calculateAll(artifacts, true);
 }
 
 function regenerateArtifacts() {
@@ -127,7 +127,7 @@ function regenerateArtifacts() {
 
 function updateArtifact(k) {
 	artifacts[k].level = parseInt($('#' + k).val());
-	calculate(artifacts, k, true, true);
+	artifacts = calculate(artifacts, k, true, true);
 }
 
 function countArtifacts(data) {
@@ -212,7 +212,7 @@ function generateUpgrades() {
 				}
 				relics -= temp_artifacts['bos'].cost;
 				temp_artifacts['bos'].level++;
-				calculate(temp_artifacts, 'bos', false, false);
+				temp_artifacts = calculate(temp_artifacts, 'bos', false, false);
 			} else {
 				forceBOS = 0;
 			}
@@ -306,7 +306,7 @@ function acceptSuggestions() {
 	$('#suggestions').empty();
 	$('#relics').val('');
 	$('#relics_decimal').val('');
-	calculateAll(artifacts, true);
+	artifacts = calculateAll(artifacts, true);
 }
 
 function oldEff(data, k, v) {
