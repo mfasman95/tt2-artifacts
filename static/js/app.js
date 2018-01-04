@@ -193,7 +193,6 @@ function generateUpgrades() {
 	}
 	var upgrades = {};
 	var temp_artifacts = $.extend(true, {}, artifacts);
-	console.log(temp_artifacts);
 	var litmus = false;
 	$.each(temp_artifacts, function(k,v) {
 		if(v.level > 0) { litmus = true; }
@@ -249,8 +248,6 @@ function generateUpgrades() {
 		}
 	}
 	while(true) {
-		console.log(temp_artifacts);
-		console.log(winner_e);
 		if(relics >= temp_artifacts[winner_e].cost) {
 			if(undefined == upgrades[winner_e]) {
 				upgrades[winner_e] = 1;
@@ -367,7 +364,7 @@ function calculate(data, k, regenerate, pinch) {
 	}
 	winner_e = ''
 	var temp_winner_n = ''
-	winner_value = 0;
+	winner_value = -99999999999999999;
 	$.each(data, function(k,v) {
 		if(v.efficiency > winner_value) {
 			if(v.level > 0 && v.active == 1) {
@@ -388,7 +385,7 @@ function calculate(data, k, regenerate, pinch) {
 function calculateAll(data, regenerate) {
 	winner_e = ''
 	var temp_winner_n = ''
-	winner_value = 0;
+	winner_value = -99999999999999999;
 	var next_artifact = countArtifacts(artifacts) + 1;
 	var next_artifact_cost = artifact_costs[next_artifact];
 	var average_level = determineAverage(artifacts);
