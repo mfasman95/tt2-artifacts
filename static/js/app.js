@@ -191,7 +191,7 @@ function generateUpgrades() {
 			relics = relics.mul(1000000000000).toNumber();
 			break;
 	}
-	var upgrades = {};
+	upgrades = {};
 	var temp_artifacts = $.extend(true, {}, artifacts);
 	var litmus = false;
 	$.each(temp_artifacts, function(k,v) {
