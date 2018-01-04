@@ -334,10 +334,6 @@ function calculate(data, k, regenerate, pinch) {
 			var ad_eff = next_ad_jump/cost;
 			var eff = (effect_eff + ad_eff) * 1000000;
 			data[k].efficiency = eff;
-			if(eff > winner_value) {
-				winner_e = k;
-				winner_value = eff;
-			}
 		}
 	} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1) {
 		data[k].current_ad = '';
@@ -352,15 +348,26 @@ function calculate(data, k, regenerate, pinch) {
 		var ad_eff = next_ad_jump/next_artifact_cost;
 		var eff = (effect_eff + ad_eff) * 1000000;
 		data[k].efficiency = eff;
-		if(eff > winner_value && true === pinch) {
-			winner_n = k;
-		}
 	} else {
 		data[k].current_ad = '';
 		data[k].current_effect = '';
 	}
+	winner_e = ''
+	var temp_winner_n = ''
+	winner_value = 0;
+	$.each(data, function(k,v) {
+		if(v.efficiency > winner_value) {
+			if(v.level > 0 && v.active == 1)) {
+				winner_e = k;
+				winner_value = v.efficiency;
+			} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1 && true === pinch) {
+				temp_winner_n = k;
+			}
+		}
+	});
 	if(true === regenerate) {
 		regenerateArtifacts();
+		winner_n = temp_winner_n;
 	}
 	return(data);
 }
