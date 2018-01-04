@@ -330,7 +330,7 @@ function oldEff(data, k, v) {
 	return(data);
 }
 
-function newEff(data, k, v, avglvl) {
+function newEff(data, k, v, avglvl, cost) {
 	data[k].current_ad = '';
 	data[k].current_effect = '';
 	if(v.max == -1 || v.max > avglvl) {
@@ -357,7 +357,7 @@ function calculate(data, k, regenerate, pinch) {
 	if(v.level > 0 && v.active == 1) {
 		data = oldEff(data, k, v);
 	} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1 && true === pinch) {
-		data = newEff(data, k, v, average_level);
+		data = newEff(data, k, v, average_level, next_artifact_cost);
 	} else {
 		data[k].current_ad = '';
 		data[k].current_effect = '';
@@ -401,7 +401,7 @@ function calculateAll(data, regenerate) {
 				winner_value = data[k].efficiency;
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1) {
-			data = newEff(data, k, v, average_level);
+			data = newEff(data, k, v, average_level, next_artifact_cost);
 			if(data[k].efficiency > winner_value) {
 				temp_winner_n = k;
 			}
