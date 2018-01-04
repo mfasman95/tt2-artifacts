@@ -79,7 +79,7 @@ function checkAll() {
 		artifacts[k].active = 1;
 		$('#' + k + 'div').removeClass('ignore');
 	});
-	calculate(artifacts, true, true);
+	calculateAll(artifacts, true);
 }
 
 function regenerateArtifacts() {
