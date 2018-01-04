@@ -77,7 +77,6 @@ function adjustWeights() {
 			artifacts.ig.rating += 1.5;
 			artifacts.rt.rating += .5;
 			artifacts.pof.rating += 1;
-			artifacts.tr.rating += .5;
 			artifacts.as.rating += .5;
 			break;
 		case 'hs':
@@ -168,5 +167,5 @@ function adjustWeights() {
 			artifacts.af.rating += .9;
 			break;
 	}
-	calculate(artifacts, true);
+	calculateAll(artifacts, true);
 }
