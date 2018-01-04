@@ -193,8 +193,9 @@ function generateUpgrades() {
 	}
 	var upgrades = {};
 	var temp_artifacts = $.extend(true, {}, artifacts);
+	console.log(temp_artifacts);
 	var litmus = false;
-	$.each(artifacts, function(k,v) {
+	$.each(temp_artifacts, function(k,v) {
 		if(v.level > 0) { litmus = true; }
 	});
 	if(false == litmus) {
@@ -248,6 +249,8 @@ function generateUpgrades() {
 		}
 	}
 	while(true) {
+		console.log(temp_artifacts);
+		console.log(winner_e);
 		if(relics >= temp_artifacts[winner_e].cost) {
 			if(undefined == upgrades[winner_e]) {
 				upgrades[winner_e] = 1;
