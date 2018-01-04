@@ -229,7 +229,7 @@ function generateUpgrades() {
 					}
 					relics -= temp_artifacts['bos'].cost;
 					temp_artifacts['bos'].level++;
-					calculate(temp_artifacts, 'bos', false, false);
+					temp_artifacts = calculate(temp_artifacts, 'bos', false, false);
 				} else if(relics >= temp_artifacts['bos'].cost) {
 					if(undefined == upgrades['bos']) {
 						upgrades['bos'] = 1;
@@ -238,7 +238,7 @@ function generateUpgrades() {
 					}
 					relics -= temp_artifacts['bos'].cost;
 					temp_artifacts['bos'].level++;
-					calculate(temp_artifacts, 'bos', false, false);
+					temp_artifacts = calculate(temp_artifacts, 'bos', false, false);
 					break;
 				} else {
 					break;
@@ -256,7 +256,7 @@ function generateUpgrades() {
 			}
 			relics -= temp_artifacts[winner_e].cost;
 			temp_artifacts[winner_e].level++;
-			calculate(temp_artifacts, winner_e, false, false);
+			temp_artifacts = calculate(temp_artifacts, winner_e, false, false);
 		} else {
 			break;
 		}
@@ -362,6 +362,7 @@ function calculate(data, k, regenerate, pinch) {
 	if(true === regenerate) {
 		regenerateArtifacts();
 	}
+	return(data);
 }
 
 function calculateAll(data, regenerate) {
@@ -423,6 +424,7 @@ function calculateAll(data, regenerate) {
 		regenerateArtifacts();
 		winner_n = temp_winner_n;
 	}
+	return(data)
 }
 
 function displayPct(value) {
