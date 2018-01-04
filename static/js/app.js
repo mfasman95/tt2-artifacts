@@ -398,7 +398,7 @@ function calculateAll(data, regenerate) {
 			if(data[k].efficiency > winner_value) {
 				winner_e = k;
 				temp_winner_n = '';
-				winner_value = eff;
+				winner_value = data[k].efficiency;
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1) {
 			data = newEff(data, k, v, average_level);
