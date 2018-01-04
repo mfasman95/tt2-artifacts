@@ -302,7 +302,7 @@ var artifacts = {
 		'ad' : .3,
 		'effect' : .15,
 		'max' : -1,
-		'gmax' : 0.45,
+		'gmax' : 0.4,
 		'grate' : .0002,
 		'gexpo' : .5,
 		'ccoef' : .7,
