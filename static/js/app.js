@@ -169,7 +169,7 @@ function generateUpgrades() {
 		$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
 	}
 	var forceBOS = parseInt($('#forcebos').val());
-	var relics = new Decimal($('#relics').val() + '.' + $('#relics_decimal').val());
+	var relics = new Decimal(('' == $('#relics').val() ? 0 : $('#relics').val()) + '.' + ('' == $('#relics_decimal').val() ? 0 : $('#relics_decimal').val()));
 	switch($('#relic_factor').val()) {
 		case '_':
 			relics = relics.toNumber();
