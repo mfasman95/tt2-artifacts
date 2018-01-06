@@ -78,6 +78,7 @@ function adjustWeights() {
 			artifacts.rt.rating += .5;
 			artifacts.pof.rating += 1;
 			artifacts.as.rating += .5;
+			artifacts.tr.rating += .5;
 			break;
 		case 'hs':
 			artifacts.dh.rating += 1;
