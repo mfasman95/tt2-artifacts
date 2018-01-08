@@ -4,7 +4,7 @@ var artifacts = {
 		'sort' : 1,
 		'name' : 'Book of Shadows',
 		'bonus' : ' Prestige Relic',
-		'rating' : 10,
+		'rating' : 65,
 		'ad' : .3,
 		'effect' : .05,
 		'gmax' : 0.12,
