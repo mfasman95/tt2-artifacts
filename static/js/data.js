@@ -407,7 +407,7 @@ var artifacts = {
 		'ad' : .5,
 		'effect' : .1,
 		'max' : -1,
-		'gmax' : 0.32,
+		'gmax' : 0.4,
 		'grate' : .00015,
 		'gexpo' : .5,
 		'ccoef' : .7,
