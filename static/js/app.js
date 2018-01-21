@@ -190,6 +190,24 @@ function generateUpgrades() {
 		case 'T':
 			relics = relics.mul(1000000000000).toNumber();
 			break;
+		case 'e13':
+			relics = relics.mul(10000000000000).toNumber();
+			break;
+		case 'e14':
+			relics = relics.mul(100000000000000).toNumber();
+			break;
+		case 'e15':
+			relics = relics.mul(1000000000000000).toNumber();
+			break;
+		case 'e16':
+			relics = relics.mul(10000000000000000).toNumber();
+			break;
+		case 'e17':
+			relics = relics.mul(100000000000000000).toNumber();
+			break;
+		case 'e18':
+			relics = relics.mul(1000000000000000000).toNumber();
+			break;
 	}
 	upgrades = {};
 	var temp_artifacts = $.extend(true, {}, artifacts);
@@ -424,7 +442,25 @@ function displayPct(value) {
 }
 
 function displayTruncated(value) {
-	if(value > 999999999999) {
+	if(value > 999999999999999999) {
+		value = (value / 1000000000000000000).toFixed(3).replace(/\.?0+$/, '');
+		value += 'e18/ab';
+	} else if(value > 99999999999999999) {
+		value = (value / 100000000000000000).toFixed(3).replace(/\.?0+$/, '');
+		value += 'e17';
+	} else if(value > 9999999999999999) {
+		value = (value / 10000000000000000).toFixed(3).replace(/\.?0+$/, '');
+		value += 'e16';
+	} else if(value > 999999999999999) {
+		value = (value / 1000000000000000).toFixed(3).replace(/\.?0+$/, '');
+		value += 'e15/aa';
+	} else if(value > 99999999999999) {
+		value = (value / 100000000000000).toFixed(3).replace(/\.?0+$/, '');
+		value += 'e14';
+	} else if(value > 9999999999999) {
+		value = (value / 10000000000000).toFixed(3).replace(/\.?0+$/, '');
+		value += 'e13';
+	} else if(value > 999999999999) {
 		value = (value / 1000000000000).toFixed(3).replace(/\.?0+$/, '');
 		value += 'T';
 	} else if(value > 999999999) {
