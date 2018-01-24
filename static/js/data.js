@@ -1,4 +1,4 @@
-var artifacts = 
+var artifacts = {
     	'totalAD' : 0,
 	'data' : {
 		'bos' : {
