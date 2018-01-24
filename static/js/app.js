@@ -354,8 +354,8 @@ function newEff(data, k, v, avglvl, cost) {
 	console.log(cost);
 	console.log(avglvl);
 	console.log(k,v);
-	while(i++ <= avglvl) {
-		cost += Math.pow(v.level + 1, v.cexpo) * v.ccoef;
+	while(i <= avglvl) {
+		cost += Math.pow(i++, v.cexpo) * v.ccoef;
 	}
 	console.log(cost);
 	if(v.max == -1 || v.max > avglvl) {
