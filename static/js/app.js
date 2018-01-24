@@ -328,7 +328,7 @@ function acceptSuggestions() {
 	artifacts = calculateAll(artifacts, true);
 }
 
-function oldEff(data, k, v) {
+function oldEff(data, k, v, totalAD) {
 	var current_ad = v.level * v.ad;
 	var current_effect = 1 + v.effect * Math.pow(v.level, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.level, v.gmax)), v.gexpo));
 	data[k].current_ad = current_ad;
@@ -340,14 +340,14 @@ function oldEff(data, k, v) {
 		var next_effect = 1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo));
 		var effect_diff = next_effect/current_effect;
 		var effect_eff = Math.pow(effect_diff, v.rating);
-		var ad_eff = ((v.level + 1) * v.ad)/current_ad;
+		var ad_eff = (((v.level + 1) * v.ad) - current_ad)/totalAD;
 		var eff = ((effect_eff * ad_eff) - 1)/cost;
 		data[k].efficiency = eff;
 	}
 	return(data);
 }
 
-function newEff(data, k, v, avglvl, cost) {
+function newEff(data, k, v, avglvl, cost, totalAD) {
 	data[k].current_ad = '';
 	data[k].current_effect = '';
 	var i = 1;
@@ -365,10 +365,18 @@ function newEff(data, k, v, avglvl, cost) {
 	}
 	console.log(next_effect);
 	var effect_eff = Math.pow(next_effect, v.rating);
-	var ad_eff = avglvl * v.ad;
+	var ad_eff = (avglvl * v.ad)/totalAD;
 	var eff = ((effect_eff * ad_eff) - 1)/cost;
 	data[k].efficiency = eff;
 	return(data)
+}
+
+function calculateTotalAD(data) {
+	var total = 0;
+	$.each(data, function(k,v) {
+		total += v.level * v.ad;
+	});
+	return(total);
 }
 
 function calculate(data, k, regenerate, pinch) {
@@ -376,13 +384,14 @@ function calculate(data, k, regenerate, pinch) {
 	var next_artifact_cost = artifact_costs[next_artifact];
 	var average_level = determineAverage(artifacts);
 	var v = data[k];
+	var totalAD = calculateTotalAD(data);
 	data[k].efficiency = '';
 	data[k].cost = '';
 	data[k].displayCost = '';
 	if(v.level > 0 && v.active == 1) {
-		data = oldEff(data, k, v);
+		data = oldEff(data, k, v, totalAD);
 	} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1 && true === pinch) {
-		data = newEff(data, k, v, average_level, next_artifact_cost);
+		data = newEff(data, k, v, average_level, next_artifact_cost, totalAD);
 	} else {
 		data[k].current_ad = '';
 		data[k].current_effect = '';
@@ -414,19 +423,20 @@ function calculateAll(data, regenerate) {
 	var next_artifact = countArtifacts(artifacts) + 1;
 	var next_artifact_cost = artifact_costs[next_artifact];
 	var average_level = determineAverage(artifacts);
+	var totalAD = calculateTotalAD(data);
 	$.each(data, function(k,v) {
 		data[k].efficiency = '';
 		data[k].cost = '';
 		data[k].displayCost = '';
 		if(v.level > 0 && v.active == 1) {
-			data = oldEff(data, k, v);
+			data = oldEff(data, k, v, totalAD);
 			if(data[k].efficiency > winner_value) {
 				winner_e = k;
 				temp_winner_n = '';
 				winner_value = data[k].efficiency;
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1) {
-			data = newEff(data, k, v, average_level, next_artifact_cost);
+			data = newEff(data, k, v, average_level, next_artifact_cost, totalAD);
 			if(data[k].efficiency > winner_value) {
 				temp_winner_n = k;
 			}
