@@ -220,8 +220,6 @@ function generateUpgrades() {
 		$('#suggestions').empty().append('<li>You must have at least 1 artifact enabled to use this.</li>');
 		return
 	}
-	var new_ad = 0;
-	var old_ad = 0;
 	while(forceBOS > 0 && $('#ocd').prop('checked') == false) {
 		if($('#bos_type').val() == 'level') {
 			if(relics >= temp_artifacts.data['bos'].cost) {
@@ -233,10 +231,7 @@ function generateUpgrades() {
 				}
 				relics -= temp_artifacts.data['bos'].cost;
 				temp_artifacts.data['bos'].level++;
-				old_ad = temp_artifacts.data['bos'].current_ad;
 				temp_artifacts = calculate(temp_artifacts, 'bos', false, false);
-				new_ad = temp_artifacts.data['bos'].current_ad;
-				temp_artifacts.totalAD += new_ad - old_ad;
 			} else {
 				forceBOS = 0;
 			}
@@ -253,10 +248,7 @@ function generateUpgrades() {
 					}
 					relics -= temp_artifacts.data['bos'].cost;
 					temp_artifacts.data['bos'].level++;
-					old_ad = temp_artifacts.data['bos'].current_ad;
 					temp_artifacts = calculate(temp_artifacts, 'bos', false, false);
-					new_ad = temp_artifacts.data['bos'].current_ad;
-					temp_artifacts.totalAD += new_ad - old_ad;
 				} else if(relics >= temp_artifacts.data['bos'].cost) {
 					if(undefined == upgrades['bos']) {
 						upgrades['bos'] = 1;
@@ -265,10 +257,7 @@ function generateUpgrades() {
 					}
 					relics -= temp_artifacts.data['bos'].cost;
 					temp_artifacts.data['bos'].level++;
-					old_ad = temp_artifacts.data['bos'].current_ad;
 					temp_artifacts = calculate(temp_artifacts, 'bos', false, false);
-					new_ad = temp_artifacts.data['bos'].current_ad;
-					temp_artifacts.totalAD += new_ad - old_ad;
 					break;
 				} else {
 					break;
@@ -286,10 +275,7 @@ function generateUpgrades() {
 			}
 			relics -= temp_artifacts.data[winner_e].cost;
 			temp_artifacts.data[winner_e].level++;
-			old_ad = temp_artifacts.data[winner_e].current_ad;
 			temp_artifacts = calculate(temp_artifacts, winner_e, false, false);
-			new_ad = temp_artifacts.data[winner_e].current_ad;
-			temp_artifacts.totalAD += new_ad - old_ad;
 		} else {
 			break;
 		}
@@ -300,11 +286,8 @@ function generateUpgrades() {
 				var x = Math.floor(temp_artifacts.data[k].level/100) * 100;
 				if(x > artifacts.data[k].level) {
 					temp_artifacts.data[k].level = x;
-					old_ad = temp_artifacts.data[k].current_ad;
 					temp_artifacts = calculate(temp_artifacts, k, false, false);
 					upgrades[k] = x - artifacts.data[k].level;
-					new_ad = temp_artifacts.data[k].current_ad;
-					temp_artifacts.totalAD += new_ad - old_ad;
 				} else {
 					delete upgrades[k];
 				}
@@ -429,6 +412,7 @@ function calculate(data, k, regenerate, pinch) {
 		regenerateArtifacts();
 		winner_n = temp_winner_n;
 	}
+	data.totalAD = calculateTotalAD(data.data);
 	return(data);
 }
 
@@ -464,6 +448,7 @@ function calculateAll(data, regenerate) {
 		regenerateArtifacts();
 		winner_n = temp_winner_n;
 	}
+	data.totalAD = calculateTotalAD(data.data);
 	return(data)
 }
 
