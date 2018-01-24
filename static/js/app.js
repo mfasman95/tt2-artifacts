@@ -400,7 +400,7 @@ function calculate(data, k, regenerate, pinch) {
 	var next_artifact_cost = artifact_costs[next_artifact];
 	var average_level = determineAverage(artifacts.data);
 	var v = data.data[k];
-	data.data[k].efficiency = '';
+	data.data[k].efficiency = -1;
 	data.data[k].cost = '';
 	data.data[k].displayCost = '';
 	if(v.level > 0 && v.active == 1) {
@@ -415,7 +415,7 @@ function calculate(data, k, regenerate, pinch) {
 	}
 	winner_e = ''
 	var temp_winner_n = ''
-	winner_value = -99999999999999999;
+	winner_value = 0;
 	$.each(data.data, function(k,v) {
 		if(v.efficiency > winner_value) {
 			if(v.level > 0 && v.active == 1) {
@@ -436,12 +436,12 @@ function calculate(data, k, regenerate, pinch) {
 function calculateAll(data, regenerate) {
 	winner_e = ''
 	var temp_winner_n = ''
-	winner_value = -99999999999999999;
+	winner_value = 0;
 	var next_artifact = countArtifacts(artifacts.data) + 1;
 	var next_artifact_cost = artifact_costs[next_artifact];
 	var average_level = determineAverage(artifacts.data);
 	$.each(data.data, function(k,v) {
-		data.data[k].efficiency = '';
+		data.data[k].efficiency = -1;
 		data.data[k].cost = '';
 		data.data[k].displayCost = '';
 		if(v.level > 0 && v.active == 1) {
