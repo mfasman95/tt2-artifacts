@@ -301,7 +301,7 @@ function generateUpgrades() {
 				if(x > artifacts.data[k].level) {
 					temp_artifacts.data[k].level = x;
 					old_ad = temp_artifacts.data[k].current_ad;
-					calculate(temp_artifacts.data, k, false, false);
+					temp_artifacts = calculate(temp_artifacts, k, false, false);
 					upgrades[k] = x - artifacts.data[k].level;
 					new_ad = temp_artifacts.data[k].current_ad;
 					temp_artifacts.totalAD += new_ad - old_ad;
