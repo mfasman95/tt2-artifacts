@@ -23,7 +23,6 @@ function ocdOCD() {
 function generateArtifacts() {
 	$('#artifacts').empty();
 	$.each(artifacts.data, function(k,v) {
-		console.log(k,v);
 		if(isNaN(v.level)) {
 			v.level = 0;
 		}
@@ -563,11 +562,9 @@ function storageAvailable(type) {
 
 if (storageAvailable('localStorage')) {
 	var localArtifacts = JSON.parse(window.localStorage.getItem('artifacts'));
-	console.log(localArtifacts);
 	if('undefined' == typeof localArtifacts.data) {
 		localArtifacts.data = jQuery.extend(true, {}, localArtifacts);
 	}
-	console.log(localArtifacts);
 	$.each(localArtifacts.data, function(k, v) {
 		if(undefined != artifacts.data[k]) {
 			artifacts.data[k].level = v.level;
@@ -590,7 +587,6 @@ if (storageAvailable('localStorage')) {
 		$('#ocd').prop('checked', true);
 	}
 	toggleDark();
-	console.log(artifacts);
 }
 
 var origWeights = jQuery.extend(true, {}, artifacts.data);
