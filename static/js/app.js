@@ -447,7 +447,7 @@ function calculateAll(data, regenerate) {
 		data.data[k].displayCost = '';
 		if(v.level > 0 && v.active == 1) {
 			data = oldEff(data, k, v);
-			console.log(dat.data[k].efficiency, winner_value);
+			console.log(data.data[k].efficiency, winner_value);
 			if(-1 != data.data[k].efficiency && data.data[k].efficiency > winner_value) {
 				winner_e = k;
 				temp_winner_n = '';
