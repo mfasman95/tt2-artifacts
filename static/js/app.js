@@ -354,7 +354,8 @@ function newEff(data, k, v, avglvl, cost) {
 	data.data[k].current_ad = '';
 	data.data[k].current_effect = '';
 	var i = 1;
-	while(i <= avglvl) {
+	var j = (v.max == -1 || v.max > avglvl ? avglvl : v.max);
+	while(i <= j) {
 		cost += Math.pow(i++, v.cexpo) * v.ccoef;
 	}
 	if(v.max == -1 || v.max > avglvl) {
