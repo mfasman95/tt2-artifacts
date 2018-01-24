@@ -23,6 +23,7 @@ function ocdOCD() {
 function generateArtifacts() {
 	$('#artifacts').empty();
 	$.each(artifacts.data, function(k,v) {
+		console.log(k,v);
 		if(isNaN(v.level)) {
 			v.level = 0;
 		}
@@ -40,7 +41,7 @@ function generateArtifacts() {
 		}
 		div += '</span></span><span id="' + k + 'weff">';
 		if('' != v.efficiency) {
-			div += v.rating + ' Weight &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
+			div += v.rating + ' Exponent &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
 		}
 		div += '</span></div>'
 		$('#artifacts').append(div);
