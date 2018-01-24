@@ -22,7 +22,7 @@ function ocdOCD() {
 
 function generateArtifacts() {
 	$('#artifacts').empty();
-	$.each(artifacts, function(k,v) {
+	$.each(artifacts.data, function(k,v) {
 		if(isNaN(v.level)) {
 			v.level = 0;
 		}
@@ -64,26 +64,26 @@ function generateArtifacts() {
 
 function updateActive(k) {
 	if($('#' + k + 'active').is(':checked')) {
-		artifacts[k].active = 1;
+		artifacts.data[k].active = 1;
 		$('#' + k + 'div').removeClass('ignore');
 	} else {
-		artifacts[k].active = 0;
+		artifacts.data[k].active = 0;
 		$('#' + k + 'div').addClass('ignore');
 	}
-	artifacts = calculate(artifacts, k, true, true);
+	artifacts.data = calculate(artifacts.data, k, true, true);
 }
 
 function checkAll() {
-	$.each(artifacts, function(k,v) {
+	$.each(artifacts.data, function(k,v) {
 		$('#' + k + 'active').prop('checked', true);
-		artifacts[k].active = 1;
+		artifacts.data[k].active = 1;
 		$('#' + k + 'div').removeClass('ignore');
 	});
-	artifacts = calculateAll(artifacts, true);
+	artifacts.data = calculateAll(artifacts.data, true);
 }
 
 function regenerateArtifacts() {
-	$.each(artifacts, function(k,v) {
+	$.each(artifacts.data, function(k,v) {
 		if(isNaN(v.level)) {
 			v.level = 0;
 		}
@@ -126,8 +126,8 @@ function regenerateArtifacts() {
 }
 
 function updateArtifact(k) {
-	artifacts[k].level = parseInt($('#' + k).val());
-	artifacts = calculate(artifacts, k, true, true);
+	artifacts.data[k].level = parseInt($('#' + k).val());
+	artifacts.data = calculate(artifacts.data, k, true, true);
 }
 
 function countArtifacts(data) {
@@ -212,7 +212,7 @@ function generateUpgrades() {
 	upgrades = {};
 	var temp_artifacts = $.extend(true, {}, artifacts);
 	var litmus = false;
-	$.each(temp_artifacts, function(k,v) {
+	$.each(temp_artifacts.data, function(k,v) {
 		if(v.level > 0) { litmus = true; }
 	});
 	if(false == litmus) {
@@ -221,16 +221,16 @@ function generateUpgrades() {
 	}
 	while(forceBOS > 0 && $('#ocd').prop('checked') == false) {
 		if($('#bos_type').val() == 'level') {
-			if(relics >= temp_artifacts['bos'].cost) {
+			if(relics >= temp_artifacts.data['bos'].cost) {
 				forceBOS--;
 				if(undefined == upgrades['bos']) {
 					upgrades['bos'] = 1;
 				} else {
 					upgrades['bos']++;
 				}
-				relics -= temp_artifacts['bos'].cost;
-				temp_artifacts['bos'].level++;
-				temp_artifacts = calculate(temp_artifacts, 'bos', false, false);
+				relics -= temp_artifacts.data['bos'].cost;
+				temp_artifacts.data['bos'].level++;
+				temp_artifacts.data = calculate(temp_artifacts.data, 'bos', false, false);
 			} else {
 				forceBOS = 0;
 			}
@@ -238,25 +238,25 @@ function generateUpgrades() {
 			var bos_pct = forceBOS/100;
 			var bos_relics = relics * bos_pct;
 			while(true) {
-				if(bos_relics >= temp_artifacts['bos'].cost) {
-					bos_relics -= temp_artifacts['bos'].cost;
+				if(bos_relics >= temp_artifacts.data['bos'].cost) {
+					bos_relics -= temp_artifacts.data['bos'].cost;
 					if(undefined == upgrades['bos']) {
 						upgrades['bos'] = 1;
 					} else {
 						upgrades['bos']++;
 					}
-					relics -= temp_artifacts['bos'].cost;
-					temp_artifacts['bos'].level++;
-					temp_artifacts = calculate(temp_artifacts, 'bos', false, false);
-				} else if(relics >= temp_artifacts['bos'].cost) {
+					relics -= temp_artifacts.data['bos'].cost;
+					temp_artifacts.data['bos'].level++;
+					temp_artifacts.data = calculate(temp_artifacts.data, 'bos', false, false);
+				} else if(relics >= temp_artifacts.data['bos'].cost) {
 					if(undefined == upgrades['bos']) {
 						upgrades['bos'] = 1;
 					} else {
 						upgrades['bos']++;
 					}
-					relics -= temp_artifacts['bos'].cost;
-					temp_artifacts['bos'].level++;
-					temp_artifacts = calculate(temp_artifacts, 'bos', false, false);
+					relics -= temp_artifacts.data['bos'].cost;
+					temp_artifacts.data['bos'].level++;
+					temp_artifacts.data = calculate(temp_artifacts.data, 'bos', false, false);
 					break;
 				} else {
 					break;
@@ -266,27 +266,27 @@ function generateUpgrades() {
 		}
 	}
 	while(true) {
-		if(relics >= temp_artifacts[winner_e].cost) {
+		if(relics >= temp_artifacts.data[winner_e].cost) {
 			if(undefined == upgrades[winner_e]) {
 				upgrades[winner_e] = 1;
 			} else {
 				upgrades[winner_e]++;
 			}
-			relics -= temp_artifacts[winner_e].cost;
-			temp_artifacts[winner_e].level++;
-			temp_artifacts = calculate(temp_artifacts, winner_e, false, false);
+			relics -= temp_artifacts.data[winner_e].cost;
+			temp_artifacts.data[winner_e].level++;
+			temp_artifacts.data = calculate(temp_artifacts.data, winner_e, false, false);
 		} else {
 			break;
 		}
 	}
 	if($('#ocd').prop('checked')) {
-		$.each(artifacts, function(k,v) {
+		$.each(artifacts.data, function(k,v) {
 			if(k in upgrades) {
-				var x = Math.floor(temp_artifacts[k].level/100) * 100;
-				if(x > artifacts[k].level) {
-					temp_artifacts[k].level = x;
-					calculate(temp_artifacts, k, false, false);
-					upgrades[k] = x - artifacts[k].level;
+				var x = Math.floor(temp_artifacts.data[k].level/100) * 100;
+				if(x > artifacts.data[k].level) {
+					temp_artifacts.data[k].level = x;
+					calculate(temp_artifacts.data, k, false, false);
+					upgrades[k] = x - artifacts.data[k].level;
 				} else {
 					delete upgrades[k];
 				}
@@ -302,9 +302,9 @@ function generateUpgrades() {
 		$('#suggestions').empty().append('<li>You cannot afford to make the next best upgrade(s). Please try again when you have more relics. Also, if you have the OCD mode on, you might need to shut it off to see results.</li>');
 		return
 	}
-	$.each(artifacts, function(k,v) {
+	$.each(artifacts.data, function(k,v) {
 		if(k in upgrades) {
-			suggestions += '<li>' + v.name + '&#x00A0;' + v.level + '&#x00A0;=>&#x00A0;' + temp_artifacts[k].level + '&#x00A0;(+' + upgrades[k] + ') <span class="light">[' + displayEffect(artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;=>&#x00A0;' + displayEffect(temp_artifacts[k].current_effect, artifacts[k].type) + '&#x00A0;effect&#x00A0;|&#x00A0;' + displayPct(artifacts[k].current_ad) + '&#x00A0;=>&#x00A0;' + displayPct(temp_artifacts[k].current_ad) + '&#x00A0;AD]</span></li>';
+			suggestions += '<li>' + v.name + '&#x00A0;' + v.level + '&#x00A0;=>&#x00A0;' + temp_artifacts.data[k].level + '&#x00A0;(+' + upgrades[k] + ') <span class="light">[' + displayEffect(artifacts.data[k].current_effect, artifacts.data[k].type) + '&#x00A0;=>&#x00A0;' + displayEffect(temp_artifacts.data[k].current_effect, artifacts.data[k].type) + '&#x00A0;effect&#x00A0;|&#x00A0;' + displayPct(artifacts.data[k].current_ad) + '&#x00A0;=>&#x00A0;' + displayPct(temp_artifacts.data[k].current_ad) + '&#x00A0;AD]</span></li>';
 		}
 	});
 	$('#suggestions').empty().append(suggestions);
@@ -318,14 +318,14 @@ function acceptSuggestions() {
 		'event_label': 'List',
 	});
 	$.each(upgrades, function(k,v) {
-		artifacts[k].level += v;
+		artifacts.data[k].level += v;
 	});
 	$('#new_artifact').empty();
 	$('#accept').empty();
 	$('#suggestions').empty();
 	$('#relics').val('');
 	$('#relics_decimal').val('');
-	artifacts = calculateAll(artifacts, true);
+	artifacts.data = calculateAll(artifacts.data, true);
 }
 
 function oldEff(data, k, v, totalAD) {
@@ -380,9 +380,9 @@ function calculateTotalAD(data) {
 }
 
 function calculate(data, k, regenerate, pinch) {
-	var next_artifact = countArtifacts(artifacts) + 1;
+	var next_artifact = countArtifacts(artifacts.data) + 1;
 	var next_artifact_cost = artifact_costs[next_artifact];
-	var average_level = determineAverage(artifacts);
+	var average_level = determineAverage(artifacts.data);
 	var v = data[k];
 	var totalAD = calculateTotalAD(data);
 	data[k].efficiency = '';
@@ -420,9 +420,9 @@ function calculateAll(data, regenerate) {
 	winner_e = ''
 	var temp_winner_n = ''
 	winner_value = -99999999999999999;
-	var next_artifact = countArtifacts(artifacts) + 1;
+	var next_artifact = countArtifacts(artifacts.data) + 1;
 	var next_artifact_cost = artifact_costs[next_artifact];
-	var average_level = determineAverage(artifacts);
+	var average_level = determineAverage(artifacts.data);
 	var totalAD = calculateTotalAD(data);
 	$.each(data, function(k,v) {
 		data[k].efficiency = '';
@@ -546,10 +546,13 @@ function storageAvailable(type) {
 
 if (storageAvailable('localStorage')) {
 	var localArtifacts = JSON.parse(window.localStorage.getItem('artifacts'));
-	$.each(localArtifacts, function(k, v) {
-		if(undefined != artifacts[k]) {
-			artifacts[k].level = v.level;
-			artifacts[k].active = v.active;
+	if('undefined' == typeof localArtifacts.data) {
+		localArtifacts.data = jQuery.extend(true, {}, localArtifacts);
+	}
+	$.each(localArtifacts.data, function(k, v) {
+		if(undefined != artifacts.data[k]) {
+			artifacts.data[k].level = v.level;
+			artifacts.data[k].active = v.active;
 		}
 	});
 	$('#build').val(window.localStorage.getItem('build'));
@@ -569,5 +572,5 @@ if (storageAvailable('localStorage')) {
 	toggleDark();
 }
 
-var origWeights = jQuery.extend(true, {}, artifacts);
+var origWeights = jQuery.extend(true, {}, artifacts.data);
 generateArtifacts();
