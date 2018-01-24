@@ -338,11 +338,10 @@ function oldEff(data, k, v) {
 		data[k].cost= cost;
 		data[k].displayCost = displayTruncated(cost);
 		var next_effect = 1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo));
-		var next_ad_jump = ((v.level + 1) * v.ad)/(v.level * v.ad);
 		var effect_diff = next_effect/current_effect;
 		var effect_eff = Math.pow(effect_diff, v.rating);
-		var ad_eff = next_ad_jump;
-		var eff = (effect_eff + ad_eff)/cost;
+		var ad_eff = ((v.level + 1) * v.ad)/current_ad;
+		var eff = ((effect_eff * ad_eff) - 1)/cost;
 		data[k].efficiency = eff;
 	}
 	return(data);
@@ -356,10 +355,9 @@ function newEff(data, k, v, avglvl, cost) {
 	} else  {
 		var next_effect = 1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo));
 	}
-	var next_ad_jump = avglvl * v.ad;
 	var effect_eff = Math.pow(next_effect, v.rating);
-	var ad_eff = next_ad_jump;
-	var eff = (effect_eff + ad_eff)/cost;
+	var ad_eff = avglvl * v.ad;
+	var eff = ((effect_eff * ad_eff) - 1)/cost;
 	data[k].efficiency = eff;
 	return(data)
 }
