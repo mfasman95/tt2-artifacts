@@ -105,7 +105,7 @@ function regenerateArtifacts() {
 		$('#' + k + 'cost').empty().append(value);
 		value = '';
 		if(-1 != v.efficiency) {
-			value = v.rating + ' Weight &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
+			value = v.rating + ' Exponent &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
 		}
 		$('#' + k + 'weff').empty().append(value);
 	});
