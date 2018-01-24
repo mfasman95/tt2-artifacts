@@ -340,7 +340,7 @@ function oldEff(data, k, v) {
 		var next_effect = 1 + v.effect * Math.pow(v.level + 1, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + 1), v.gmax)), v.gexpo));
 		var next_ad_jump = ((v.level + 1) * v.ad)/(v.level * v.ad);
 		var effect_diff = next_effect/current_effect;
-		var effect_eff = Math.pow(effect_diff, expo);
+		var effect_eff = Math.pow(effect_diff, v.rating);
 		var ad_eff = next_ad_jump;
 		var eff = (effect_eff + ad_eff)/cost;
 		data[k].efficiency = eff;
