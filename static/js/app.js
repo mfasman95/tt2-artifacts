@@ -390,9 +390,9 @@ function newEff(data, k, v, avglvl, cost) {
 function calculateTotalAD(data) {
 	var total = 0;
 	$.each(data, function(k,v) {
-		console.log(v);
 		total += v.current_ad;
 	});
+	console.log(total);	
 	return(total);
 }
 
