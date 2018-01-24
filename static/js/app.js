@@ -363,6 +363,7 @@ function newEff(data, k, v, avglvl, cost) {
 	} else  {
 		var next_effect = 1 + v.effect * Math.pow(v.max, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * v.max, v.gmax)), v.gexpo));
 	}
+	console.log(next_effect);
 	var effect_eff = Math.pow(next_effect, v.rating);
 	var ad_eff = avglvl * v.ad;
 	var eff = ((effect_eff * ad_eff) - 1)/cost;
