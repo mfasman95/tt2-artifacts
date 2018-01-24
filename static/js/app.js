@@ -363,7 +363,7 @@ function oldEff(data, k, v) {
 		var ad_change = (((v.level + 1) * v.ad) - current_ad);
 		var ad_eff = ad_change/data.totalAD;
 		var eff = ((effect_eff * ad_eff) - 1)/cost;
-		data[k].efficiency = eff;
+		data.data[k].efficiency = eff;
 	}
 	return(data);
 }
@@ -383,7 +383,7 @@ function newEff(data, k, v, avglvl, cost) {
 	var effect_eff = Math.pow(next_effect, v.rating);
 	var ad_eff = (avglvl * v.ad)/data.totalAD;
 	var eff = ((effect_eff * ad_eff) - 1)/cost;
-	data[k].efficiency = eff;
+	data.data[k].efficiency = eff;
 	return(data)
 }
 
