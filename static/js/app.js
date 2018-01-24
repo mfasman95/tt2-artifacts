@@ -350,6 +350,10 @@ function oldEff(data, k, v) {
 function newEff(data, k, v, avglvl, cost) {
 	data[k].current_ad = '';
 	data[k].current_effect = '';
+	var i = 1;
+	while(i++ <= avglvl) {
+		cost += Math.pow(v.level + 1, v.cexpo) * v.ccoef;
+	}
 	if(v.max == -1 || v.max > avglvl) {
 		var next_effect = 1 + v.effect * Math.pow(avglvl, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * avglvl, v.gmax)), v.gexpo));
 	} else  {
