@@ -454,7 +454,7 @@ function calculateAll(data, regenerate) {
 				winner_value = data.data[k].efficiency;
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1) {
-			console.log(dat.data[k].efficiency, winner_value);
+			console.log(data.data[k].efficiency, winner_value);
 			data = newEff(data, k, v, average_level, next_artifact_cost);
 			if(-1 != data.data[k].efficiency && data.data[k].efficiency > winner_value) {
 				temp_winner_n = k;
