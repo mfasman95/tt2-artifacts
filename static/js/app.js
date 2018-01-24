@@ -415,7 +415,7 @@ function calculate(data, k, regenerate, pinch) {
 	}
 	winner_e = ''
 	var temp_winner_n = ''
-	winner_value = -999999999999999;
+	winner_value = 0;
 	$.each(data.data, function(k,v) {
 		if(-1 != v.efficiency && v.efficiency < winner_value) {
 			if(v.level > 0 && v.active == 1) {
@@ -436,7 +436,7 @@ function calculate(data, k, regenerate, pinch) {
 function calculateAll(data, regenerate) {
 	winner_e = ''
 	var temp_winner_n = ''
-	winner_value = -999999999999999;
+	winner_value = 0;
 	var next_artifact = countArtifacts(artifacts.data) + 1;
 	var next_artifact_cost = artifact_costs[next_artifact];
 	var average_level = determineAverage(artifacts.data);
