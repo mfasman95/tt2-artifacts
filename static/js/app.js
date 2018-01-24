@@ -278,6 +278,7 @@ function generateUpgrades() {
 		}
 	}
 	while(true) {
+		console.log(winner_e, relics,temp_artifacts.totalAD);
 		if(relics >= temp_artifacts.data[winner_e].cost) {
 			if(undefined == upgrades[winner_e]) {
 				upgrades[winner_e] = 1;
