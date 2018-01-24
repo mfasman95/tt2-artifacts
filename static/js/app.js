@@ -417,6 +417,7 @@ function calculate(data, k, regenerate, pinch) {
 	var temp_winner_n = ''
 	winner_value = 0;
 	$.each(data.data, function(k,v) {
+		console.log(v.efficiency, winner_value, winner_e);
 		if(v.efficiency > winner_value) {
 			if(v.level > 0 && v.active == 1) {
 				winner_e = k;
@@ -446,6 +447,7 @@ function calculateAll(data, regenerate) {
 		data.data[k].displayCost = '';
 		if(v.level > 0 && v.active == 1) {
 			data = oldEff(data, k, v);
+			console.log(data.data[k].efficiency, winner_value, winner_e);
 			if(data.data[k].efficiency > winner_value) {
 				winner_e = k;
 				temp_winner_n = '';
@@ -453,6 +455,7 @@ function calculateAll(data, regenerate) {
 			}
 		} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1) {
 			data = newEff(data, k, v, average_level, next_artifact_cost);
+			console.log(data.data[k].efficiency, winner_value, winner_e);
 			if(data.data[k].efficiency > winner_value) {
 				temp_winner_n = k;
 			}
