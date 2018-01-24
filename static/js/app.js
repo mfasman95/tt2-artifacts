@@ -352,6 +352,8 @@ function newEff(data, k, v, avglvl, cost) {
 	data[k].current_effect = '';
 	var i = 1;
 	console.log(cost);
+	console.log(avglvl);
+	console.log(k,v);
 	while(i++ <= avglvl) {
 		cost += Math.pow(v.level + 1, v.cexpo) * v.ccoef;
 	}
