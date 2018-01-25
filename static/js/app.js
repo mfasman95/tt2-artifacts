@@ -40,7 +40,7 @@ function generateArtifacts() {
 		}
 		div += '</span></span><span id="' + k + 'weff">';
 		if('' != v.efficiency) {
-			div += v.rating + ' Exponent &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
+			div += v.rating.toExponential(2) + ' Exponent &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
 		}
 		div += '</span></div>'
 		$('#artifacts').append(div);
@@ -105,7 +105,7 @@ function regenerateArtifacts() {
 		$('#' + k + 'cost').empty().append(value);
 		value = '';
 		if(-1 != v.efficiency) {
-			value = v.rating + ' Exponent &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
+			value = v.rating.toExponential(2) + ' Exponent &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
 		}
 		$('#' + k + 'weff').empty().append(value);
 	});
