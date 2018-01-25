@@ -43,64 +43,49 @@ function adjustWeights() {
 		artifacts.data[k].rating = v.rating;
 	});
 	switch($('#build').val()) {
+		case 'hero':
+			break;
+			artifacts.data.hb.rating += 1;
+			artifacts.data.tsos.rating += 1;
+			artifacts.data.fb.rating += 1;
+			artifacts.data.cota.rating += 1;
+			artifacts.data.ttt.rating += 1;
+			artifacts.data.hh.rating += .5;
+			artifacts.data.hos2.rating += 10;
+			artifacts.data.ig.rating += 2;
 		case 'tap':
 			artifacts.data.dh.rating += 1;
+			artifacts.data.ss.rating += 1;
+			artifacts.data.tr.rating += 1;
 			artifacts.data.hb.rating += .5;
 			artifacts.data.tsos.rating += .5;
 			artifacts.data.fb.rating += .5;
 			artifacts.data.cota.rating += .5;
 			artifacts.data.ttt.rating += .5;
 			artifacts.data.hh.rating += .25;
-			artifacts.data.ss.rating += .5;
-			artifacts.data.tr.rating += .5;
+			artifacts.data.hos2.rating += 8;
+			artifacts.data.ig.rating += 3.5;
 			break;
-		case 'hero':
-			artifacts.data.hb.rating += 1;
-			artifacts.data.tsos.rating += 1;
-			artifacts.data.fb.rating += 1;
-			artifacts.data.cota.rating += 1;
-			artifacts.data.ttt.rating += 1;
-			artifacts.data.hh.rating += .5;
-			artifacts.data.pof.rating += 1;
-			break;
-		case 'cs':
-			artifacts.data.hb.rating += 1;
-			artifacts.data.tsos.rating += 1;
-			artifacts.data.fb.rating += 1;
-			artifacts.data.cota.rating += 1;
+		case 'pet':
 			artifacts.data.coe.rating += .5;
-			artifacts.data.ttt.rating += 1;
-			artifacts.data.hh.rating += .5;
-			artifacts.data.ie.rating += 1;
-			artifacts.data.orc.rating += 1;
-			artifacts.data.hos.rating += .5;
-			artifacts.data.ig.rating += 1.5;
-			artifacts.data.rt.rating += .5;
-			artifacts.data.pof.rating += 1;
-			artifacts.data.as.rating += .5;
-			artifacts.data.tr.rating += .5;
-			break;
-		case 'hs':
 			artifacts.data.dh.rating += 1;
-			artifacts.data.coe.rating += 1;
-			artifacts.data.ss.rating += .6;
+			artifacts.data.tr.rating += 1;
 			artifacts.data.hb.rating += .5;
 			artifacts.data.tsos.rating += .5;
 			artifacts.data.fb.rating += .5;
 			artifacts.data.cota.rating += .5;
 			artifacts.data.ttt.rating += .5;
 			artifacts.data.hh.rating += .25;
-			artifacts.data.hos.rating += 1;
-			artifacts.data.ig.rating += 3;
-			artifacts.data.tm.rating += 1;
-			artifacts.data.rt.rating += .5;
-			artifacts.data.bor.rating += 1;
-			artifacts.data.pof.rating += .5;
-			artifacts.data.tr.rating += .5;
+			artifacts.data.foe.rating += .5;
+			artifacts.data.orc.rating += 1;
+			artifacts.data.hos2.rating += 8;
+			artifacts.data.hos.rating += .5;
+			artifacts.data.ig.rating += 2.5;
 			break;
 		case 'sc':
 			artifacts.data.dh.rating += .6;
 			artifacts.data.ss.rating += .6;
+			artifacts.data.tr.rating += 1;
 			artifacts.data.hb.rating += .6;
 			artifacts.data.tsos.rating += .6;
 			artifacts.data.fb.rating += .6;
@@ -108,31 +93,38 @@ function adjustWeights() {
 			artifacts.data.ttt.rating += .6;
 			artifacts.data.hh.rating += .3;
 			artifacts.data.orc.rating += 1;
+			artifacts.data.hos2.rating += 9;
 			artifacts.data.ig.rating += 2.6;
-			artifacts.data.rt.rating += .5;
-			artifacts.data.bor.rating += .5;
-			artifacts.data.pof.rating += .6;
-			artifacts.data.eoe.rating += 1;
-			artifacts.data.tr.rating += .5;
-			artifacts.data.as.rating += .5;
 			break;
-		case 'pet':
-			artifacts.data.foe.rating += 1;
+		case 'hs':
+			artifacts.data.coe.rating += .5;
 			artifacts.data.dh.rating += 1;
-			artifacts.data.tr.rating += .5;
-			artifacts.data.coe.rating += 1;
-			artifacts.data.hos.rating += 1;
+			artifacts.data.ss.rating += .6;
+			artifacts.data.tr.rating += 1;
 			artifacts.data.hb.rating += .5;
 			artifacts.data.tsos.rating += .5;
 			artifacts.data.fb.rating += .5;
 			artifacts.data.cota.rating += .5;
 			artifacts.data.ttt.rating += .5;
 			artifacts.data.hh.rating += .25;
+			artifacts.data.hos2.rating += 8.5;
+			artifacts.data.hos.rating += .5;
+			artifacts.data.ig.rating += 3;
+			break;
+		case 'cs':
+			artifacts.data.coe.rating += .5;
+			artifacts.data.tr.rating += 1;
+			artifacts.data.hb.rating += 1;
+			artifacts.data.tsos.rating += 1;
+			artifacts.data.fb.rating += 1;
+			artifacts.data.cota.rating += 1;
+			artifacts.data.ttt.rating += 1;
+			artifacts.data.hh.rating += .5;
+			artifacts.data.ie.rating += 1;
 			artifacts.data.orc.rating += 1;
-			artifacts.data.ig.rating += 1.5;
-			artifacts.data.rt.rating += .5;
-			artifacts.data.pof.rating += 1;
-			artifacts.data.as.rating += .5;
+			artifacts.data.hos2.rating += 10.5;
+			artifacts.data.hos.rating += .5;
+			artifacts.data.ig.rating += 2.5;
 			break;
 	}
 	switch($('#hero').val()) {
@@ -157,6 +149,7 @@ function adjustWeights() {
 	switch($('#chest').val()) {
 		case 'boss':
 			artifacts.data.hs.rating += .5;
+			artifacts.data.hs2.rating += .5;
 			break;
 		case 'chest':
 			artifacts.data.coc.rating += .5;
@@ -166,6 +159,9 @@ function adjustWeights() {
 		case 'offline':
 			artifacts.data.zc.rating += 1;
 			artifacts.data.af.rating += 1;
+			break;
+		case 'online':
+			artifacts.data.coc.rating += .5;
 			break;
 	}
 	artifacts = calculateAll(artifacts, true);
