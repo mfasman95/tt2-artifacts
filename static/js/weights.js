@@ -171,7 +171,7 @@ function adjustWeights() {
 	}
 	var hswAdj = 0;
 	$.each(artifacts.data, function(k,v) {
-		if(v.id < 41) {
+		if(v.sort < 41) {
 			hswAdj += v.ad;
 		}
 	});
