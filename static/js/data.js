@@ -489,7 +489,7 @@ var artifacts = {
 			'sort' : 24,
 			'name' : 'Apollo Orb',
 			'bonus' : ' Pet Gold Bonuses',
-			'rating' : 1.6,
+			'rating' : 1.5,
 			'ad' : .5,
 			'effect' : .02,
 			'max' : -1,
