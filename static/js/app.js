@@ -550,12 +550,14 @@ if (storageAvailable('localStorage')) {
 	if(null != localArtifacts && 'undefined' == typeof localArtifacts.data) {
 		localArtifacts.data = jQuery.extend(true, {}, localArtifacts);
 	}
-	$.each(localArtifacts.data, function(k, v) {
-		if(undefined != artifacts.data[k]) {
-			artifacts.data[k].level = v.level;
-			artifacts.data[k].active = v.active;
-		}
-	});
+	if(null != localArtifacts && 'undefined' != typeof localArtifacts.data) {
+		$.each(localArtifacts.data, function(k, v) {
+			if(undefined != artifacts.data[k]) {
+				artifacts.data[k].level = v.level;
+				artifacts.data[k].active = v.active;
+			}
+		});
+	}
 	artifacts.totalAD = calculateTotalAD(artifacts.data);
 	$('#build').val(window.localStorage.getItem('build'));
 	$('#hero').val(window.localStorage.getItem('hero'));
