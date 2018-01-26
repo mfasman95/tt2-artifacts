@@ -27,7 +27,7 @@ var artifacts = {
 			'sort' : 2,
 			'name' : 'Stone of Valrunes',
 			'bonus' : ' Basic Titan Gold',
-			'rating' : .5,
+			'rating' : .25,
 			'ad' : .5,
 			'effect' : .3,
 			'max' : -1,
