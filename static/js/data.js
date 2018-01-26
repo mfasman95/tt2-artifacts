@@ -90,7 +90,7 @@ var artifacts = {
 			'sort' : 5,
 			'name' : 'Book of Prophecy',
 			'bonus' : ' All Gold',
-			'rating' : 3.75,
+			'rating' : .75,
 			'ad' : .3,
 			'effect' : .2,
 			'max' : -1,
