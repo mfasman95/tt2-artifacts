@@ -184,7 +184,6 @@ function adjustWeights() {
 		case 'online':
 			artifacts.data.coc.rating += .25;
 			artifacts.data.gfa.rating += .25;
-			artifacts.data.bop.rating += .75
 			break;
 	}
 	artifacts = calculateAll(artifacts, true);
