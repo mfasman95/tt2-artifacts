@@ -547,7 +547,7 @@ function storageAvailable(type) {
 
 if (storageAvailable('localStorage')) {
 	var localArtifacts = JSON.parse(window.localStorage.getItem('artifacts'));
-	if('undefined' == typeof localArtifacts.data) {
+	if('' != localArtifacts && 'undefined' == typeof localArtifacts.data) {
 		localArtifacts.data = jQuery.extend(true, {}, localArtifacts);
 	}
 	$.each(localArtifacts.data, function(k, v) {
