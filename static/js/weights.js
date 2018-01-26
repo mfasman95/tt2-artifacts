@@ -56,8 +56,6 @@ function adjustWeights() {
 			artifacts.data.pof.rating += 1;
 			artifacts.data.hom.rating += 1;
 			artifacts.data.roc.rating += 2.75;
-			artifacts.data.dr.rating += 2;
-			artifacts.data.hsw.rating += 35;
 		case 'tap':
 			artifacts.data.dh.rating += 1;
 			artifacts.data.ss.rating += 1;
@@ -75,8 +73,6 @@ function adjustWeights() {
 			artifacts.data.pof.rating += .5;
 			artifacts.data.hom.rating += 1;
 			artifacts.data.roc.rating += 2.75;
-			artifacts.data.dr.rating += 6;
-			artifacts.data.hsw.rating += 36.5;
 			break;
 		case 'pet':
 			artifacts.data.coe.rating += .25;
@@ -97,8 +93,6 @@ function adjustWeights() {
 			artifacts.data.as.rating += 1;
 			artifacts.data.hom.rating += .5;
 			artifacts.data.roc.rating += 3.25;
-			artifacts.data.dr.rating += 4;
-			artifacts.data.hsw.rating += 34.5;
 			break;
 		case 'sc':
 			artifacts.data.dh.rating += .6;
@@ -120,8 +114,6 @@ function adjustWeights() {
 			artifacts.data.as.rating += 1;
 			artifacts.data.hom.rating += .6;
 			artifacts.data.roc.rating += 3.35;
-			artifacts.data.dr.rating += 4.6;
-			artifacts.data.hsw.rating += 35.4;
 			break;
 		case 'hs':
 			artifacts.data.coe.rating += .25;
@@ -143,8 +135,6 @@ function adjustWeights() {
 			artifacts.data.pof.rating += .5;
 			artifacts.data.hom.rating += 1;
 			artifacts.data.roc.rating += 2.75;
-			artifacts.data.dr.rating += 4.1;
-			artifacts.data.hsw.rating += 35.6;
 			break;
 		case 'cs':
 			artifacts.data.coe.rating += .25;
@@ -165,17 +155,8 @@ function adjustWeights() {
 			artifacts.data.as.rating += 1;
 			artifacts.data.hom.rating += 1;
 			artifacts.data.roc.rating += 3.75;
-			artifacts.data.dr.rating += 3.5;
-			artifacts.data.hsw.rating += 36.5;
 			break;
 	}
-	var hswAdj = 0;
-	$.each(artifacts.data, function(k,v) {
-		if(v.sort < 41) {
-			hswAdj += v.ad;
-		}
-	});
-	artifacts.data.hsw.rating /= hswAdj;
 	switch($('#hero').val()) {
 		case 'melee':
 			artifacts.data.tsos.rating += .2;
