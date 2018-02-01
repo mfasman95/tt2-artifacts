@@ -288,7 +288,7 @@ function generateUpgrades() {
 					temp_artifacts.data[k].level = x;
 					temp_artifacts = calculate(temp_artifacts, k, false, false);
 					upgrades[k] = x - artifacts.data[k].level;
-				} else if(-1 != artifacts.data[k].max) {
+				} else if(-1 == artifacts.data[k].max) {
 					delete upgrades[k];
 				}
 			}
