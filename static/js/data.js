@@ -17,7 +17,7 @@ var artifacts = {
 			'cexpo' : 2.5,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'sov' : {
 			'active' : 1,
 			'sort' : 2,
@@ -34,7 +34,7 @@ var artifacts = {
 			'cexpo' : 1.8,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'coc' : {
 			'active' : 1,
 			'sort' : 3,
@@ -51,7 +51,7 @@ var artifacts = {
 			'cexpo' : 1.8,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'hs' : {
 			'active' : 1,
 			'sort' : 4,
@@ -68,7 +68,7 @@ var artifacts = {
 			'cexpo' : 1.8,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'bop' : {
 			'active' : 1,
 			'sort' : 5,
@@ -85,7 +85,7 @@ var artifacts = {
 			'cexpo' : 2.2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'zc' : {
 			'active' : 1,
 			'sort' : 6,
@@ -102,7 +102,7 @@ var artifacts = {
 			'cexpo' : 1.8,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'gfa' : {
 			'active' : 1,
 			'sort' : 7,
@@ -119,7 +119,7 @@ var artifacts = {
 			'cexpo' : 1.8,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'coe' : {
 			'active' : 1,
 			'sort' : 8,
@@ -136,7 +136,7 @@ var artifacts = {
 			'cexpo' : 1.8,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'hsw' : {
 			'active' : 1,
 			'sort' : 9,
@@ -153,7 +153,7 @@ var artifacts = {
 			'cexpo' : 2.2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'dr' : {
 			'active' : 1,
 			'sort' : 10,
@@ -170,7 +170,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'dh' : {
 			'active' : 1,
 			'sort' : 11,
@@ -187,7 +187,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'ss' : {
 			'active' : 1,
 			'sort' : 12,
@@ -204,7 +204,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'tr' : {
 			'active' : 1,
 			'sort' : 13,
@@ -221,7 +221,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'hb' : {
 			'active' : 1,
 			'sort' : 14,
@@ -238,7 +238,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'tsos' : {
 			'active' : 1,
 			'sort' : 15,
@@ -255,7 +255,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'fb' : {
 			'active' : 1,
 			'sort' : 16,
@@ -272,7 +272,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'cota' : {
 			'active' : 1,
 			'sort' : 17,
@@ -289,7 +289,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'ttt' : {
 			'active' : 1,
 			'sort' : 18,
@@ -306,7 +306,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'hh' : {
 			'active' : 1,
 			'sort' : 19,
@@ -323,7 +323,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'foe' : {
 			'active' : 1,
 			'sort' : 20,
@@ -340,7 +340,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'ie' : {
 			'active' : 1,
 			'sort' : 21,
@@ -357,7 +357,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'orc' : {
 			'active' : 1,
 			'sort' : 22,
@@ -374,7 +374,7 @@ var artifacts = {
 			'cexpo' : 1.8,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'hos2' : {
 			'active' : 1,
 			'sort' : 23,
@@ -391,7 +391,7 @@ var artifacts = {
 			'cexpo' : 2.2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'ao' : {
 			'active' : 1,
 			'sort' : 24,
@@ -408,7 +408,7 @@ var artifacts = {
 			'cexpo' : 2.2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'af' : {
 			'active' : 1,
 			'sort' : 25,
@@ -425,7 +425,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'hos' : {
 			'active' : 1,
 			'sort' : 26,
@@ -442,7 +442,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'td' : {
 			'active' : 1,
 			'sort' : 27,
@@ -459,7 +459,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'hs2' : {
 			'active' : 1,
 			'sort' : 28,
@@ -476,7 +476,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'roc' : {
 			'active' : 1,
 			'sort' : 29,
@@ -493,7 +493,7 @@ var artifacts = {
 			'cexpo' : 2.2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'bod' : {
 			'active' : 1,
 			'sort' : 27,
@@ -510,7 +510,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'hom' : {
 			'active' : 1,
 			'sort' : 31,
@@ -527,7 +527,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'tp' : {
 			'active' : 1,
 			'sort' : 32,
@@ -544,7 +544,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'as' : {
 			'active' : 1,
 			'sort' : 33,
@@ -561,7 +561,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'ig' : {
 			'active' : 1,
 			'sort' : 34,
@@ -578,7 +578,7 @@ var artifacts = {
 			'cexpo' : 1.8,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'tm' : {
 			'active' : 1,
 			'sort' : 35,
@@ -595,7 +595,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'rt' : {
 			'active' : 1,
 			'sort' : 36,
@@ -612,7 +612,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'lp' : {
 			'active' : 1,
 			'sort' : 37,
@@ -629,7 +629,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'bor' : {
 			'active' : 1,
 			'sort' : 38,
@@ -646,7 +646,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'pof' : {
 			'active' : 1,
 			'sort' : 39,
@@ -663,7 +663,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'eoe' : {
 			'active' : 1,
 			'sort' : 40,
@@ -680,7 +680,7 @@ var artifacts = {
 			'cexpo' : 1.7,
 			'type' : 'multiply',
 			'level' : 0
-		}
+		},
 		'hoti' : {
 			'active' : 1,
 			'sort' : 41,
@@ -697,7 +697,7 @@ var artifacts = {
 			'cexpo' : 2.6,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'pt' : {
 			'active' : 1,
 			'sort' : 42,
@@ -714,7 +714,7 @@ var artifacts = {
 			'cexpo' : 3,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'fs' : {
 			'active' : 1,
 			'sort' : 43,
@@ -731,7 +731,7 @@ var artifacts = {
 			'cexpo' : 2.4,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'rof' : {
 			'active' : 1,
 			'sort' : 44,
@@ -748,7 +748,7 @@ var artifacts = {
 			'cexpo' : 2.4,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'ga' : {
 			'active' : 1,
 			'sort' : 45,
@@ -765,7 +765,7 @@ var artifacts = {
 			'cexpo' : 2.4,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'a' : {
 			'active' : 1,
 			'sort' : 46,
@@ -782,7 +782,7 @@ var artifacts = {
 			'cexpo' : 2.4,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'sg' : {
 			'active' : 1,
 			'sort' : 47,
@@ -799,7 +799,7 @@ var artifacts = {
 			'cexpo' : 2.4,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'ip' : {
 			'active' : 1,
 			'sort' : 48,
@@ -816,7 +816,7 @@ var artifacts = {
 			'cexpo' : 3,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'gok' : {
 			'active' : 1,
 			'sort' : 49,
@@ -833,7 +833,7 @@ var artifacts = {
 			'cexpo' : 3,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'ts' : {
 			'active' : 1,
 			'sort' : 50,
@@ -850,7 +850,7 @@ var artifacts = {
 			'cexpo' : 3,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'os' : {
 			'active' : 1,
 			'sort' : 51,
@@ -867,7 +867,7 @@ var artifacts = {
 			'cexpo' : 3,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'tac' : {
 			'active' : 1,
 			'sort' : 52,
@@ -884,7 +884,7 @@ var artifacts = {
 			'cexpo' : 3,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'ho' : {
 			'active' : 1,
 			'sort' : 53,
@@ -901,7 +901,7 @@ var artifacts = {
 			'cexpo' : 3,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'ae' : {
 			'active' : 1,
 			'sort' : 54,
@@ -918,7 +918,7 @@ var artifacts = {
 			'cexpo' : 3,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'ms' : {
 			'active' : 1,
 			'sort' : 55,
@@ -935,7 +935,7 @@ var artifacts = {
 			'cexpo' : 2.6,
 			'type' : 'add',
 			'level' : 0
-		}
+		},
 		'eof' : {
 			'active' : 1,
 			'sort' : 56,
@@ -952,7 +952,7 @@ var artifacts = {
 			'cexpo' : 3,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'dc' : {
 			'active' : 1,
 			'sort' : 57,
@@ -969,7 +969,7 @@ var artifacts = {
 			'cexpo' : 2.6,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'is' : {
 			'active' : 1,
 			'sort' : 58,
@@ -986,7 +986,7 @@ var artifacts = {
 			'cexpo' : 2.1,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'aom' : {
 			'active' : 1,
 			'sort' : 59,
@@ -1003,7 +1003,7 @@ var artifacts = {
 			'cexpo' : 2.5,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'eotk' : {
 			'active' : 1,
 			'sort' : 60,
@@ -1020,7 +1020,7 @@ var artifacts = {
 			'cexpo' : 2.5,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'lkm' : {
 			'active' : 1,
 			'sort' : 61,
@@ -1037,7 +1037,7 @@ var artifacts = {
 			'cexpo' : 3,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'sor' : {
 			'active' : 1,
 			'sort' : 62,
@@ -1054,7 +1054,7 @@ var artifacts = {
 			'cexpo' : 2.6,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'tms' : {
 			'active' : 1,
 			'sort' : 63,
@@ -1071,7 +1071,7 @@ var artifacts = {
 			'cexpo' : 2.6,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'as2' : {
 			'active' : 1,
 			'sort' : 64,
@@ -1088,7 +1088,7 @@ var artifacts = {
 			'cexpo' : 2.6,
 			'type' : 'pct',
 			'level' : 0
-		}
+		},
 		'wod' : {
 			'active' : 1,
 			'sort' : 65,
