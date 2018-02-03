@@ -345,8 +345,9 @@ function oldEff(data, k, v) {
 		data.data[k].jump100 = j;
 		var cost100 = 0;
 		while(i <= j) {
-			cost += Math.pow(i++, v.cexpo) * v.ccoef;
+			cost100 += Math.pow(i++, v.cexpo) * v.ccoef;
 		}
+		data.data[k].cost100 = cost100;
 		next_effect = 1 + v.effect * Math.pow(v.level + j, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + j), v.gmax)), v.gexpo));
 		effect_diff = next_effect/current_effect;
 		effect_eff = Math.pow(effect_diff, v.rating);
