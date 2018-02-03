@@ -1,6 +1,9 @@
 var winner_e = '';
 var winner_n = '';
 var winner_value = 0;
+var winner_e100 = '';
+var winner_n100 = '';
+var winner_value100 = 0;
 
 function toggleDark() {
 	$('body').removeClass('dark');
@@ -146,15 +149,17 @@ function determineAverage(data) {
 
 function generateUpgrades() {
 	$('#new_artifact').empty();
+	var l100 = false;
 	window.localStorage.setItem('relic_factor', $('#relic_factor').val())
 	window.localStorage.setItem('forcebos', $('#forcebos').val());
 	window.localStorage.setItem('bos_type', $('#bos_type').val());
 	if($('#ocd').prop('checked') == true) {
 		window.localStorage.setItem('ocd', 1);
+		l100 = true;
 	} else {
 		window.localStorage.setItem('ocd', 0);
 	}
-	if(winner_n != '') {
+	if((false == l100 && winner_n != '') || (true == l100 && winner_n100 != '')) {
 		$('#new_artifact').empty().append('<em>NOTE: You would be better off saving up for a new artifact.</em>');
 	}
 	var forceBOS = parseInt($('#forcebos').val());
@@ -255,32 +260,33 @@ function generateUpgrades() {
 		}
 	}
 	while(true) {
-		if(relics >= temp_artifacts.data[winner_e].cost) {
-			if(undefined == upgrades[winner_e]) {
-				upgrades[winner_e] = 1;
-			} else {
-				upgrades[winner_e]++;
-			}
-			relics -= temp_artifacts.data[winner_e].cost;
-			temp_artifacts.data[winner_e].level++;
-			temp_artifacts = calculate(temp_artifacts, winner_e, false, false);
-		} else {
-			break;
-		}
-	}
-	if($('#ocd').prop('checked')) {
-		$.each(artifacts.data, function(k,v) {
-			if(k in upgrades) {
-				var x = Math.floor(temp_artifacts.data[k].level/100) * 100;
-				if(x > artifacts.data[k].level) {
-					temp_artifacts.data[k].level = x;
-					temp_artifacts = calculate(temp_artifacts, k, false, false);
-					upgrades[k] = x - artifacts.data[k].level;
-				} else if(-1 == artifacts.data[k].max) {
-					delete upgrades[k];
+		if(true == l100) {
+			if(relics >= temp_artifacts.data[winner_e100].cost100) {
+				if(undefined == upgrades[winner_e100]) {
+					upgrades[winner_e100] = temp_artifacts.data[winner_e100].jump100;
+				} else {
+					upgrades[winner_e] += temp_artifacts.data[winner_e100].jump100;
 				}
+				relics -= temp_artifacts.data[winner_e100].cost100;
+				temp_artifacts.data[winner_e100].level += temp_artifacts.data[winner_e100].jump100;
+				temp_artifacts = calculate(temp_artifacts, winner_e100, false, false);
+			} else {
+				break;
 			}
-		});
+		} else {
+			if(relics >= temp_artifacts.data[winner_e].cost) {
+				if(undefined == upgrades[winner_e]) {
+					upgrades[winner_e] = 1;
+				} else {
+					upgrades[winner_e]++;
+				}
+				relics -= temp_artifacts.data[winner_e].cost;
+				temp_artifacts.data[winner_e].level++;
+				temp_artifacts = calculate(temp_artifacts, winner_e, false, false);
+			} else {
+				break;
+			}
+		}
 	}
 	var suggestions = '';
 	var litmus = false;
@@ -334,6 +340,20 @@ function oldEff(data, k, v) {
 		var ad_eff = 1 + (ad_change/data.totalAD);
 		var eff = Math.abs(((effect_eff * ad_eff) - 1)/cost);
 		data.data[k].efficiency = eff;
+		var i = v.level;
+		var j = (v.max == -1 ? (100 - (v.level % 100)) : v.max);
+		data.data[k].jump100 = j;
+		var cost100 = 0;
+		while(i <= j) {
+			cost += Math.pow(i++, v.cexpo) * v.ccoef;
+		}
+		next_effect = 1 + v.effect * Math.pow(v.level + j, Math.pow((1 + (v.cexpo - 1) * Math.min(v.grate * (v.level + j), v.gmax)), v.gexpo));
+		effect_diff = next_effect/current_effect;
+		effect_eff = Math.pow(effect_diff, v.rating);
+		ad_change = (((v.level + j) * v.ad) - current_ad);
+		ad_eff = 1 + (ad_change/data.totalAD);
+		eff = Math.abs(((effect_eff * ad_eff) - 1)/cost100);
+		data.data[k].efficiency100 = eff;
 	}
 	return(data);
 }
@@ -355,6 +375,7 @@ function newEff(data, k, v, avglvl, cost) {
 	var ad_eff = 1 + ((avglvl * v.ad)/data.totalAD);
 	var eff = Math.abs(((effect_eff * ad_eff) - 1)/cost);
 	data.data[k].efficiency = eff;
+	data.data[k].efficiency100 = eff;
 	return(data)
 }
 
@@ -377,10 +398,11 @@ function calculate(data, k, regenerate, pinch) {
 	data.data[k].efficiency = -1;
 	data.data[k].cost = '';
 	data.data[k].displayCost = '';
+	data.data[k].efficiency100 = -1;
+	data.data[k].cost100 = '';
+	data.data[k].jump100 = 0;
 	if(v.level > 0 && v.active == 1) {
-		var prior_ad = v.current_ad;
 		data = oldEff(data, k, v);
-		var new_ad = data.data[k].current_ad;
 	} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1 && true === pinch) {
 		data = newEff(data, k, v, average_level, next_artifact_cost);
 	} else {
@@ -388,8 +410,11 @@ function calculate(data, k, regenerate, pinch) {
 		data.data[k].current_effect = '';
 	}
 	winner_e = ''
+	winner_e100 = ''
 	var temp_winner_n = ''
+	var temp_winner_n100 = ''
 	winner_value = 0;
+	winner_value100 = 0;
 	$.each(data.data, function(k,v) {
 		if(-1 != v.efficiency && v.efficiency > winner_value) {
 			if(v.level > 0 && v.active == 1) {
@@ -399,10 +424,19 @@ function calculate(data, k, regenerate, pinch) {
 				temp_winner_n = k;
 			}
 		}
+		if(-1 != v.efficiency100 && v.efficiency100 > winner_value100) {
+			if(v.level > 0 && v.active == 1) {
+				winner_e100 = k;
+				winner_value100 = v.efficiency100;
+			} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1 && true === pinch) {
+				temp_winner_n100 = k;
+			}
+		}
 	});
 	if(true === regenerate) {
 		regenerateArtifacts();
 		winner_n = temp_winner_n;
+		winner_n100 = temp_winner_n100;
 	}
 	data.totalAD = calculateTotalAD(data.data, regenerate);
 	return(data);
@@ -410,8 +444,11 @@ function calculate(data, k, regenerate, pinch) {
 
 function calculateAll(data, regenerate) {
 	winner_e = ''
+	winner_e100 = ''
 	var temp_winner_n = ''
+	var temp_winner_n100 = ''
 	winner_value = 0;
+	winner_value100 = 0;
 	var next_artifact = countArtifacts(artifacts.data) + 1;
 	var next_artifact_cost = artifact_costs[next_artifact];
 	var average_level = determineAverage(artifacts.data);
@@ -426,10 +463,18 @@ function calculateAll(data, regenerate) {
 				temp_winner_n = '';
 				winner_value = data.data[k].efficiency;
 			}
+			if(-1 != data.data[k].efficiency100 && data.data[k].efficiency100 > winner_value100) {
+				winner_e100 = k;
+				temp_winner_n100 = '';
+				winner_value100 = data.data[k].efficiency100;
+			}
 		} else if(v.level == 0 && next_artifact_cost != -1 && v.active == 1) {
 			data = newEff(data, k, v, average_level, next_artifact_cost);
 			if(-1 != data.data[k].efficiency && data.data[k].efficiency > winner_value) {
 				temp_winner_n = k;
+			}
+			if(-1 != data.data[k].efficiency100 && data.data[k].efficiency100 > winner_value100) {
+				temp_winner_n100 = k;
 			}
 		} else {
 			data.data[k].current_ad = '';
@@ -439,6 +484,7 @@ function calculateAll(data, regenerate) {
 	if(true === regenerate) {
 		regenerateArtifacts();
 		winner_n = temp_winner_n;
+		winner_n100 = temp_winner_n100;
 	}
 	data.totalAD = calculateTotalAD(data.data, regenerate);
 	return(data)
