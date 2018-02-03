@@ -265,7 +265,7 @@ function generateUpgrades() {
 				if(undefined == upgrades[winner_e100]) {
 					upgrades[winner_e100] = temp_artifacts.data[winner_e100].jump100;
 				} else {
-					upgrades[winner_e] += temp_artifacts.data[winner_e100].jump100;
+					upgrades[winner_e100] += temp_artifacts.data[winner_e100].jump100;
 				}
 				relics -= temp_artifacts.data[winner_e100].cost100;
 				temp_artifacts.data[winner_e100].level += temp_artifacts.data[winner_e100].jump100;
@@ -342,7 +342,7 @@ function oldEff(data, k, v) {
 		data.data[k].efficiency = eff;
 		var i = v.level;
 		var jdiff = (100 - (v.level % 100));
-		var j = (v.max == -1 ? (0 == jdiff ? 100 : jdiff) : v.max);
+		var j = (v.max == -1 ? (0 == jdiff ? 100 : jdiff) : v.max - 1);
 		data.data[k].jump100 = j;
 		var cost100 = 0;
 		while(i <= j + v.level) {
