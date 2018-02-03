@@ -27,21 +27,9 @@ function generateArtifacts() {
 			v.level = 0;
 		}
 		var div = '<div class="artifact' + (v.active == 1 ? '' : ' ignore') + '" id="'+ k + 'div"><input type="checkbox" id="' + k + 'active"' + (v.active == 1 ? ' checked="checked"' : '') + ' onchange="updateActive(\'' + k + '\');" tabindex="-1" /><label><input id="' + k + '" value="' + v.level + '" type="tel" onchange="updateArtifact(\'' + k + '\')" />' + v.name + '</label><br /><span id="' + k + 'effect">';
-		if('' != v.current_effect) {
-			div += displayEffect(v.current_effect, v.type) + v.bonus;
-		}
 		div += '</span><span id="' + k + 'ad">';
-		if('' != v.current_ad) {
-			div += displayPct(v.current_ad) + ' Artifact Damage';
-		}
 		div += '</span><span id="' + k + 'cost">';
-		if('' != v.displayCost) {
-			div += v.displayCost + ' Relics to Upgrade';
-		}
 		div += '</span></span><span id="' + k + 'weff">';
-		if('' != v.efficiency) {
-			div += v.rating.toFixed(2).replace(/\.?0+$/, '') + ' Exponent &#x2022; ' + v.efficiency.toExponential(8) + ' Efficiency';
-		}
 		div += '</span></div>'
 		$('#artifacts').append(div);
 	});
