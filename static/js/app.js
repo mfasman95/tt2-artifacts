@@ -341,7 +341,8 @@ function oldEff(data, k, v) {
 		var eff = Math.abs(((effect_eff * ad_eff) - 1)/cost);
 		data.data[k].efficiency = eff;
 		var i = v.level;
-		var j = (v.max == -1 ? (100 - (v.level % 100)) : v.max);
+		var jdiff = (100 - (v.level % 100));
+		var j = (v.max == -1 ? (0 == jdiff ? 100 : jdiff) : v.max);
 		data.data[k].jump100 = j;
 		var cost100 = 0;
 		while(i <= j + v.level) {
