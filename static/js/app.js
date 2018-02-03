@@ -127,7 +127,7 @@ function regenerateArtifacts() {
 
 function updateArtifact(k) {
 	artifacts.data[k].level = parseInt($('#' + k).val());
-	artifacts.totalAD = calculateTotalAD(artifacts.data);
+	artifacts.totalAD = calculateTotalAD(artifacts.data, true);
 	artifacts = calculate(artifacts, k, true, true);
 }
 
@@ -321,7 +321,7 @@ function acceptSuggestions() {
 	$.each(upgrades, function(k,v) {
 		artifacts.data[k].level += v;
 	});
-	artifacts.totalAD = calculateTotalAD(artifacts.data);
+	artifacts.totalAD = calculateTotalAD(artifacts.data, true);
 	$('#new_artifact').empty();
 	$('#accept').empty();
 	$('#suggestions').empty();
@@ -370,11 +370,14 @@ function newEff(data, k, v, avglvl, cost) {
 	return(data)
 }
 
-function calculateTotalAD(data) {
+function calculateTotalAD(data, update) {
 	var total = 0;
 	$.each(data, function(k,v) {
 		total += v.level * v.ad;
 	});
+	if(true == update) {
+		$('#adsanity').text(displayPct(total * artifacts.data.hsw.current_effect));
+	}
 	return(total);
 }
 
@@ -413,7 +416,7 @@ function calculate(data, k, regenerate, pinch) {
 		regenerateArtifacts();
 		winner_n = temp_winner_n;
 	}
-	data.totalAD = calculateTotalAD(data.data);
+	data.totalAD = calculateTotalAD(data.data, regenerate);
 	return(data);
 }
 
@@ -449,7 +452,7 @@ function calculateAll(data, regenerate) {
 		regenerateArtifacts();
 		winner_n = temp_winner_n;
 	}
-	data.totalAD = calculateTotalAD(data.data);
+	data.totalAD = calculateTotalAD(data.data, regenerate);
 	return(data)
 }
 
