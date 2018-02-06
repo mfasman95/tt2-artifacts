@@ -61,10 +61,10 @@ function adjustWeights() {
 			artifacts.data.ss.rating += 1;
 			artifacts.data.tr.rating += 1;
 			artifacts.data.hb.rating += .5;
-			artifacts.data.tsos.rating += .3;
-			artifacts.data.fb.rating += .3;
-			artifacts.data.cota.rating += .3;
-			artifacts.data.ttt.rating += .3;
+			artifacts.data.tsos.rating += .33;
+			artifacts.data.fb.rating += .33;
+			artifacts.data.cota.rating += .33;
+			artifacts.data.ttt.rating += .33;
 			artifacts.data.hh.rating += 0;
 			artifacts.data.hos2.rating += 6;
 			artifacts.data.ig.rating += 3.25;
@@ -79,9 +79,9 @@ function adjustWeights() {
 			artifacts.data.dh.rating += 1;
 			artifacts.data.tr.rating += 1;
 			artifacts.data.hb.rating += .5;
-			artifacts.data.tsos.rating += .3;
-			artifacts.data.fb.rating += .3;
-			artifacts.data.cota.rating += .3;
+			artifacts.data.tsos.rating += .33;
+			artifacts.data.fb.rating += .33;
+			artifacts.data.cota.rating += .33;
 			artifacts.data.ttt.rating += .2;
 			artifacts.data.hh.rating += 0;
 			artifacts.data.foe.rating += .5;
@@ -95,10 +95,10 @@ function adjustWeights() {
 			artifacts.data.roc.rating += 3.25;
 			break;
 		case 'sc':
-			artifacts.data.dh.rating += .6;
-			artifacts.data.ss.rating += .6;
+			artifacts.data.dh.rating += .67;
+			artifacts.data.ss.rating += .67;
 			artifacts.data.tr.rating += 1;
-			artifacts.data.hb.rating += .6;
+			artifacts.data.hb.rating += .67;
 			artifacts.data.tsos.rating += .4;
 			artifacts.data.fb.rating += .4;
 			artifacts.data.cota.rating += .4;
@@ -109,10 +109,10 @@ function adjustWeights() {
 			artifacts.data.ig.rating += 3.35;
 			artifacts.data.rt.rating += .5;
 			artifacts.data.bor.rating += .5;
-			artifacts.data.pof.rating += .6;
+			artifacts.data.pof.rating += .67;
 			artifacts.data.eoe.rating += 1;
 			artifacts.data.as.rating += 1;
-			artifacts.data.hom.rating += .6;
+			artifacts.data.hom.rating += .67;
 			artifacts.data.roc.rating += 3.35;
 			break;
 		case 'hs':
@@ -121,10 +121,10 @@ function adjustWeights() {
 			artifacts.data.ss.rating += .6;
 			artifacts.data.tr.rating += 1;
 			artifacts.data.hb.rating += .5;
-			artifacts.data.tsos.rating += .3;
-			artifacts.data.fb.rating += .3;
-			artifacts.data.cota.rating += .3;
-			artifacts.data.ttt.rating += .3;
+			artifacts.data.tsos.rating += .33;
+			artifacts.data.fb.rating += .33;
+			artifacts.data.cota.rating += .33;
+			artifacts.data.ttt.rating += .33;
 			artifacts.data.hh.rating += 0;
 			artifacts.data.hos2.rating += 7;
 			artifacts.data.hos.rating += .5;
