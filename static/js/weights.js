@@ -113,7 +113,7 @@ function adjustWeights() {
 			artifacts.data.eoe.rating += 1;
 			artifacts.data.as.rating += 1;
 			artifacts.data.hom.rating += .67;
-			artifacts.data.roc.rating += 3.08;
+			artifacts.data.roc.rating += 3.42;
 			break;
 		case 'hs':
 			artifacts.data.coe.rating += .25;
@@ -134,7 +134,7 @@ function adjustWeights() {
 			artifacts.data.bor.rating += 1;
 			artifacts.data.pof.rating += .5;
 			artifacts.data.hom.rating += 1;
-			artifacts.data.roc.rating += 2.75;
+			artifacts.data.roc.rating += 2.42;
 			break;
 		case 'cs':
 			artifacts.data.coe.rating += .25;
