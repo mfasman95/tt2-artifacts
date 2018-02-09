@@ -186,5 +186,11 @@ function adjustWeights() {
 			artifacts.data.gfa.rating += .25;
 			break;
 	}
+	var i = 40;
+	$.each(artifacts.data, function(k,v) {
+		if(v.sort <= i && k != 'bos') {
+			artifacts.data.bos.rating += v.rating;
+		}
+	});
 	artifacts = calculateAll(artifacts, true);
 }
