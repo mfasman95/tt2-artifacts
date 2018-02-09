@@ -56,6 +56,7 @@ function adjustWeights() {
 			artifacts.data.pof.rating += 1;
 			artifacts.data.hom.rating += 1;
 			artifacts.data.roc.rating += 2.75;
+			break;
 		case 'tap':
 			artifacts.data.dh.rating += 1;
 			artifacts.data.ss.rating += 1;
