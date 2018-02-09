@@ -44,7 +44,6 @@ function adjustWeights() {
 	});
 	switch($('#build').val()) {
 		case 'hero':
-			break;
 			artifacts.data.hb.rating += 1;
 			artifacts.data.tsos.rating += .8;
 			artifacts.data.fb.rating += .8;
