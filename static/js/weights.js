@@ -74,7 +74,7 @@ function adjustWeights() {
 			artifacts.data.hb.rating += .5;
 			artifacts.data.foe.rating += .5;
 			artifacts.data.orc.rating += 1;
-			artifacts.data.hos2.rating += 6;
+			artifacts.data.hos2.rating += 7;
 			artifacts.data.hos.rating += .5;
 			artifacts.data.ig.rating += 2.25;
 			artifacts.data.rt.rating += .5;
@@ -90,7 +90,7 @@ function adjustWeights() {
 			artifacts.data.tr.rating += 1;
 			artifacts.data.hb.rating += .67;
 			artifacts.data.orc.rating += 1;
-			artifacts.data.hos2.rating += 6;
+			artifacts.data.hos2.rating += 7.02;
 			artifacts.data.hos.rating += .5;
 			artifacts.data.ig.rating += 3.42;
 			artifacts.data.rt.rating += .5;
