@@ -3,20 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://tt2-artifacts.com/",
+  "license": "MIT",
   "dependencies": {
+    "bootstrap": "3",
+    "extend": "^3.0.1",
+    "lodash": "^4.17.5",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
+    "react-redux": "^5.0.6",
+    "react-redux-snackbar": "^1.1.0",
+    "react-scripts": "1.1.1",
+    "redux": "^3.7.2"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "react-scripts build",
     "deploy": "gh-pages -d build",
+    "postdeploy": "node ./scripts/postdeploy.js",
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "eslintConfig": {
+    "extends": "airbnb/base",
+    "rules": {
+      "no-underscore-dangle": "off",
+      "no-plusplus": "off"
+    }
+  },
   "devDependencies": {
+    "chalk": "^2.3.0",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "gh-pages": "^1.1.0"
   }
 }

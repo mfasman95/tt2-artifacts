@@ -1,21 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Snackbar, showSnack } from 'react-redux-snackbar';
+import { Row, Well, Col } from 'react-bootstrap';
+import { camelCase } from 'lodash';
+import MainNav from './components/Navbar';
+import Artifact from './components/Artifact';
+import utils from './utils';
 
 class App extends Component {
+  getChildContext() {
+    return {
+      notify: (id, notifyText, customTimeout) => {
+        return this.props.dispatch(showSnack(id, {
+          label: notifyText,
+          timeout: customTimeout || 5000,
+          button: { label: 'x' },
+        }));
+      }
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Row>
+        <MainNav/>
+        <Col md={10} mdOffset={1}>
+          <Well className='artifact-well'>
+            {
+              utils.ARTIFACT_LIST.map(
+                (artifactName, i) => <Artifact name={camelCase(artifactName)} key={i} />
+              )
+            }
+          </Well>
+        </Col>
+        <Snackbar/>
+      </Row>
     );
   }
 }
 
-export default App;
+App.childContextTypes = { notify: PropTypes.func }
+
+export default connect()(App);
