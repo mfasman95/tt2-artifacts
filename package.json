@@ -1,30 +1,22 @@
 {
   "name": "tt2-artifacts",
-  "version": "1.0.1",
-  "description": "TT2 Artifact Optimizer",
-  "main": "index.js",
-  "enginges": {
-	"node": "6.11.4"
-  },
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://tt2-artifacts.com/",
   "dependencies": {
-    "express": "^4.16.2",
-    "cors": "^2.8.4",
-    "express-sslify": "^1.2.0",
-    "decimal": "^0.0.2"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tsukinoooo/tt2-artifacts.git"
-  },
-  "author": "Tsukinoooo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tsukinoooo/tt2-artifacts/issues"
-  },
-  "homepage": "https://github.com/tsukinoooo/tt2-artifacts#readme"
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  }
 }
