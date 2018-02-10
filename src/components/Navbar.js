@@ -35,7 +35,7 @@ class MainNav extends React.Component {
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            Expense Calculator
+            TT2 Artifact Optimizer
           </Navbar.Brand>
         </Navbar.Header>
         <Navbar.Form pullRight>
