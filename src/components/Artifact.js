@@ -1,24 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Panel, Button, ButtonGroup, Row, Col } from 'react-bootstrap';
+import { Panel, Button } from 'react-bootstrap';
 import TextInput from './TextInput';
-
-const increaseOptions = [1, 10, 100, 1000];
-const ModLevelButtonGroup = props => (
-  <ButtonGroup vertical block>
-    {
-      increaseOptions.map((option, i) => (
-        <Button
-          key={i}
-          bsStyle={props.bsStyle}
-          onClick={()=>props.onClick(option)}
-        >
-          {(props.type === 'addition') ? '+' : '-'}{option}
-        </Button>
-      ))
-    }
-  </ButtonGroup>
-)
 
 class Artifact extends Component {
   constructor(...args){
@@ -48,7 +31,7 @@ class Artifact extends Component {
   }
 
   render() {
-    const { name, checked, level } = this.props.artifacts[this.props.name];
+    const { name, checked } = this.props.artifacts[this.props.name];
     return (
       <Panel className='artifact-panel' bsStyle={checked ? 'success' : 'danger'}>
         <Panel.Heading>
@@ -61,7 +44,17 @@ class Artifact extends Component {
               return this.updateArtifact('checked', !checked)
             }}
           >
-            {name}{' '}<i className={`fa fa${checked ? '-check' : ''}-square-o text-info`}/>
+            <img
+              style={{
+                width:'40px',
+                height:'40px',
+              }}
+              src={`${window.origin}/images/${name.replace(/ /g, '_')}.png`}
+              alt={name}
+            />
+            {name}
+            {' '}
+            <i className={`fa fa${checked ? '-check' : ''}-square-o text-info`}/>
           </Button>
         </Panel.Title>  
         </Panel.Heading>
@@ -72,24 +65,12 @@ class Artifact extends Component {
             value={this.state.artifactLevel}
             updateValue={this.updateArtifactLevel}
           />
-          { 
-            false &&
-              <Row>
-                <Col xs={6}>
-                  <ModLevelButtonGroup
-                    bsStyle='success'
-                    type='addition'
-                    onClick={amount => this.updateArtifactLevel({ target: { value: parseInt(level, 10) + parseInt(amount, 10) } })}
-                  />
-                </Col>
-                <Col xs={6}>
-                  <ModLevelButtonGroup
-                    bsStyle='danger'
-                    type='subtraction'
-                    onClick={amount => this.updateArtifactLevel({ target: { value: parseInt(level, 10) - parseInt(amount, 10) } })}
-                  />
-                </Col>
-              </Row>
+          {
+            this.props.showExtraDetails &&
+              <div>
+                <p>Cost To Upgrade: </p>
+                <p>Priority: </p>
+              </div>
           }
         </Panel.Body>
       </Panel>
@@ -100,7 +81,8 @@ class Artifact extends Component {
 //Function to map the redux state to object properties
 const mapStateToProps = (state, ownProps) => {
   return {
-    artifacts: state.artifacts,
+    artifacts: state.artifacts.artifactList,
+    showExtraDetails: state.main.toggleGroup.includes('showExtraDetails'),
   }
 };
 

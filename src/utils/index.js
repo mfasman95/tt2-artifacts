@@ -48,7 +48,7 @@ export default Object.freeze({
   ],
   ARTIFACT_LIST: [
     'Book of Shadows',
-    'Stone of The Valrunes',
+    'Stone of Valrunes',
     'Chest of Contentment',
     'Heroic Shield',
     'Book of Prophecy',
@@ -111,7 +111,7 @@ export default Object.freeze({
     'Staff of Radiance',
     'The Master\'s Sword',
     'Aram Spear',
-    'Ward of Darkness',
+    'Ward of the Darkness',
   ],
   ARTIFACT_EXPONENTS: [
     DEFAULT,

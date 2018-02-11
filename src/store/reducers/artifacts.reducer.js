@@ -4,7 +4,10 @@ import { camelCase } from 'lodash';
 import utils from './../../utils';
 
 // Set initial application state
-const initialState = {};
+const initialState = {
+  exponent: utils.DEFAULT,
+  artifactList: {},
+};
 
 // Grab the artifact list
 // Search for artifact data stored in local storage
@@ -13,7 +16,7 @@ utils.ARTIFACT_LIST.map((artifact) => {
   const camelCasedArtifact = camelCase(artifact);
   // Grab the JSON for this artifact from local storage
   const storedArtifact = window.localStorage.getItem(camelCasedArtifact);
-  initialState[camelCasedArtifact] =
+  initialState.artifactList[camelCasedArtifact] =
     // Check if the stored artifact exists
     storedArtifact
       // If it exists, parse the json data into a js object
@@ -34,7 +37,7 @@ const actionHandlers = {
     const rs = returnState;
     const { artifact, prop, value } = action;
     const camelCasedArtifactName = camelCase(artifact);
-    const artifactObj = rs[camelCasedArtifactName];
+    const artifactObj = rs.artifactList[camelCasedArtifactName];
 
     // Update the value in the redux state
     artifactObj[prop] = value;
@@ -58,6 +61,12 @@ const actionHandlers = {
     }
     // Store the updated value
     window.localStorage.setItem(camelCasedArtifactName, JSON.stringify(artifactValues));
+    return rs;
+  },
+  UPDATE_EXPONENT: (returnState, action) => {
+    const rs = returnState;
+
+    rs.exponent = action.exponent;
     return rs;
   },
 };

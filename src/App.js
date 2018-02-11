@@ -6,6 +6,7 @@ import { Row, Well, Col } from 'react-bootstrap';
 import { camelCase } from 'lodash';
 import MainNav from './components/Navbar';
 import Artifact from './components/Artifact';
+import ArtifactOptimizer from './components/ArtifactOptimizer';
 import utils from './utils';
 
 class App extends Component {
@@ -24,6 +25,11 @@ class App extends Component {
     return (
       <Row>
         <MainNav/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <Col md={10} mdOffset={1}>
           <Well className='artifact-well'>
             {
@@ -32,6 +38,7 @@ class App extends Component {
               )
             }
           </Well>
+          <ArtifactOptimizer />
         </Col>
         <Snackbar/>
       </Row>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Navbar, ButtonGroup, FormGroup, DropdownButton, MenuItem } from 'react-bootstrap';
+import { Navbar, ButtonGroup, DropdownButton, ToggleButtonGroup, MenuItem, ToggleButton } from 'react-bootstrap';
 import utils from './../utils';
 
 const DropdownSelector = (props) => {
@@ -30,16 +30,35 @@ const DropdownSelector = (props) => {
 }
 
 class MainNav extends React.Component {
+  constructor(...props) {
+    super(...props);
+
+    this.state = {
+      toggleGroup: this.props.toggleGroup,
+    }
+
+    this.handleToggleGroup = this.handleToggleGroup.bind(this);
+  }
+
+  handleToggleGroup(e) {
+    this.setState({ toggleGroup: e });
+    this.props.dispatch({
+      type: 'UPDATE_TOGGLE_GROUP',
+      toggleGroup: e,
+    });
+  }
+
   render() {
-    return (  
-      <Navbar inverse collapseOnSelect>
+    return (
+      <Navbar fixedTop inverse>
         <Navbar.Header>
           <Navbar.Brand>
             TT2 Artifact Optimizer
           </Navbar.Brand>
+          <Navbar.Toggle />
         </Navbar.Header>
-        <Navbar.Form pullRight>
-          <FormGroup>
+        <Navbar.Collapse>
+          <Navbar.Form pullRight>
             <ButtonGroup>
               <DropdownSelector
                 title='Theme'
@@ -72,8 +91,21 @@ class MainNav extends React.Component {
                 handleSelect={ playstyle => this.props.dispatch({ type: 'SET_PLAYSTYLE', playstyle }) } 
               />
             </ButtonGroup>
-          </FormGroup>
-        </Navbar.Form>
+            <br/>
+            <ToggleButtonGroup
+              type='checkbox'
+              value={this.state.toggleGroup}
+              onChange={this.handleToggleGroup}
+            >
+              <ToggleButton value='rounding'>
+                Rounding {this.state.toggleGroup.includes('rounding') ? 'On': 'Off'}
+              </ToggleButton>
+              <ToggleButton value='showExtraDetails'>
+                {this.state.toggleGroup.includes('showExtraDetails') ? '': 'Not '}Showing Extra Details
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </Navbar.Form>
+        </Navbar.Collapse>
       </Navbar>
     );
   }
@@ -87,7 +119,7 @@ MainNav.contextTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     theme: state.main.theme,
-    roundingModeOn: state.main.roundingModeOn,
+    toggleGroup: state.main.toggleGroup,
     buildType: state.playstyle.buildType,
     heroDamageType: state.playstyle.heroDamageType,
     heroType: state.playstyle.heroType,

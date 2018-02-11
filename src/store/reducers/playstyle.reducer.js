@@ -16,7 +16,7 @@ const actionHandlers = {
   SET_BUILD: (returnState, action) => {
     const rs = returnState;
     rs.buildType = action.buildType;
-    window.localStorage.setItem('build', action.buildType);
+    window.localStorage.setItem('buildType', action.buildType);
     return rs;
   },
   SET_HERO_DAMAGE_TYPE: (returnState, action) => {

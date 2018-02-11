@@ -1,11 +1,13 @@
 /* eslint-disable no-undef */
 import extend from 'extend';
 
+const storedTheme = window.localStorage.getItem('theme');
+const storedToggleGroup = window.localStorage.getItem('toggleGroup');
+
 // Set initial application state
 const initialState = {
-  appStarted: false,
-  roundingModeOn: false,
-  theme: window.localStorage.getItem('theme') || 'default',
+  theme: storedTheme || 'default',
+  toggleGroup: storedToggleGroup ? storedToggleGroup.split(',') : [],
 };
 
 const updateTheme = (theme) => {
@@ -38,12 +40,11 @@ const actionHandlers = {
     rs.theme = action.theme;
     return rs;
   },
-  UPDATE_ROUNDING_MODE: (returnState, action) => {
+  UPDATE_TOGGLE_GROUP: (returnState, action) => {
     const rs = returnState;
 
-    console.log(action);
-    rs.roundingModeOn = !(action.roundingModeOn === 'true');
-    console.log(rs.roundingModeOn);
+    window.localStorage.setItem('toggleGroup', action.toggleGroup);
+    rs.toggleGroup = action.toggleGroup;
     return rs;
   },
 };
