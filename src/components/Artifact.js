@@ -2,6 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Panel, Button } from 'react-bootstrap';
 import TextInput from './TextInput';
+import { ARTIFACT_DATA } from './../utils';
+import { displayPercentage, displayTruncated } from './../utils/roundingDisplay';
+
+const displayEffect = (value, type) => {
+  if (type === 'multiply') {
+    return `x${displayTruncated(value)}`;
+  } else if (type === 'add') {
+    value -= 1;
+    if (value > 0) {
+      return `+${displayTruncated(value)}`;
+    }
+    return displayTruncated(value);
+  } else if (type === 'multiply_pct') {
+    return `x${displayPercentage(value)}`;
+
+  } else if (type === 'pct') {
+    value -= 1;
+    if (value > 0) {
+      return `+${displayPercentage(value)}`;
+    }
+    return displayPercentage(value);
+  }
+}
 
 class Artifact extends Component {
   constructor(...args){
@@ -31,7 +54,8 @@ class Artifact extends Component {
   }
 
   render() {
-    const { name, checked } = this.props.artifacts[this.props.name];
+    const { name, checked, currentEffect } = this.props.artifacts[this.props.name];
+    const artifactData = ARTIFACT_DATA[this.props.name];
     return (
       <Panel className='artifact-panel' bsStyle={checked ? 'success' : 'danger'}>
         <Panel.Heading>
@@ -39,6 +63,7 @@ class Artifact extends Component {
           <Button
             block
             bsStyle={checked ? 'success' : 'danger'}
+            bsSize='small'
             onClick={e => {
               e.preventDefault();
               return this.updateArtifact('checked', !checked)
@@ -68,8 +93,10 @@ class Artifact extends Component {
           {
             this.props.showExtraDetails &&
               <div>
-                <p>Cost To Upgrade: </p>
-                <p>Priority: </p>
+                <hr/>
+                <p>Cost To Upgrade: <b>{artifactData.ccoef}</b></p>
+                <p>Current Bonus: <b>{`${displayEffect(currentEffect, artifactData.type)}${artifactData.bonus}`}</b></p>
+                <p>Priority: <b>{artifactData.ccoef}</b></p>
               </div>
           }
         </Panel.Body>

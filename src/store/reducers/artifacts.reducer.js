@@ -1,18 +1,19 @@
 /* eslint-disable no-undef */
 import extend from 'extend';
 import { camelCase } from 'lodash';
-import utils from './../../utils';
+import { DEFAULT, ARTIFACT_LIST, ARTIFACT_DATA, calcCurrentArtifactEffect, calcTotalArtifactDamage } from './../../utils';
 
 // Set initial application state
 const initialState = {
-  exponent: utils.DEFAULT,
+  exponent: DEFAULT,
   artifactList: {},
+  totalArtifactDamage: window.localStorage.getItem('totalArtifactDamage') || 0,
 };
 
 // Grab the artifact list
 // Search for artifact data stored in local storage
 // Set default values for anything not stored
-utils.ARTIFACT_LIST.map((artifact) => {
+ARTIFACT_LIST.map((artifact) => {
   const camelCasedArtifact = camelCase(artifact);
   // Grab the JSON for this artifact from local storage
   const storedArtifact = window.localStorage.getItem(camelCasedArtifact);
@@ -26,6 +27,7 @@ utils.ARTIFACT_LIST.map((artifact) => {
         name: artifact,
         checked: true,
         level: 0,
+        currentEffect: calcCurrentArtifactEffect({ level: 0 }, ARTIFACT_DATA[camelCasedArtifact]),
       };
   return camelCasedArtifact;
 });
@@ -41,6 +43,13 @@ const actionHandlers = {
 
     // Update the value in the redux state
     artifactObj[prop] = value;
+
+    if (prop === 'level') {
+      artifactObj.currentEffect = calcCurrentArtifactEffect(
+        artifactObj,
+        ARTIFACT_DATA[camelCasedArtifactName],
+      );
+    }
 
     // Artifact level cannot go below 0
     if (artifactObj.level < 0) {
@@ -61,6 +70,10 @@ const actionHandlers = {
     }
     // Store the updated value
     window.localStorage.setItem(camelCasedArtifactName, JSON.stringify(artifactValues));
+
+    // Update total artifact damage
+    rs.totalArtifactDamage = calcTotalArtifactDamage(rs.artifactList);
+    window.localStorage.setItem('totalArtifactDamage', rs.totalArtifactDamage);
     return rs;
   },
   UPDATE_EXPONENT: (returnState, action) => {

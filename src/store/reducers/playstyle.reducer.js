@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 import extend from 'extend';
-import utils from './../../utils';
+import { DEFAULT } from './../../utils';
 
 // Set initial application state
 const initialState = {
-  buildType: window.localStorage.getItem('buildType') || utils.DEFAULT,
-  heroDamageType: window.localStorage.getItem('heroDamageType') || utils.DEFAULT,
-  heroType: window.localStorage.getItem('heroType') || utils.DEFAULT,
-  playstyle: window.localStorage.getItem('playstyle') || utils.DEFAULT,
+  buildType: window.localStorage.getItem('buildType') || DEFAULT,
+  heroDamageType: window.localStorage.getItem('heroDamageType') || DEFAULT,
+  heroType: window.localStorage.getItem('heroType') || DEFAULT,
+  playstyle: window.localStorage.getItem('playstyle') || DEFAULT,
 };
 
 // Handle actions dispatched to the reducer

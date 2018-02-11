@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Navbar, ButtonGroup, DropdownButton, ToggleButtonGroup, MenuItem, ToggleButton } from 'react-bootstrap';
-import utils from './../utils';
+import { THEME_OPTIONS, BUILD_OPTIONS, HERO_DAMAGE_TYPES, HERO_TYPES, PLAYSTYLES } from './../utils';
 
 const DropdownSelector = (props) => {
   const formatOption = option => `${option.charAt(0).toUpperCase()}${option.slice(1)}`;
@@ -63,31 +63,31 @@ class MainNav extends React.Component {
               <DropdownSelector
                 title='Theme'
                 default={ this.props.theme }
-                options={utils.THEME_OPTIONS}
+                options={THEME_OPTIONS}
                 handleSelect={ theme => this.props.dispatch({ type: 'SET_THEME', theme }) } 
               />
               <DropdownSelector
                 title='Build'
                 default={ this.props.buildType }
-                options={ utils.BUILD_OPTIONS }
+                options={ BUILD_OPTIONS }
                 handleSelect={ buildType => this.props.dispatch({ type: 'SET_BUILD', buildType }) } 
               />
               <DropdownSelector
                 title='Hero Damage Type'
                 default={ this.props.heroDamageType }
-                options={ utils.HERO_DAMAGE_TYPES }
+                options={ HERO_DAMAGE_TYPES }
                 handleSelect={ heroDamageType => this.props.dispatch({ type: 'SET_HERO_DAMAGE_TYPE', heroDamageType }) } 
               />
               <DropdownSelector
                 title='Hero Type'
                 default={ this.props.heroType }
-                options={ utils.HERO_TYPES }
+                options={ HERO_TYPES }
                 handleSelect={ heroType => this.props.dispatch({ type: 'SET_HERO_TYPE', heroType }) } 
               />
               <DropdownSelector
                 title='Playstyle'
                 default={ this.props.playstyle }
-                options={ utils.PLAYSTYLES }
+                options={ PLAYSTYLES }
                 handleSelect={ playstyle => this.props.dispatch({ type: 'SET_PLAYSTYLE', playstyle }) } 
               />
             </ButtonGroup>
@@ -97,10 +97,10 @@ class MainNav extends React.Component {
               value={this.state.toggleGroup}
               onChange={this.handleToggleGroup}
             >
-              <ToggleButton value='rounding'>
-                Rounding {this.state.toggleGroup.includes('rounding') ? 'On': 'Off'}
+              <ToggleButton value='rounding' bsStyle={this.state.toggleGroup.includes('rounding') ? 'success': 'danger'}>
+                Rounding In Suggestions {this.state.toggleGroup.includes('rounding') ? 'On': 'Off'}
               </ToggleButton>
-              <ToggleButton value='showExtraDetails'>
+              <ToggleButton value='showExtraDetails' bsStyle={this.state.toggleGroup.includes('showExtraDetails') ? 'success': 'danger'}>
                 {this.state.toggleGroup.includes('showExtraDetails') ? '': 'Not '}Showing Extra Details
               </ToggleButton>
             </ToggleButtonGroup>

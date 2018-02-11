@@ -7,7 +7,7 @@ import { camelCase } from 'lodash';
 import MainNav from './components/Navbar';
 import Artifact from './components/Artifact';
 import ArtifactOptimizer from './components/ArtifactOptimizer';
-import utils from './utils';
+import { ARTIFACT_LIST, displayPct } from './utils';
 
 class App extends Component {
   getChildContext() {
@@ -31,9 +31,16 @@ class App extends Component {
         <br/>
         <br/>
         <Col md={10} mdOffset={1}>
+          {
+            this.props.showExtraDetails && 
+              <div>
+                <h2>Extra Stats</h2>
+                <h4>Total Artifact Damage: <b>{displayPct(this.props.totalArtifactDamage)}</b></h4>
+              </div>
+          }
           <Well className='artifact-well'>
             {
-              utils.ARTIFACT_LIST.map(
+              ARTIFACT_LIST.map(
                 (artifactName, i) => <Artifact name={camelCase(artifactName)} key={i} />
               )
             }
@@ -48,4 +55,12 @@ class App extends Component {
 
 App.childContextTypes = { notify: PropTypes.func }
 
-export default connect()(App);
+//Function to map the redux state to object properties
+const mapStateToProps = (state, ownProps) => {
+  return {
+    showExtraDetails: state.main.toggleGroup.includes('showExtraDetails'),
+    totalArtifactDamage: state.artifacts.totalArtifactDamage,
+  }
+};
+
+export default connect(mapStateToProps)(App);

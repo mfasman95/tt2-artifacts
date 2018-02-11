@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Well, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 import TextInput from './TextInput';
-import utils from './../utils';
+import { ARTIFACT_EXPONENTS } from './../utils';
 
 class Artifact extends Component {
   constructor(...args){
@@ -38,7 +38,7 @@ class Artifact extends Component {
               id='blah'
             >
               {
-                utils.ARTIFACT_EXPONENTS.map((exponent, i) => (
+                ARTIFACT_EXPONENTS.map((exponent, i) => (
                   <MenuItem
                     key={i}
                     id={`${exponent}`}
