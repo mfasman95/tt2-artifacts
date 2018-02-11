@@ -74,7 +74,9 @@ const actionHandlers = {
     window.localStorage.setItem(camelCasedArtifactName, JSON.stringify(artifactValues));
 
     // Update total artifact damage
-    rs.totalArtifactDamage = calcTotalArtifactDamage(rs.artifactList, ARTIFACT_DATA);
+    rs.totalArtifactDamage = calcTotalArtifactDamage(rs.artifactList, ARTIFACT_DATA)
+      * rs.artifactList.heavenlySword.currentEffect;
+
     window.localStorage.setItem('totalArtifactDamage', rs.totalArtifactDamage);
     return rs;
   },

@@ -98,7 +98,7 @@ class MainNav extends React.Component {
               onChange={this.handleToggleGroup}
             >
               <ToggleButton value='rounding' bsStyle={this.state.toggleGroup.includes('rounding') ? 'success': 'danger'}>
-                Rounding In Suggestions {this.state.toggleGroup.includes('rounding') ? 'On': 'Off'}
+                Rounding In Suggestions: {this.state.toggleGroup.includes('rounding') ? 'On': 'Off'}
               </ToggleButton>
               <ToggleButton value='showExtraDetails' bsStyle={this.state.toggleGroup.includes('showExtraDetails') ? 'success': 'danger'}>
                 {this.state.toggleGroup.includes('showExtraDetails') ? '': 'Not '}Showing Extra Details

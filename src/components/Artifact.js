@@ -96,7 +96,6 @@ class Artifact extends Component {
                 <hr/>
                 <p>Cost To Upgrade: <b>{displayTruncated(currentCost)}</b></p>
                 <p>Current Bonus: <b>{`${displayEffect(currentEffect, artifactData.type)}${artifactData.bonus}`}</b></p>
-                <p>Priority: <b>{artifactData.ccoef}</b></p>
               </div>
           }
         </Panel.Body>
