@@ -1,6 +1,7 @@
 const rounding = num => `${num.toFixed(3)}`;
 export const displayTruncated = (val) => {
-  let retVal = (val * 1).toFixed(3).replace(/\.?0+$/, '');
+  // Don't display decimal points on numbers below a certain threshold
+  let retVal = `${(val * 1).toFixed(0).replace(/\.?0+$/)}`;
 
   if (val > 999999999999999999) {
     retVal = `${rounding(val / 1000000000000000000)} e18/ab`;
@@ -24,6 +25,7 @@ export const displayTruncated = (val) => {
     retVal = `${rounding(val / 1000)} K`;
   }
 
+  if (['undefined', 'NaN', 'null'].includes(retVal)) retVal = '0';
   return retVal;
 };
 

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import extend from 'extend';
 import { camelCase } from 'lodash';
-import { DEFAULT, ARTIFACT_LIST, ARTIFACT_DATA, calcCurrentArtifactEffect, calcTotalArtifactDamage } from './../../utils';
+import { DEFAULT, ARTIFACT_LIST, ARTIFACT_DATA, calcCurrentArtifactEffect, calcTotalArtifactDamage, calcCurrentArtifactCost } from './../../utils';
 
 // Set initial application state
 const initialState = {
@@ -27,7 +27,8 @@ ARTIFACT_LIST.map((artifact) => {
         name: artifact,
         checked: true,
         level: 0,
-        currentEffect: calcCurrentArtifactEffect({ level: 0 }, ARTIFACT_DATA[camelCasedArtifact]),
+        currentEffect: calcCurrentArtifactEffect(0, ARTIFACT_DATA[camelCasedArtifact]),
+        currentCost: calcCurrentArtifactCost(0, ARTIFACT_DATA[camelCasedArtifact]),
       };
   return camelCasedArtifact;
 });
@@ -45,10 +46,11 @@ const actionHandlers = {
     artifactObj[prop] = value;
 
     if (prop === 'level') {
-      artifactObj.currentEffect = calcCurrentArtifactEffect(
-        artifactObj,
-        ARTIFACT_DATA[camelCasedArtifactName],
-      );
+      const { level } = artifactObj;
+      const artifactData = ARTIFACT_DATA[camelCasedArtifactName];
+
+      artifactObj.currentEffect = calcCurrentArtifactEffect(level, artifactData);
+      artifactObj.currentCost = calcCurrentArtifactCost(level, artifactData);
     }
 
     // Artifact level cannot go below 0
@@ -72,7 +74,7 @@ const actionHandlers = {
     window.localStorage.setItem(camelCasedArtifactName, JSON.stringify(artifactValues));
 
     // Update total artifact damage
-    rs.totalArtifactDamage = calcTotalArtifactDamage(rs.artifactList);
+    rs.totalArtifactDamage = calcTotalArtifactDamage(rs.artifactList, ARTIFACT_DATA);
     window.localStorage.setItem('totalArtifactDamage', rs.totalArtifactDamage);
     return rs;
   },

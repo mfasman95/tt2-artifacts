@@ -54,7 +54,7 @@ class Artifact extends Component {
   }
 
   render() {
-    const { name, checked, currentEffect } = this.props.artifacts[this.props.name];
+    const { name, checked, currentEffect, currentCost } = this.props.artifacts[this.props.name];
     const artifactData = ARTIFACT_DATA[this.props.name];
     return (
       <Panel className='artifact-panel' bsStyle={checked ? 'success' : 'danger'}>
@@ -94,7 +94,7 @@ class Artifact extends Component {
             this.props.showExtraDetails &&
               <div>
                 <hr/>
-                <p>Cost To Upgrade: <b>{artifactData.ccoef}</b></p>
+                <p>Cost To Upgrade: <b>{displayTruncated(currentCost)}</b></p>
                 <p>Current Bonus: <b>{`${displayEffect(currentEffect, artifactData.type)}${artifactData.bonus}`}</b></p>
                 <p>Priority: <b>{artifactData.ccoef}</b></p>
               </div>

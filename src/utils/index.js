@@ -1,6 +1,6 @@
 import { artifactData, artifactCosts } from './artifactData';
 import { displayPercentage, displayTruncated } from './roundingDisplay';
-import { calcCurrentEffect, calcTotalAd } from './artifactCalculations';
+import { calcCurrentEffect, calcCurrentCost, calcTotalAd } from './artifactCalculations';
 
 export const DEFAULT = 'N/A';
 
@@ -145,8 +145,9 @@ export const ARTIFACT_DATA = artifactData;
 export const ARTIFACT_COSTS = artifactCosts;
 export const displayPct = displayPercentage;
 export const displayTrunc = displayTruncated;
-export const calcTotalArtifactDamage = calcTotalAd;
 export const calcCurrentArtifactEffect = calcCurrentEffect;
+export const calcCurrentArtifactCost = calcCurrentCost;
+export const calcTotalArtifactDamage = calcTotalAd;
 
 export default Object.freeze({
   DEFAULT,
@@ -162,6 +163,7 @@ export default Object.freeze({
   ARTIFACT_COSTS: artifactCosts,
   displayPct: displayPercentage,
   displayTrunc: displayTruncated,
-  calcTotalArtifactDamage: calcTotalAd,
   calcCurrentArtifactEffect: calcCurrentEffect,
+  calcCurrentArtifactCost: calcCurrentCost,
+  calcTotalArtifactDamage: calcTotalAd,
 });

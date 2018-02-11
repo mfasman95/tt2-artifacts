@@ -1,12 +1,15 @@
-export const calcCurrentEffect = (artObject, artData) => 1 + (
+export const calcCurrentEffect = (level, artData) => 1 + (
   artData.effect * (
-    artObject.level ** (
+    level ** (
       (1 +
           ((artData.cexpo - 1) * Math.min(artData.grate * artData.level, artData.gmax))
       ) ** artData.gexpo
     )
   )
 );
+
+export const calcCurrentCost = (level, artifactStats) =>
+  ((level + 1) ** artifactStats.cexpo) * artifactStats.ccoef;
 
 export const calcTotalAd = (artifacts, artifactDataSet) => {
   let total = 0;
@@ -23,4 +26,4 @@ export const calcTotalAd = (artifacts, artifactDataSet) => {
   return total;
 };
 
-export default Object.freeze({ calcCurrentEffect, calcTotalAd });
+export default Object.freeze({ calcCurrentEffect, calcCurrentCost, calcTotalAd });
