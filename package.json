@@ -4,10 +4,27 @@
   "private": true,
   "homepage": "https://tt2-artifacts.com/",
   "license": "MIT",
+  "scripts": {
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "postdeploy": "npx https://gist.github.com/mfasman95/9fbf7f29ee09876a94385cbbb3dc4f8b",
+    "eject": "react-scripts eject",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
+  },
+  "eslintConfig": {
+    "extends": "airbnb/base",
+    "rules": {
+      "no-underscore-dangle": "off",
+      "no-plusplus": "off",
+      "import/no-extraneous-dependencies": "off"
+    }
+  },
   "dependencies": {
     "bootstrap": "3",
     "extend": "^3.0.1",
     "lodash": "^4.17.5",
+    "potato": "^0.1.1",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
@@ -15,21 +32,6 @@
     "react-redux-snackbar": "^1.1.0",
     "react-scripts": "1.1.1",
     "redux": "^3.7.2"
-  },
-  "scripts": {
-    "predeploy": "react-scripts build",
-    "deploy": "gh-pages -d build",
-    "postdeploy": "node ./scripts/postdeploy.js",
-    "start": "react-scripts start",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "airbnb/base",
-    "rules": {
-      "no-underscore-dangle": "off",
-      "no-plusplus": "off"
-    }
   },
   "devDependencies": {
     "chalk": "^2.3.0",
