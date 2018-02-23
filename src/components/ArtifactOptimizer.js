@@ -4,14 +4,14 @@ import { Well, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-b
 import { ARTIFACT_EXPONENTS } from './../utils';
 
 class Artifact extends Component {
-  constructor(...args){
+  constructor(...args) {
     super(...args);
 
     this.state = {
       suggestions: {
         a: '1',
       },
-    }
+    };
 
     this.updateArtifact = this.updateArtifact.bind(this);
   }
@@ -30,16 +30,16 @@ class Artifact extends Component {
       <Well>
         <InputGroup>
           <InputGroup.Addon>Artifact Amount</InputGroup.Addon>
-          <FormControl type='text'></FormControl>
+          <FormControl type="text" />
           <InputGroup.Button>
             <DropdownButton
-              title={'title'}
-              id='blah'
+              title="title"
+              id="blah"
             >
               {
-                ARTIFACT_EXPONENTS.map((exponent, i) => (
+                ARTIFACT_EXPONENTS.map(exponent => (
                   <MenuItem
-                    key={i}
+                    key={exponent}
                     id={`${exponent}`}
                   >
                     {exponent}
@@ -52,7 +52,7 @@ class Artifact extends Component {
         {
           Object.keys(this.state.suggestions).length > 0 &&
             <div>
-              You've got suggestions!
+              {"You've got suggestions!"}
             </div>
         }
       </Well>
@@ -60,11 +60,7 @@ class Artifact extends Component {
   }
 }
 
-//Function to map the redux state to object properties
-const mapStateToProps = (state, ownProps) => {
-  return {
-    artifacts: state.artifacts,
-  }
-};
+// Function to map the redux state to object properties
+const mapStateToProps = state => ({ artifacts: state.artifacts });
 
 export default connect(mapStateToProps)(Artifact);

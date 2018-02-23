@@ -13,11 +13,13 @@
     "test": "react-scripts test --env=jsdom"
   },
   "eslintConfig": {
-    "extends": "airbnb/base",
+    "extends": "airbnb",
     "rules": {
       "no-underscore-dangle": "off",
       "no-plusplus": "off",
-      "import/no-extraneous-dependencies": "off"
+      "import/no-extraneous-dependencies": "off",
+      "react/jsx-filename-extension": "off",
+      "react/prop-types": "off"
     }
   },
   "dependencies": {
@@ -34,10 +36,11 @@
     "redux": "^3.7.2"
   },
   "devDependencies": {
-    "chalk": "^2.3.0",
-    "eslint": "^4.11.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint": "4.9.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-react": "7.4.0",
     "gh-pages": "^1.1.0"
   }
 }

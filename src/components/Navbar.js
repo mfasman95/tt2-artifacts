@@ -8,26 +8,24 @@ const DropdownSelector = (props) => {
   const formatOption = option => `${option.charAt(0).toUpperCase()}${option.slice(1)}`;
   return (
     <DropdownButton
-      bsStyle = { props.bsStyle || 'primary' }
-      title = { `${props.title} (${formatOption(props.default)})` }
+      bsStyle={props.bsStyle || 'primary'}
+      title={`${props.title} (${formatOption(props.default)})`}
       id={`${props.title}-dropdown`}
     >
       {
-        props.options.map(
-          (option, i) => (
-            <MenuItem
-              eventKey={`${i}`}
-              onClick={()=>props.handleSelect(option)}
-              key={i}
-            >
-              { formatOption(option) }
-            </MenuItem>
-          )
-        )
+        props.options.map((option, i) => (
+          <MenuItem
+            eventKey={`${i}`}
+            onClick={() => props.handleSelect(option)}
+            key={option}
+          >
+            { formatOption(option) }
+          </MenuItem>
+          ))
       }
     </DropdownButton>
-  )
-}
+  );
+};
 
 class MainNav extends React.Component {
   constructor(...props) {
@@ -35,7 +33,7 @@ class MainNav extends React.Component {
 
     this.state = {
       toggleGroup: this.props.toggleGroup,
-    }
+    };
 
     this.handleToggleGroup = this.handleToggleGroup.bind(this);
   }
@@ -61,47 +59,47 @@ class MainNav extends React.Component {
           <Navbar.Form pullRight>
             <ButtonGroup>
               <DropdownSelector
-                title='Theme'
-                default={ this.props.theme }
+                title="Theme"
+                default={this.props.theme}
                 options={THEME_OPTIONS}
-                handleSelect={ theme => this.props.dispatch({ type: 'SET_THEME', theme }) } 
+                handleSelect={theme => this.props.dispatch({ type: 'SET_THEME', theme })}
               />
               <DropdownSelector
-                title='Build'
-                default={ this.props.buildType }
-                options={ BUILD_OPTIONS }
-                handleSelect={ buildType => this.props.dispatch({ type: 'SET_BUILD', buildType }) } 
+                title="Build"
+                default={this.props.buildType}
+                options={BUILD_OPTIONS}
+                handleSelect={buildType => this.props.dispatch({ type: 'SET_BUILD', buildType })}
               />
               <DropdownSelector
-                title='Hero Damage Type'
-                default={ this.props.heroDamageType }
-                options={ HERO_DAMAGE_TYPES }
-                handleSelect={ heroDamageType => this.props.dispatch({ type: 'SET_HERO_DAMAGE_TYPE', heroDamageType }) } 
+                title="Hero Damage Type"
+                default={this.props.heroDamageType}
+                options={HERO_DAMAGE_TYPES}
+                handleSelect={heroDamageType => this.props.dispatch({ type: 'SET_HERO_DAMAGE_TYPE', heroDamageType })}
               />
               <DropdownSelector
-                title='Hero Type'
-                default={ this.props.heroType }
-                options={ HERO_TYPES }
-                handleSelect={ heroType => this.props.dispatch({ type: 'SET_HERO_TYPE', heroType }) } 
+                title="Hero Type"
+                default={this.props.heroType}
+                options={HERO_TYPES}
+                handleSelect={heroType => this.props.dispatch({ type: 'SET_HERO_TYPE', heroType })}
               />
               <DropdownSelector
-                title='Playstyle'
-                default={ this.props.playstyle }
-                options={ PLAYSTYLES }
-                handleSelect={ playstyle => this.props.dispatch({ type: 'SET_PLAYSTYLE', playstyle }) } 
+                title="Playstyle"
+                default={this.props.playstyle}
+                options={PLAYSTYLES}
+                handleSelect={playstyle => this.props.dispatch({ type: 'SET_PLAYSTYLE', playstyle })}
               />
             </ButtonGroup>
-            <br/>
+            <br />
             <ToggleButtonGroup
-              type='checkbox'
+              type="checkbox"
               value={this.state.toggleGroup}
               onChange={this.handleToggleGroup}
             >
-              <ToggleButton value='rounding' bsStyle={this.state.toggleGroup.includes('rounding') ? 'success': 'danger'}>
-                Rounding In Suggestions: {this.state.toggleGroup.includes('rounding') ? 'On': 'Off'}
+              <ToggleButton value="rounding" bsStyle={this.state.toggleGroup.includes('rounding') ? 'success' : 'danger'}>
+                Rounding In Suggestions: {this.state.toggleGroup.includes('rounding') ? 'On' : 'Off'}
               </ToggleButton>
-              <ToggleButton value='showExtraDetails' bsStyle={this.state.toggleGroup.includes('showExtraDetails') ? 'success': 'danger'}>
-                {this.state.toggleGroup.includes('showExtraDetails') ? '': 'Not '}Showing Extra Details
+              <ToggleButton value="showExtraDetails" bsStyle={this.state.toggleGroup.includes('showExtraDetails') ? 'success' : 'danger'}>
+                {this.state.toggleGroup.includes('showExtraDetails') ? '' : 'Not '}Showing Extra Details
               </ToggleButton>
             </ToggleButtonGroup>
           </Navbar.Form>
@@ -113,18 +111,16 @@ class MainNav extends React.Component {
 
 MainNav.contextTypes = {
   notify: PropTypes.func,
-}
-
-//Function to map the redux state to object properties
-const mapStateToProps = (state, ownProps) => {
-  return {
-    theme: state.main.theme,
-    toggleGroup: state.main.toggleGroup,
-    buildType: state.playstyle.buildType,
-    heroDamageType: state.playstyle.heroDamageType,
-    heroType: state.playstyle.heroType,
-    playstyle: state.playstyle.playstyle,
-  }
 };
+
+// Function to map the redux state to object properties
+const mapStateToProps = state => ({
+  theme: state.main.theme,
+  toggleGroup: state.main.toggleGroup,
+  buildType: state.playstyle.buildType,
+  heroDamageType: state.playstyle.heroDamageType,
+  heroType: state.playstyle.heroType,
+  playstyle: state.playstyle.playstyle,
+});
 
 export default connect(mapStateToProps)(MainNav);
