@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Well, InputGroup, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
-import TextInput from './TextInput';
 import { ARTIFACT_EXPONENTS } from './../utils';
 
 class Artifact extends Component {
